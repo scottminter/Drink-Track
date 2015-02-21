@@ -14,6 +14,7 @@
 		584E2ACA1A98C32300ABC1E7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 584E2AC91A98C32300ABC1E7 /* Images.xcassets */; };
 		584E2ACD1A98C32300ABC1E7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 584E2ACB1A98C32300ABC1E7 /* LaunchScreen.xib */; };
 		584E2AD91A98C32300ABC1E7 /* Drink_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E2AD81A98C32300ABC1E7 /* Drink_TrackerTests.swift */; };
+		58A01BBA1A98CBA800AB17E9 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		584E2AD21A98C32300ABC1E7 /* Drink TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Drink TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		584E2AD71A98C32300ABC1E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		584E2AD81A98C32300ABC1E7 /* Drink_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink_TrackerTests.swift; sourceTree = "<group>"; };
+		58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				584E2ABF1A98C32200ABC1E7 /* AppDelegate.swift */,
 				584E2AC41A98C32300ABC1E7 /* ViewController.swift */,
+				58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */,
 				584E2AC61A98C32300ABC1E7 /* Main.storyboard */,
 				584E2AC91A98C32300ABC1E7 /* Images.xcassets */,
 				584E2ACB1A98C32300ABC1E7 /* LaunchScreen.xib */,
@@ -218,6 +221,7 @@
 				584E2AC51A98C32300ABC1E7 /* ViewController.swift in Sources */,
 				584E2AC01A98C32200ABC1E7 /* AppDelegate.swift in Sources */,
 				584E2AC31A98C32300ABC1E7 /* Drink_Tracker.xcdatamodeld in Sources */,
+				58A01BBA1A98CBA800AB17E9 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +415,7 @@
 				584E2ADE1A98C32300ABC1E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		584E2ADF1A98C32300ABC1E7 /* Build configuration list for PBXNativeTarget "Drink TrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				584E2AE11A98C32300ABC1E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
