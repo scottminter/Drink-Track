@@ -29,19 +29,67 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqQ-aW-7Iu">
                                 <rect key="frame" x="305" y="65" width="295" height="263"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvP-cr-1aC">
+                                        <rect key="frame" x="118" y="117" width="59" height="30"/>
+                                        <state key="normal" title="Button 2">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.38039219379425049" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="zvP-cr-1aC" secondAttribute="centerX" id="aWK-QG-vf0"/>
+                                    <constraint firstAttribute="centerY" secondItem="zvP-cr-1aC" secondAttribute="centerY" id="d2c-PW-DDW"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IcM-gH-N9d">
                                 <rect key="frame" x="0.0" y="337" width="295" height="263"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uK3-jm-5zA">
+                                        <rect key="frame" x="118" y="117" width="59" height="30"/>
+                                        <state key="normal" title="Button 3">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.3803921938" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="uK3-jm-5zA" secondAttribute="centerX" id="Goi-0a-b2B"/>
+                                    <constraint firstAttribute="centerY" secondItem="uK3-jm-5zA" secondAttribute="centerY" id="l12-eT-5J9"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ip3-lc-JXM">
                                 <rect key="frame" x="305" y="337" width="295" height="263"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aog-aG-GWf">
+                                        <rect key="frame" x="118" y="117" width="59" height="30"/>
+                                        <state key="normal" title="Button 4">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.3803921938" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="aog-aG-GWf" secondAttribute="centerX" id="gSz-kg-xXY"/>
+                                    <constraint firstAttribute="centerY" secondItem="aog-aG-GWf" secondAttribute="centerY" id="ng5-uK-x9X"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LdV-jc-iHo">
                                 <rect key="frame" x="0.0" y="65" width="295" height="263"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2N-r0-Hum">
+                                        <rect key="frame" x="118" y="117" width="59" height="30"/>
+                                        <state key="normal" title="Button 1">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.3803921938" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="o2N-r0-Hum" secondAttribute="centerX" id="7St-EY-cai"/>
+                                    <constraint firstAttribute="centerY" secondItem="o2N-r0-Hum" secondAttribute="centerY" id="T8h-eG-lZs"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
