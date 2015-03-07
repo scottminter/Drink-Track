@@ -21,19 +21,19 @@ class ViewController: UIViewController {
      *  Drink Processing Functions
      */
     func processBeer(date: Dictionary<String, Any>) {
-println("yay beer")
+        println("yay beer")
     }
     
     func processWine(date: Dictionary<String, Any>) {
-println("yay wine")
+        println("yay wine")
     }
     
     func processShot(date: Dictionary<String, Any>) {
-println("yay shot")
+        println("yay shot")
     }
     
     func processMixer(date: Dictionary<String, Any>) {
-println("yay mixer")
+        println("yay mixer")
     }
 
     

@@ -26,7 +26,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var shotTotal = 0
     var mixerTotal = 0
     
-    var duration = ["All Time", "This Year", "This Month", "This Week", "This Session"]
+    var duration = ["All Time", "This Year", "This Month", "This Week", "Today", "This Session"]
     var rowSelected = Int()
     
     //Displays the picker and picker button
@@ -81,34 +81,46 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         switch(dur) {
         case 0:
+            //all time
             beer = 100
             wine = 100
             shot = 100
             mixer = 100
             break
         case 1:
+            //this year
             beer = 60
             wine = 60
             shot = 60
             mixer = 60
             break
         case 2:
+            //this month
             beer = 40
             wine = 40
             shot = 40
             mixer = 40
             break
         case 3:
+            //this week
+            beer = 20
+            wine = 20
+            shot = 20
+            mixer = 20
+            break
+        case 4:
+            //today
             beer = 10
             wine = 10
             shot = 10
             mixer = 10
             break
-        case 4:
-            beer = 1
-            wine = 1
-            shot = 1
-            mixer = 1
+        case 5:
+            //this session
+            beer = 5
+            wine = 5
+            shot = 5
+            mixer = 5
             break
         default:
             break
@@ -156,7 +168,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Do any additional setup after loading the view, typically from a nib.
         
         //Default to Session
-        rowSelected = 4
+        rowSelected = 0
         setTotalsBasedOnDuration(rowSelected)
         
         pickerListObj.dataSource = self
