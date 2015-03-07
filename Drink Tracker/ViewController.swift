@@ -20,19 +20,19 @@ class ViewController: UIViewController {
     /**
      *  Drink Processing Functions
      */
-    func processBeer() {
+    func processBeer(date: Dictionary<String, Any>) {
 println("yay beer")
     }
     
-    func processWine() {
+    func processWine(date: Dictionary<String, Any>) {
 println("yay wine")
     }
     
-    func processShot() {
+    func processShot(date: Dictionary<String, Any>) {
 println("yay shot")
     }
     
-    func processMixer() {
+    func processMixer(date: Dictionary<String, Any>) {
 println("yay mixer")
     }
 
@@ -47,16 +47,16 @@ println("yay mixer")
 println(dateDict)
         
         if buttonId == "beer" {
-            processBeer()
+            processBeer(dateDict)
         }
         else if buttonId == "wine" {
-            processWine()
+            processWine(dateDict)
         }
         else if buttonId == "shot" {
-            processShot()
+            processShot(dateDict)
         }
         else if buttonId == "mixer" {
-            processMixer()
+            processMixer(dateDict)
         }
     }
     
