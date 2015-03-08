@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5836B0691AAC7AF1006F6EA1 /* mixed_160_160_color_correct.png in Resources */ = {isa = PBXBuildFile; fileRef = 5836B0681AAC7AF1006F6EA1 /* mixed_160_160_color_correct.png */; };
 		584E2AC01A98C32200ABC1E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E2ABF1A98C32200ABC1E7 /* AppDelegate.swift */; };
 		584E2AC31A98C32300ABC1E7 /* Drink_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 584E2AC11A98C32300ABC1E7 /* Drink_Tracker.xcdatamodeld */; };
 		584E2AC51A98C32300ABC1E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E2AC41A98C32300ABC1E7 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5836B0681AAC7AF1006F6EA1 /* mixed_160_160_color_correct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mixed_160_160_color_correct.png; path = ../../mixed_160_160_color_correct.png; sourceTree = "<group>"; };
 		584E2ABA1A98C32200ABC1E7 /* Drink Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drink Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		584E2ABE1A98C32200ABC1E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		584E2ABF1A98C32200ABC1E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				58CA16A61A9AAF1300F4582A /* beer_150_150.png */,
 				58CA16AC1A9AB78B00F4582A /* tumbler_150_150.png */,
 				58702A421AA1F501005DF965 /* mixer_150_150_color_correct.png */,
+				5836B0681AAC7AF1006F6EA1 /* mixed_160_160_color_correct.png */,
 				584E2AC61A98C32300ABC1E7 /* Main.storyboard */,
 				584E2AC91A98C32300ABC1E7 /* Images.xcassets */,
 				584E2ACB1A98C32300ABC1E7 /* LaunchScreen.xib */,
@@ -213,6 +216,7 @@
 				585579B21A9DEDB400BBA02D /* newWine_150_150.png in Resources */,
 				58CA16AD1A9AB78B00F4582A /* tumbler_150_150.png in Resources */,
 				58702A431AA1F501005DF965 /* mixer_150_150_color_correct.png in Resources */,
+				5836B0691AAC7AF1006F6EA1 /* mixed_160_160_color_correct.png in Resources */,
 				584E2AC81A98C32300ABC1E7 /* Main.storyboard in Resources */,
 				58CA16A71A9AAF1300F4582A /* beer_150_150.png in Resources */,
 				584E2ACD1A98C32300ABC1E7 /* LaunchScreen.xib in Resources */,

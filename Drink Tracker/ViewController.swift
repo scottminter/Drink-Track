@@ -70,6 +70,7 @@ println(dateDict)
         let month = components.month
         let dayAsInt = components.day
         let dayOfWeekAsInt = components.weekday
+        let weekInMonth = (dayAsInt % 7 == 0) ? dayAsInt / 7 : dayAsInt / 7 + 1
         let hour = components.hour
         let minutes = components.minute
         let seconds = components.second
@@ -104,6 +105,7 @@ println(dateDict)
         
         dateObj["year"] = year
         dateObj["month"] = month
+        dateObj["weekInMonth"] = weekInMonth
         dateObj["dayAsInt"] = dayAsInt
         dateObj["dayOfWeekAsInt"] = dayOfWeekAsInt
         dateObj["dayOfWeekAsStr"] = dayAsStr
