@@ -16,12 +16,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var ULButton: UIButton!
     @IBOutlet weak var ULView: UIView!
     
+    let BeerObj = Beer() //(all: 50, year: 30, month: 20, week: 10, today: 5, session: 1)
     
     /**
      *  Drink Processing Functions
      */
     func processBeer(date: Dictionary<String, Any>) {
-        println("yay beer")
+        BeerObj.saveBeerEvent(date)
     }
     
     func processWine(date: Dictionary<String, Any>) {
@@ -44,7 +45,6 @@ class ViewController: UIViewController {
         var buttonId = sender.restorationIdentifier!!
         
         let dateDict = getFormattedDate()
-println(dateDict)
         
         if buttonId == "beer" {
             processBeer(dateDict)
@@ -135,7 +135,15 @@ println(dateDict)
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //makeInfoButtonCircle()
+        var beerDict = BeerObj.toDictionary() as Dictionary<String, Int>?
+        println(beerDict!)
+        
+        BeerObj.updateTotals()
+        BeerObj.updateTotals()
+        
+        beerDict = BeerObj.toDictionary()
+        println(beerDict!)
+        
     }
 
     override func didReceiveMemoryWarning() {
