@@ -23,7 +23,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="wine" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvP-cr-1aC">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="263"/>
-                                        <state key="normal" image="newWine_150_150.png">
+                                        <state key="normal" image="wine_300_300.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -46,7 +46,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="shot" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uK3-jm-5zA">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="263"/>
-                                        <state key="normal" image="tumbler_150_150.png">
+                                        <state key="normal" image="tumbler_270_270.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -69,7 +69,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="mixer" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aog-aG-GWf">
                                         <rect key="frame" x="118" y="117" width="59" height="30"/>
-                                        <state key="normal" image="mixed_160_160_color_correct.png">
+                                        <state key="normal" image="mixer_300_300.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -113,7 +113,7 @@
                                             <constraint firstAttribute="width" constant="295" id="o5y-gd-rOK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" image="beer_150_150.png">
+                                        <state key="normal" image="beer_280_280.png">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -307,7 +307,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qpe-ui-hug">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beer_150_150.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lgj-Dc-ThY">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beer_280_280.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lgj-Dc-ThY">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -331,7 +331,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newWine_150_150.png" translatesAutoresizingMaskIntoConstraints="NO" id="w9K-Bw-6zv">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wine_300_300.png" translatesAutoresizingMaskIntoConstraints="NO" id="w9K-Bw-6zv">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="mtR-TN-a0W">
@@ -354,7 +354,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumbler_150_150.png" translatesAutoresizingMaskIntoConstraints="NO" id="boD-q6-swh">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumbler_270_270.png" translatesAutoresizingMaskIntoConstraints="NO" id="boD-q6-swh">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="1ac-hp-ngI">
@@ -377,7 +377,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixer_150_150_color_correct.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hsn-Be-rt6">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixer_300_300.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hsn-Be-rt6">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="97" id="q6w-bf-sy7">
@@ -968,7 +968,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uk0-VF-CO0">
                                 <rect key="frame" x="0.0" y="65" width="295" height="263"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beer_150_150.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Fn-a0-GUo">
+                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beer_280_280.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Fn-a0-GUo">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHG-lS-Rq6">
@@ -987,7 +987,13 @@
                                     <constraint firstItem="8Fn-a0-GUo" firstAttribute="top" secondItem="uk0-VF-CO0" secondAttribute="top" id="F8y-DM-fl3"/>
                                     <constraint firstAttribute="centerY" secondItem="8Fn-a0-GUo" secondAttribute="centerY" id="Jbv-fU-P4b"/>
                                     <constraint firstAttribute="centerY" secondItem="8Fn-a0-GUo" secondAttribute="centerY" id="Lrp-oQ-Oip"/>
-                                    <constraint firstAttribute="centerY" secondItem="rHG-lS-Rq6" secondAttribute="centerY" id="ikM-xK-uf5"/>
+                                    <constraint firstAttribute="centerX" secondItem="8Fn-a0-GUo" secondAttribute="centerX" id="d59-BM-M9F"/>
+                                    <constraint firstAttribute="centerY" secondItem="8Fn-a0-GUo" secondAttribute="centerY" id="hpv-X2-Uxk">
+                                        <variation key="widthClass=compact" constant="10.5"/>
+                                    </constraint>
+                                    <constraint firstAttribute="centerY" secondItem="rHG-lS-Rq6" secondAttribute="centerY" id="ikM-xK-uf5">
+                                        <variation key="widthClass=compact" constant="10.5"/>
+                                    </constraint>
                                     <constraint firstAttribute="bottom" secondItem="8Fn-a0-GUo" secondAttribute="bottom" id="ley-CR-LyS"/>
                                     <constraint firstAttribute="centerX" secondItem="8Fn-a0-GUo" secondAttribute="centerX" id="uga-tW-iVr"/>
                                 </constraints>
@@ -997,16 +1003,18 @@
                                         <exclude reference="rHG-lS-Rq6"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="DdP-6N-1aJ"/>
-                                        <exclude reference="ikM-xK-uf5"/>
                                         <exclude reference="3sE-4e-bre"/>
                                         <exclude reference="5Rm-1b-UPX"/>
                                         <exclude reference="Avc-ec-Mer"/>
                                         <exclude reference="F8y-DM-fl3"/>
                                         <exclude reference="Jbv-fU-P4b"/>
                                         <exclude reference="Lrp-oQ-Oip"/>
+                                        <exclude reference="d59-BM-M9F"/>
+                                        <exclude reference="hpv-X2-Uxk"/>
                                         <exclude reference="ley-CR-LyS"/>
                                         <exclude reference="uga-tW-iVr"/>
+                                        <exclude reference="DdP-6N-1aJ"/>
+                                        <exclude reference="ikM-xK-uf5"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -1015,23 +1023,25 @@
                                         <include reference="rHG-lS-Rq6"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="DdP-6N-1aJ"/>
-                                        <include reference="ikM-xK-uf5"/>
                                         <exclude reference="3sE-4e-bre"/>
                                         <exclude reference="5Rm-1b-UPX"/>
-                                        <include reference="Avc-ec-Mer"/>
+                                        <exclude reference="Avc-ec-Mer"/>
                                         <exclude reference="F8y-DM-fl3"/>
-                                        <include reference="Jbv-fU-P4b"/>
-                                        <include reference="Lrp-oQ-Oip"/>
+                                        <exclude reference="Jbv-fU-P4b"/>
+                                        <exclude reference="Lrp-oQ-Oip"/>
+                                        <include reference="d59-BM-M9F"/>
+                                        <include reference="hpv-X2-Uxk"/>
                                         <exclude reference="ley-CR-LyS"/>
-                                        <include reference="uga-tW-iVr"/>
+                                        <exclude reference="uga-tW-iVr"/>
+                                        <include reference="DdP-6N-1aJ"/>
+                                        <include reference="ikM-xK-uf5"/>
                                     </mask>
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmE-8a-xEt">
                                 <rect key="frame" x="305" y="65" width="295" height="263"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newWine_150_150.png" translatesAutoresizingMaskIntoConstraints="NO" id="9q7-ly-60C">
+                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wine_300_300.png" translatesAutoresizingMaskIntoConstraints="NO" id="9q7-ly-60C">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVl-gr-eKz">
@@ -1043,10 +1053,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.3803921938" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="KVl-gr-eKz" secondAttribute="centerY" id="0BP-ox-bXF"/>
+                                    <constraint firstAttribute="centerY" secondItem="KVl-gr-eKz" secondAttribute="centerY" id="0BP-ox-bXF">
+                                        <variation key="widthClass=compact" constant="10.5"/>
+                                    </constraint>
                                     <constraint firstAttribute="centerX" secondItem="KVl-gr-eKz" secondAttribute="centerX" id="3MP-p5-Pew"/>
                                     <constraint firstAttribute="centerX" secondItem="9q7-ly-60C" secondAttribute="centerX" id="aP2-Wj-zKb"/>
-                                    <constraint firstAttribute="centerY" secondItem="9q7-ly-60C" secondAttribute="centerY" id="zOr-gE-AOx"/>
+                                    <constraint firstAttribute="centerY" secondItem="9q7-ly-60C" secondAttribute="centerY" id="zOr-gE-AOx">
+                                        <variation key="widthClass=compact" constant="10.5"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -1076,7 +1090,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXn-0W-cGX">
                                 <rect key="frame" x="0.0" y="337" width="295" height="263"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumbler_150_150.png" translatesAutoresizingMaskIntoConstraints="NO" id="CdJ-xG-Z1N">
+                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumbler_270_270.png" translatesAutoresizingMaskIntoConstraints="NO" id="CdJ-xG-Z1N">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="103" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGF-nF-PpB">
@@ -1127,7 +1141,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqx-GQ-kdJ">
                                 <rect key="frame" x="305" y="337" width="295" height="263"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixed_160_160_color_correct.png" translatesAutoresizingMaskIntoConstraints="NO" id="YRL-vT-EQd">
+                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixer_300_300.png" translatesAutoresizingMaskIntoConstraints="NO" id="YRL-vT-EQd">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUU-6X-8Hp">
@@ -1334,14 +1348,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="beer_150_150.png" width="150" height="150"/>
-        <image name="mixed_160_160_color_correct.png" width="160" height="160"/>
-        <image name="mixer_150_150_color_correct.png" width="150" height="150"/>
-        <image name="newWine_150_150.png" width="150" height="150"/>
-        <image name="tumbler_150_150.png" width="150" height="150"/>
+        <image name="beer_280_280.png" width="140" height="140"/>
+        <image name="mixer_300_300.png" width="150" height="150"/>
+        <image name="tumbler_270_270.png" width="135" height="135"/>
+        <image name="wine_300_300.png" width="150" height="150"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="i8r-1E-R6m"/>
-        <segue reference="gNC-dE-Ogu"/>
+        <segue reference="dbV-YL-gG8"/>
+        <segue reference="GhD-wa-pk4"/>
     </inferredMetricsTieBreakers>
 </document>
