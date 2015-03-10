@@ -39,18 +39,26 @@ class ViewController: UIViewController {
         if buttonId == "beer" {
             BeerObj.saveBeerEvent(dateDict)
             beerCountLabel.text = String(BeerObj.getSessionTotal())
+            beerCountLabel.alpha = 1.0
+            beerCountLabel.fadeOut()
         }
         else if buttonId == "wine" {
             WineObj.saveWineEvent(dateDict)
             wineCountLabel.text = String(WineObj.getSessionTotal())
+            wineCountLabel.alpha = 1.0
+            wineCountLabel.fadeOut()
         }
         else if buttonId == "shot" {
             ShotObj.saveShotEvent(dateDict)
             shotCountLabel.text = String(ShotObj.getSessionTotal())
+            shotCountLabel.alpha = 1.0
+            shotCountLabel.fadeOut()
         }
         else if buttonId == "mixer" {
             MixerObj.saveMixerEvent(dateDict)
-            //mixerCountLabel.text = String(MixerObj.getSessionTotal())
+            mixerCountLabel.text = String(MixerObj.getSessionTotal())
+            mixerCountLabel.alpha = 1.0
+            mixerCountLabel.fadeOut()
         }
     }
     
@@ -135,6 +143,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        beerCountLabel.alpha = 0.0
+        wineCountLabel.alpha = 0.0
+        shotCountLabel.alpha = 0.0
+        mixerCountLabel.alpha = 0.0
         
         updateButtonCounts()
     }

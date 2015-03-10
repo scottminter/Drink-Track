@@ -22,6 +22,7 @@
 		5880B7EB1AAE9DC300863519 /* WineClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880B7EA1AAE9DC300863519 /* WineClass.swift */; };
 		5880B7ED1AAEA17F00863519 /* ShotClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880B7EC1AAEA17F00863519 /* ShotClass.swift */; };
 		5880B7EF1AAEA3AA00863519 /* MixerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880B7EE1AAEA3AA00863519 /* MixerClass.swift */; };
+		5880B7F11AAF190000863519 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880B7F01AAF190000863519 /* UIViewExtensions.swift */; };
 		58A01BBA1A98CBA800AB17E9 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		5880B7EA1AAE9DC300863519 /* WineClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WineClass.swift; sourceTree = "<group>"; };
 		5880B7EC1AAEA17F00863519 /* ShotClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotClass.swift; sourceTree = "<group>"; };
 		5880B7EE1AAEA3AA00863519 /* MixerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixerClass.swift; sourceTree = "<group>"; };
+		5880B7F01AAF190000863519 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				5880B7EE1AAEA3AA00863519 /* MixerClass.swift */,
 				584E2AC41A98C32300ABC1E7 /* ViewController.swift */,
 				58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */,
+				5880B7F01AAF190000863519 /* UIViewExtensions.swift */,
 				5880B7E61AAE920800863519 /* beer_280_280@2x.png */,
 				5880B7E81AAE925D00863519 /* tumbler_270_270@2x.png */,
 				5880B7DC1AAE8C5100863519 /* wine_300_300@2x.png */,
@@ -253,6 +256,7 @@
 				584E2AC31A98C32300ABC1E7 /* Drink_Tracker.xcdatamodeld in Sources */,
 				5880B7ED1AAEA17F00863519 /* ShotClass.swift in Sources */,
 				5880B7EF1AAEA3AA00863519 /* MixerClass.swift in Sources */,
+				5880B7F11AAF190000863519 /* UIViewExtensions.swift in Sources */,
 				58A01BBA1A98CBA800AB17E9 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
