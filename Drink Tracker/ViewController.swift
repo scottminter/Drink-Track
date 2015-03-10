@@ -16,27 +16,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var ULButton: UIButton!
     @IBOutlet weak var ULView: UIView!
     
-    let BeerObj = Beer() //(all: 50, year: 30, month: 20, week: 10, today: 5, session: 1)
     
-    /**
-     *  Drink Processing Functions
-     */
-    func processBeer(date: Dictionary<String, Any>) {
-        BeerObj.saveBeerEvent(date)
-    }
-    
-    func processWine(date: Dictionary<String, Any>) {
-        println("yay wine")
-    }
-    
-    func processShot(date: Dictionary<String, Any>) {
-        println("yay shot")
-    }
-    
-    func processMixer(date: Dictionary<String, Any>) {
-        println("yay mixer")
-    }
+    @IBOutlet weak var beerCountLabel: UILabel!
+    @IBOutlet weak var wineCountLabel: UILabel!
+    @IBOutlet weak var shotCountLabel: UILabel!
+    @IBOutlet weak var mixerCountLabel: UILabel!
 
+    
+    let BeerObj = Beer()
+    let WineObj = Wine()
+    let ShotObj = Shot()
+    let MixerObj = Mixer()
     
     /*
      * Drink Buttons Action
@@ -47,19 +37,36 @@ class ViewController: UIViewController {
         let dateDict = getFormattedDate()
         
         if buttonId == "beer" {
-            processBeer(dateDict)
+            BeerObj.saveBeerEvent(dateDict)
+            beerCountLabel.text = String(BeerObj.getSessionTotal())
         }
         else if buttonId == "wine" {
-            processWine(dateDict)
+            WineObj.saveWineEvent(dateDict)
+            wineCountLabel.text = String(WineObj.getSessionTotal())
         }
         else if buttonId == "shot" {
-            processShot(dateDict)
+            ShotObj.saveShotEvent(dateDict)
+            shotCountLabel.text = String(ShotObj.getSessionTotal())
         }
         else if buttonId == "mixer" {
-            processMixer(dateDict)
+            MixerObj.saveMixerEvent(dateDict)
+            //mixerCountLabel.text = String(MixerObj.getSessionTotal())
         }
     }
     
+    /**
+     *  Updates the Counts on each button
+     */
+    func updateButtonCounts() {
+        beerCountLabel.text = String(BeerObj.getSessionTotal())
+        wineCountLabel.text = String(WineObj.getSessionTotal())
+        shotCountLabel.text = String(ShotObj.getSessionTotal())
+        mixerCountLabel.text = String(MixerObj.getSessionTotal())
+    }
+    
+    /**
+     * Returns a Dictionary object containing various date info
+     */
     func getFormattedDate()->Dictionary<String, Any> {
         var dateObj = Dictionary<String, Any>()
         
@@ -120,12 +127,6 @@ class ViewController: UIViewController {
         println("Tracking View")
     }
     
-    //Draws a border around the info button
-    func makeInfoButtonCircle() {
-        infoButton.layer.borderWidth = 0.8
-        infoButton.layer.borderColor = UIColor.grayColor().CGColor
-    }
-    
     //Disables Portrait
     override func supportedInterfaceOrientations() -> Int {
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
@@ -135,15 +136,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        var beerDict = BeerObj.toDictionary() as Dictionary<String, Int>?
-        println(beerDict!)
-        
-        BeerObj.updateTotals()
-        BeerObj.updateTotals()
-        
-        beerDict = BeerObj.toDictionary()
-        println(beerDict!)
-        
+        updateButtonCounts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -153,6 +146,8 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
         whichView()
+        
+        updateButtonCounts()
     }
 }
 

@@ -19,6 +19,9 @@
 		5880B7E11AAE900500863519 /* mixer_300_300@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5880B7E01AAE900500863519 /* mixer_300_300@2x.png */; };
 		5880B7E71AAE920800863519 /* beer_280_280@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5880B7E61AAE920800863519 /* beer_280_280@2x.png */; };
 		5880B7E91AAE925D00863519 /* tumbler_270_270@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5880B7E81AAE925D00863519 /* tumbler_270_270@2x.png */; };
+		5880B7EB1AAE9DC300863519 /* WineClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880B7EA1AAE9DC300863519 /* WineClass.swift */; };
+		5880B7ED1AAEA17F00863519 /* ShotClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880B7EC1AAEA17F00863519 /* ShotClass.swift */; };
+		5880B7EF1AAEA3AA00863519 /* MixerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880B7EE1AAEA3AA00863519 /* MixerClass.swift */; };
 		58A01BBA1A98CBA800AB17E9 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		5880B7E01AAE900500863519 /* mixer_300_300@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mixer_300_300@2x.png"; sourceTree = "<group>"; };
 		5880B7E61AAE920800863519 /* beer_280_280@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer_280_280@2x.png"; sourceTree = "<group>"; };
 		5880B7E81AAE925D00863519 /* tumbler_270_270@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tumbler_270_270@2x.png"; sourceTree = "<group>"; };
+		5880B7EA1AAE9DC300863519 /* WineClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WineClass.swift; sourceTree = "<group>"; };
+		5880B7EC1AAEA17F00863519 /* ShotClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotClass.swift; sourceTree = "<group>"; };
+		5880B7EE1AAEA3AA00863519 /* MixerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixerClass.swift; sourceTree = "<group>"; };
 		58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +99,9 @@
 			children = (
 				584E2ABF1A98C32200ABC1E7 /* AppDelegate.swift */,
 				5836B06A1AAC7F17006F6EA1 /* BeerClass.swift */,
+				5880B7EA1AAE9DC300863519 /* WineClass.swift */,
+				5880B7EC1AAEA17F00863519 /* ShotClass.swift */,
+				5880B7EE1AAEA3AA00863519 /* MixerClass.swift */,
 				584E2AC41A98C32300ABC1E7 /* ViewController.swift */,
 				58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */,
 				5880B7E61AAE920800863519 /* beer_280_280@2x.png */,
@@ -238,9 +247,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5836B06B1AAC7F17006F6EA1 /* BeerClass.swift in Sources */,
+				5880B7EB1AAE9DC300863519 /* WineClass.swift in Sources */,
 				584E2AC51A98C32300ABC1E7 /* ViewController.swift in Sources */,
 				584E2AC01A98C32200ABC1E7 /* AppDelegate.swift in Sources */,
 				584E2AC31A98C32300ABC1E7 /* Drink_Tracker.xcdatamodeld in Sources */,
+				5880B7ED1AAEA17F00863519 /* ShotClass.swift in Sources */,
+				5880B7EF1AAEA3AA00863519 /* MixerClass.swift in Sources */,
 				58A01BBA1A98CBA800AB17E9 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

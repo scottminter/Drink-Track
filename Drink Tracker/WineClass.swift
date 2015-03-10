@@ -1,14 +1,14 @@
 //
-//  BeerClass.swift
+//  WineClass.swift
 //  Drink Tracker
 //
-//  Created by Scott Minter on 3/8/15.
+//  Created by Scott Minter on 3/9/15.
 //  Copyright (c) 2015 Scott Minter Designs. All rights reserved.
 //
 
 import Foundation
 
-class Beer:NSObject {
+class Wine:NSObject {
     
     private var allTotal = Int()
     private var yearTotal = Int()
@@ -18,8 +18,8 @@ class Beer:NSObject {
     private var sessionTotal = Int()
     
     /**
-     * Default Constructor
-     */
+    * Default Constructor
+    */
     override init() {
         
         super.init()
@@ -35,57 +35,57 @@ class Beer:NSObject {
     }
     
     /**
-     * Takes in a Date dictionary and saves a beer event
+     * Save a Wine Event
      */
-    func saveBeerEvent(dateDict: Dictionary<String, Any>) {
-        println("Save BEER for \(dateDict)")
+    func saveWineEvent(dateDict: Dictionary<String, Any>) {
+        println("Save WINE for \(dateDict)")
     }
-    
+
     /**
-     * Updates Beer total since tracking began
-     */
+    * Updates Wine total since tracking began
+    */
     func updateAllTotal() {
         self.setAllTotal(allTotal + 10)
     }
     
     /**
-    * Updates Beer total for the year
+    * Updates Wine total for the year
     */
     func updateYearTotal() {
         self.setYearTotal(yearTotal + 10)
     }
     
     /**
-    * Updates Beer total for the month
+    * Updates Wine total for the month
     */
     func updateMonthTotal() {
         self.setMonthlyTotal(monthlyTotal + 10)
     }
     
     /**
-    * Updates Beer total for the week
+    * Updates Wine total for the week
     */
     func updateWeekTotal() {
         self.setWeeklyTotal(weeklyTotal + 10)
     }
     
     /**
-    * Updates Beer total for today
+    * Updates Wine total for today
     */
     func updateTodayTotal() {
         self.setTodayTotal(todayTotal + 10)
     }
     
     /**
-    * Updates Beer total for this session
+    * Updates Wine total for this session
     */
     func updateSessionTotal() {
         self.setSessionTotal(sessionTotal + 10)
     }
     
     /**
-     * Executes all the update statements
-     */
+    * Executes all the update statements
+    */
     func updateTotals() {
         self.updateAllTotal()
         self.updateYearTotal()
@@ -96,102 +96,102 @@ class Beer:NSObject {
     }
     
     /**
-     * Setter for All Total
-     */
+    * Setter for All Total
+    */
     func setAllTotal(allTot: Int) {
         allTotal = allTot
     }
     
     /**
-     * Getter for All Total
-     */
+    * Getter for All Total
+    */
     func getAllTotal()->Int {
         return allTotal
     }
     
     /**
-     * Setter for Year Total
-     */
+    * Setter for Year Total
+    */
     func setYearTotal(yearTot: Int) {
         yearTotal = yearTot
     }
     
     /**
-     * Getter for the Year Total
-     */
+    * Getter for the Year Total
+    */
     func getYearTotal()->Int {
         return yearTotal
     }
     
     /**
-     * Setter for the Monthly Total
-     */
+    * Setter for the Monthly Total
+    */
     func setMonthlyTotal(monthTot: Int) {
         monthlyTotal = monthTot
     }
     
     /**
-     * Getter for the Monthly Total
-     */
+    * Getter for the Monthly Total
+    */
     func getMonthlyTotal()->Int {
         return monthlyTotal
     }
     
     /**
-     * Setter for Weekly Total
-     */
+    * Setter for Weekly Total
+    */
     func setWeeklyTotal(weekTot: Int) {
         weeklyTotal = weekTot
     }
     
     /**
-     * Getter for Weekly Total
-     */
+    * Getter for Weekly Total
+    */
     func getWeeklyTotal()->Int {
         return weeklyTotal
     }
     
     /**
-     * Setter for Today Total
-     */
+    * Setter for Today Total
+    */
     func setTodayTotal(todayTot: Int) {
         todayTotal = todayTot
     }
     
     /**
-     * Getter for Today Total
-     */
+    * Getter for Today Total
+    */
     func getTodayTotal()->Int {
         return todayTotal
     }
     
     /**
-     * Setter for Session Total
-     */
+    * Setter for Session Total
+    */
     func setSessionTotal(sessionTot: Int) {
         sessionTotal = sessionTot
     }
     
     /**
-     * Getter for Session Total
-     */
+    * Getter for Session Total
+    */
     func getSessionTotal()->Int {
         return sessionTotal
     }
     
     /**
-     * Returns Beer Object as Dictionary
-     */
+    * Returns Beer Object as Dictionary
+    */
     func toDictionary()->Dictionary<String, Int> {
-        var beerDict: Dictionary<String, Int> = Dictionary<String, Int>()
+        var wineDict: Dictionary<String, Int> = Dictionary<String, Int>()
         
-        beerDict["all"] = self.getAllTotal()
-        beerDict["year"] = self.getYearTotal()
-        beerDict["monthly"] = self.getMonthlyTotal()
-        beerDict["weekly"] = self.getWeeklyTotal()
-        beerDict["today"] = self.getTodayTotal()
-        beerDict["session"] = self.getSessionTotal()
+        wineDict["all"] = self.getAllTotal()
+        wineDict["year"] = self.getYearTotal()
+        wineDict["monthly"] = self.getMonthlyTotal()
+        wineDict["weekly"] = self.getWeeklyTotal()
+        wineDict["today"] = self.getTodayTotal()
+        wineDict["session"] = self.getSessionTotal()
         
-        return beerDict
+        return wineDict
     }
 }
