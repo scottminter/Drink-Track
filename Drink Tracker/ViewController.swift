@@ -41,6 +41,7 @@ class ViewController: UIViewController {
             beerCountLabel.text = String(BeerObj.getSessionTotal())
             beerCountLabel.alpha = 1.0
             beerCountLabel.fadeOut()
+            BeerObj.setWeeklyTotal(555)
         }
         else if buttonId == "wine" {
             WineObj.saveWineEvent(dateDict)

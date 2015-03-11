@@ -21,10 +21,10 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var shotCountUI: UILabel!
     @IBOutlet weak var mixerCountUI: UILabel!
     
-    var beerTotal = 0
-    var wineTotal = 0
-    var shotTotal = 0
-    var mixerTotal = 0
+    let BeerObj = Beer()
+    let WineObj = Wine()
+    let ShotObj = Shot()
+    let MixerObj = Mixer()
     
     var duration = ["All Time", "This Year", "This Month", "This Week", "Today", "This Session"]
     var rowSelected = Int()
@@ -35,7 +35,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         pickerBtnObj.hidden = false
     }
     
-    //Done button in picker
+    //"Done" Button in picker
     @IBAction func pickerButtonActn(sender: AnyObject) {
         println("row: \(rowSelected), value: \(duration[rowSelected])")
         
@@ -47,120 +47,78 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     //Updates the totals based on the duration
     func setTotalsBasedOnDuration(selectedDuration: Int) {
-
-        //Get the totals based on duration
-        var totalsObj: Dictionary<String, Int>  = getTotalsByDuration(rowSelected)
-        beerTotal = totalsObj["beerTotal"]!
-        wineTotal = totalsObj["wineTotal"]!
-        shotTotal = totalsObj["shotTotal"]!
-        mixerTotal = totalsObj["mixerTotal"]!
         
-        //Update the totals in the UI
-        updateTotalsInUI()
-        
-        //Update the Duration Button Title
-        durationLabelObj.setTitle(duration[rowSelected], forState: .Normal)
-    }
-    
-    //Set totals in UI
-    func updateTotalsInUI() {
-        beerCountUI.text = String(beerTotal)
-        wineCountUI.text = String(wineTotal)
-        shotCountUI.text = String(shotTotal)
-        mixerCountUI.text = String(mixerTotal)
-    }
-    
-    //Handles the logic to get type totals by duration
-    func getTotalsByDuration(dur: Int) -> Dictionary<String, Int> {
-        var totals = Dictionary<String, Int>()
-        
-        var beer = 0
-        var wine = 0
-        var shot = 0
-        var mixer = 0
-        
-        switch(dur) {
+        //Then display new totals based on duration
+        switch(selectedDuration) {
         case 0:
             //all time
-            beer = 100
-            wine = 100
-            shot = 100
-            mixer = 100
+            beerCountUI.text = String(BeerObj.getAllTotal())
+            wineCountUI.text = String(WineObj.getAllTotal())
+            shotCountUI.text = String(ShotObj.getAllTotal())
+            mixerCountUI.text = String(MixerObj.getAllTotal())
             break
         case 1:
             //this year
-            beer = 60
-            wine = 60
-            shot = 60
-            mixer = 60
+            beerCountUI.text = String(BeerObj.getYearTotal())
+            wineCountUI.text = String(WineObj.getYearTotal())
+            shotCountUI.text = String(ShotObj.getYearTotal())
+            mixerCountUI.text = String(MixerObj.getYearTotal())
             break
         case 2:
             //this month
-            beer = 40
-            wine = 40
-            shot = 40
-            mixer = 40
+            beerCountUI.text = String(BeerObj.getMonthlyTotal())
+            wineCountUI.text = String(WineObj.getMonthlyTotal())
+            shotCountUI.text = String(ShotObj.getMonthlyTotal())
+            mixerCountUI.text = String(MixerObj.getMonthlyTotal())
             break
         case 3:
             //this week
-            beer = 20
-            wine = 20
-            shot = 20
-            mixer = 20
+            beerCountUI.text = String(BeerObj.getWeeklyTotal())
+            wineCountUI.text = String(WineObj.getWeeklyTotal())
+            shotCountUI.text = String(ShotObj.getWeeklyTotal())
+            mixerCountUI.text = String(MixerObj.getWeeklyTotal())
             break
         case 4:
             //today
-            beer = 10
-            wine = 10
-            shot = 10
-            mixer = 10
+            beerCountUI.text = String(BeerObj.getTodayTotal())
+            wineCountUI.text = String(WineObj.getTodayTotal())
+            shotCountUI.text = String(ShotObj.getTodayTotal())
+            mixerCountUI.text = String(MixerObj.getTodayTotal())
             break
         case 5:
             //this session
-            beer = 5
-            wine = 5
-            shot = 5
-            mixer = 5
+            beerCountUI.text = String(BeerObj.getSessionTotal())
+            wineCountUI.text = String(WineObj.getSessionTotal())
+            shotCountUI.text = String(ShotObj.getSessionTotal())
+            mixerCountUI.text = String(MixerObj.getSessionTotal())
             break
         default:
             break
         }
         
-        totals["beerTotal"] = beer
-        totals["wineTotal"] = wine
-        totals["shotTotal"] = shot
-        totals["mixerTotal"] = mixer
-        
-        return totals;
+        //Update the Duration Button Title
+        durationLabelObj.setTitle(duration[rowSelected], forState: .Normal)
     }
     
-    //Output all totals
-    func displayTotals() {
-        println("beer: \(beerTotal), wine: \(wineTotal), shot: \(shotTotal), mixer: \(mixerTotal)")
-    }
     
-    //Number of cols
+    //PICKER: Number of cols
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    //Number of rows
+    //PICKER: Number of rows
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return duration.count
     }
     
-    //Data in rows
+    //PICKER: Data in rows
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return duration[row]
     }
 
-    //Set the rowSelected value
+    //PICKER: Set the rowSelected value
     func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
         rowSelected = row
-    }
-
-    func whichView() {
-        println("Results View")
     }
     
     override func viewDidLoad() {
@@ -171,9 +129,11 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         rowSelected = 0
         setTotalsBasedOnDuration(rowSelected)
         
+        //Set the picker delegate
         pickerListObj.dataSource = self
         pickerListObj.delegate = self
         
+        //Hide the picker
         pickerListObj.hidden = true
         pickerBtnObj.hidden = true
 
@@ -185,7 +145,6 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     override func viewDidAppear(animated: Bool) {
-        whichView()
         pickerListObj.hidden = true
         pickerBtnObj.hidden = true
     }
