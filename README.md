@@ -1,8 +1,6 @@
 # Drink-Track
 
-
-Any W Any H
-- 600 x 535 is the total size i'm working with
-- 590 x 525 is the adjusted area with 10 between each square
-- 295 x 263 is each square
-
+Drink Track is a simple iOS app built using Swift.  It is a tool to help people
+track and view their drinking habits.  This version will only include the current
+time periods.  But future version will include charting tools to give people a
+better understanding of how much and when they are drinking.
