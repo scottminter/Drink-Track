@@ -17,6 +17,8 @@ class Mixer:NSObject {
     private var todayTotal = Int()
     private var sessionTotal = Int()
     
+    private var drinkDAO = DrinkDAO(drinkType: "mixer")
+    
     /**
     * Default Constructor
     */
@@ -38,7 +40,7 @@ class Mixer:NSObject {
     * Takes in a Date dictionary and saves a Mixer event
     */
     func saveMixerEvent(dateDict: Dictionary<String, Any>) {
-        println("Save Mixer for \(dateDict)")
+        drinkDAO.saveDrinkEvent(dateDict)
     }
     
     /**

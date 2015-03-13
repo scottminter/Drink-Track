@@ -17,6 +17,8 @@ class Wine:NSObject {
     private var todayTotal = Int()
     private var sessionTotal = Int()
     
+    private var drinkDAO = DrinkDAO(drinkType: "wine")
+    
     /**
     * Default Constructor
     */
@@ -38,7 +40,7 @@ class Wine:NSObject {
      * Save a Wine Event
      */
     func saveWineEvent(dateDict: Dictionary<String, Any>) {
-        println("Save WINE for \(dateDict)")
+        drinkDAO.saveDrinkEvent(dateDict)
     }
 
     /**

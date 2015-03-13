@@ -199,9 +199,6 @@
                                                 <exclude reference="o5y-gd-rOK"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="-35" y="85" width="265" height="195"/>
-                                        </variation>
                                         <connections>
                                             <action selector="drinkSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KPN-Zb-I9s"/>
                                         </connections>
@@ -308,10 +305,10 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="PZo-dY-BuQ" kind="show" id="J4A-Rb-mEO"/>
+                                    <segue destination="PZo-dY-BuQ" kind="show" id="KDC-dr-Ejy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ked-1E-jiN">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ked-1E-jiN">
                                 <rect key="frame" x="536" y="30" width="33" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="105" id="37e-UV-UMx"/>
@@ -397,14 +394,14 @@
                                 <exclude reference="ups-Fb-qfu"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="5vg-MY-2Ez"/>
-                                <exclude reference="AvL-fT-2Tq"/>
-                                <exclude reference="Ix2-yg-sA3"/>
-                                <exclude reference="Y2F-l8-npM"/>
                                 <exclude reference="B2D-2n-4w1"/>
                                 <exclude reference="BAK-RG-2oo"/>
                                 <exclude reference="ezu-sE-Ecw"/>
                                 <exclude reference="pOR-nX-DvE"/>
+                                <exclude reference="5vg-MY-2Ez"/>
+                                <exclude reference="AvL-fT-2Tq"/>
+                                <exclude reference="Ix2-yg-sA3"/>
+                                <exclude reference="Y2F-l8-npM"/>
                                 <exclude reference="Def-Eg-IYg"/>
                                 <exclude reference="seg-lD-Zs2"/>
                             </mask>
@@ -415,14 +412,14 @@
                                 <include reference="ups-Fb-qfu"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="5vg-MY-2Ez"/>
-                                <include reference="AvL-fT-2Tq"/>
-                                <exclude reference="Ix2-yg-sA3"/>
-                                <include reference="Y2F-l8-npM"/>
                                 <include reference="B2D-2n-4w1"/>
                                 <include reference="BAK-RG-2oo"/>
                                 <include reference="ezu-sE-Ecw"/>
                                 <include reference="pOR-nX-DvE"/>
+                                <include reference="5vg-MY-2Ez"/>
+                                <include reference="AvL-fT-2Tq"/>
+                                <exclude reference="Ix2-yg-sA3"/>
+                                <include reference="Y2F-l8-npM"/>
                                 <include reference="Def-Eg-IYg"/>
                                 <include reference="seg-lD-Zs2"/>
                             </mask>
@@ -447,7 +444,7 @@
         <!--trackInfo-->
         <scene sceneID="Agb-xQ-CDn">
             <objects>
-                <viewController title="trackInfo" id="PZo-dY-BuQ" sceneMemberID="viewController">
+                <viewController title="trackInfo" id="PZo-dY-BuQ" customClass="DrinkTypeInfoViewController" customModule="Drink_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Srn-Pm-vJt"/>
                         <viewControllerLayoutGuide type="bottom" id="hzU-Rh-mZV"/>
@@ -694,7 +691,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="dbV-YL-gG8"/>
+                                    <action selector="backButtonAction:" destination="PZo-dY-BuQ" eventType="touchUpInside" id="pNj-Dv-sM2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -725,15 +722,15 @@
                                 <exclude reference="WBX-nn-2hd"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="1Yp-BI-kWb"/>
+                                <exclude reference="O4I-Qi-BEc"/>
+                                <exclude reference="f5k-mZ-CwZ"/>
                                 <exclude reference="Aws-Eu-10P"/>
                                 <exclude reference="W4T-k1-o8K"/>
                                 <exclude reference="63C-sV-nbt"/>
                                 <exclude reference="RON-Un-ZTr"/>
                                 <exclude reference="YyJ-Lp-FxS"/>
                                 <exclude reference="vPB-Wp-fel"/>
-                                <exclude reference="1Yp-BI-kWb"/>
-                                <exclude reference="O4I-Qi-BEc"/>
-                                <exclude reference="f5k-mZ-CwZ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -743,15 +740,15 @@
                                 <include reference="WBX-nn-2hd"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="1Yp-BI-kWb"/>
+                                <include reference="O4I-Qi-BEc"/>
+                                <include reference="f5k-mZ-CwZ"/>
                                 <include reference="Aws-Eu-10P"/>
                                 <include reference="W4T-k1-o8K"/>
                                 <include reference="63C-sV-nbt"/>
                                 <include reference="RON-Un-ZTr"/>
                                 <include reference="YyJ-Lp-FxS"/>
                                 <include reference="vPB-Wp-fel"/>
-                                <include reference="1Yp-BI-kWb"/>
-                                <include reference="O4I-Qi-BEc"/>
-                                <include reference="f5k-mZ-CwZ"/>
                             </mask>
                         </variation>
                     </view>
@@ -760,10 +757,10 @@
             </objects>
             <point key="canvasLocation" x="1095" y="1160"/>
         </scene>
-        <!--View Controller-->
+        <!--timeSpanInfo-->
         <scene sceneID="W48-SY-WkT">
             <objects>
-                <viewController id="W1F-nz-JbO" sceneMemberID="viewController">
+                <viewController title="timeSpanInfo" id="W1F-nz-JbO" customClass="TimeInfoViewController" customModule="Drink_Tracker" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QhB-wi-0wK"/>
                         <viewControllerLayoutGuide type="bottom" id="dB3-gz-K3z"/>
@@ -1031,7 +1028,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gsz-RT-bek" kind="show" id="gNC-dE-Ogu"/>
+                                    <action selector="backButtonAction:" destination="W1F-nz-JbO" eventType="touchUpInside" id="lsg-Yt-W4b"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1066,6 +1063,10 @@
                                 <exclude reference="wW8-ny-ncM"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Dex-Y1-BYZ"/>
+                                <exclude reference="nLT-hK-l16"/>
+                                <exclude reference="zmT-hx-58n"/>
+                                <exclude reference="hNG-ur-VZW"/>
                                 <exclude reference="KHy-6L-r2G"/>
                                 <exclude reference="PBX-pJ-gsJ"/>
                                 <exclude reference="bpe-kq-3Ah"/>
@@ -1073,10 +1074,6 @@
                                 <exclude reference="OWw-9x-R0q"/>
                                 <exclude reference="pdw-C4-70W"/>
                                 <exclude reference="uoW-tv-Orp"/>
-                                <exclude reference="Dex-Y1-BYZ"/>
-                                <exclude reference="nLT-hK-l16"/>
-                                <exclude reference="zmT-hx-58n"/>
-                                <exclude reference="hNG-ur-VZW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1086,6 +1083,10 @@
                                 <include reference="wW8-ny-ncM"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Dex-Y1-BYZ"/>
+                                <include reference="nLT-hK-l16"/>
+                                <include reference="zmT-hx-58n"/>
+                                <include reference="hNG-ur-VZW"/>
                                 <exclude reference="KHy-6L-r2G"/>
                                 <include reference="PBX-pJ-gsJ"/>
                                 <include reference="bpe-kq-3Ah"/>
@@ -1093,10 +1094,6 @@
                                 <include reference="OWw-9x-R0q"/>
                                 <include reference="pdw-C4-70W"/>
                                 <include reference="uoW-tv-Orp"/>
-                                <include reference="Dex-Y1-BYZ"/>
-                                <include reference="nLT-hK-l16"/>
-                                <include reference="zmT-hx-58n"/>
-                                <include reference="hNG-ur-VZW"/>
                             </mask>
                         </variation>
                     </view>
@@ -1117,14 +1114,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30E-mW-q8V">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30E-mW-q8V">
                                 <rect key="frame" x="31" y="30" width="47" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Tracking">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="20" width="204" height="29"/>
+                                </variation>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="i8r-1E-R6m"/>
+                                    <action selector="trackingButtonAction:" destination="gsz-RT-bek" eventType="touchUpInside" id="v2h-NB-S2H"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uk0-VF-CO0">
@@ -1505,16 +1505,6 @@
                                 <exclude reference="lpQ-Dg-9Pt"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="2c0-ZM-Dix"/>
-                                <exclude reference="AbL-Ed-Peu"/>
-                                <exclude reference="REW-6c-B0y"/>
-                                <exclude reference="6Dj-qo-Z3j"/>
-                                <exclude reference="8fa-CK-E3O"/>
-                                <exclude reference="M77-ij-ZQH"/>
-                                <exclude reference="Ysq-ip-AYw"/>
-                                <exclude reference="Xsy-Wn-hOA"/>
-                                <exclude reference="fmJ-le-hiw"/>
-                                <exclude reference="vGx-1Z-q1x"/>
                                 <exclude reference="GMb-DH-X6b"/>
                                 <exclude reference="H7x-Ke-b0a"/>
                                 <exclude reference="YC7-Sd-Sdl"/>
@@ -1522,6 +1512,12 @@
                                 <exclude reference="udX-Q6-gjI"/>
                                 <exclude reference="wJT-GF-oGA"/>
                                 <exclude reference="wPs-kt-mrj"/>
+                                <exclude reference="Xsy-Wn-hOA"/>
+                                <exclude reference="fmJ-le-hiw"/>
+                                <exclude reference="vGx-1Z-q1x"/>
+                                <exclude reference="8fa-CK-E3O"/>
+                                <exclude reference="M77-ij-ZQH"/>
+                                <exclude reference="Ysq-ip-AYw"/>
                                 <exclude reference="8LI-C5-oqC"/>
                                 <exclude reference="A6N-E3-jRQ"/>
                                 <exclude reference="AYO-5G-F84"/>
@@ -1530,6 +1526,10 @@
                                 <exclude reference="hZg-im-lyg"/>
                                 <exclude reference="jJU-lB-hLu"/>
                                 <exclude reference="jiU-9K-rRX"/>
+                                <exclude reference="2c0-ZM-Dix"/>
+                                <exclude reference="AbL-Ed-Peu"/>
+                                <exclude reference="REW-6c-B0y"/>
+                                <exclude reference="6Dj-qo-Z3j"/>
                                 <exclude reference="z35-q9-oGv"/>
                             </mask>
                         </variation>
@@ -1541,14 +1541,6 @@
                                 <include reference="lpQ-Dg-9Pt"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6Dj-qo-Z3j"/>
-                                <exclude reference="fu2-qp-N7l"/>
-                                <include reference="8fa-CK-E3O"/>
-                                <include reference="M77-ij-ZQH"/>
-                                <include reference="Ysq-ip-AYw"/>
-                                <include reference="Xsy-Wn-hOA"/>
-                                <include reference="fmJ-le-hiw"/>
-                                <include reference="vGx-1Z-q1x"/>
                                 <exclude reference="GMb-DH-X6b"/>
                                 <exclude reference="H7x-Ke-b0a"/>
                                 <include reference="YC7-Sd-Sdl"/>
@@ -1556,6 +1548,12 @@
                                 <exclude reference="udX-Q6-gjI"/>
                                 <include reference="wJT-GF-oGA"/>
                                 <include reference="wPs-kt-mrj"/>
+                                <include reference="Xsy-Wn-hOA"/>
+                                <include reference="fmJ-le-hiw"/>
+                                <include reference="vGx-1Z-q1x"/>
+                                <include reference="8fa-CK-E3O"/>
+                                <include reference="M77-ij-ZQH"/>
+                                <include reference="Ysq-ip-AYw"/>
                                 <exclude reference="8LI-C5-oqC"/>
                                 <exclude reference="A6N-E3-jRQ"/>
                                 <exclude reference="AYO-5G-F84"/>
@@ -1564,6 +1562,8 @@
                                 <exclude reference="hZg-im-lyg"/>
                                 <exclude reference="jJU-lB-hLu"/>
                                 <exclude reference="jiU-9K-rRX"/>
+                                <include reference="6Dj-qo-Z3j"/>
+                                <exclude reference="fu2-qp-N7l"/>
                                 <include reference="z35-q9-oGv"/>
                             </mask>
                         </variation>
@@ -1591,8 +1591,4 @@
         <image name="tumbler_270_270.png" width="135" height="135"/>
         <image name="wine_300_300.png" width="150" height="150"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="i8r-1E-R6m"/>
-        <segue reference="gNC-dE-Ogu"/>
-    </inferredMetricsTieBreakers>
 </document>

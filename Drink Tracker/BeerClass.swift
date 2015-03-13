@@ -17,6 +17,8 @@ class Beer:NSObject {
     private var todayTotal = Int()
     private var sessionTotal = Int()
     
+    private var drinkDAO = DrinkDAO(drinkType: "beer")
+    
     /**
      * Default Constructor
      */
@@ -38,7 +40,7 @@ class Beer:NSObject {
      * Takes in a Date dictionary and saves a beer event
      */
     func saveBeerEvent(dateDict: Dictionary<String, Any>) {
-        println("Save BEER for \(dateDict)")
+        drinkDAO.saveDrinkEvent(dateDict)
     }
     
     /**

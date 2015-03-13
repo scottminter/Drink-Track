@@ -29,6 +29,11 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var duration = ["All Time", "This Year", "This Month", "This Week", "Today", "This Session"]
     var rowSelected = Int()
     
+    @IBAction func trackingButtonAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {});//This is intended to dismiss the Info sceen.
+        println("pressed")
+    }
+    
     //Displays the picker and picker button
     @IBAction func durationBtnAction(sender: AnyObject) {
         pickerListObj.hidden = false

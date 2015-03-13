@@ -16,12 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var ULButton: UIButton!
     @IBOutlet weak var ULView: UIView!
     
-    
     @IBOutlet weak var beerCountLabel: UILabel!
     @IBOutlet weak var wineCountLabel: UILabel!
     @IBOutlet weak var shotCountLabel: UILabel!
     @IBOutlet weak var mixerCountLabel: UILabel!
-
     
     let BeerObj = Beer()
     let WineObj = Wine()
