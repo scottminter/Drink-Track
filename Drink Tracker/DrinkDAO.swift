@@ -53,7 +53,7 @@ class DrinkDAO: NSObject {
     }
     
     func getSessionTotal()->Int {
-        return 5
+        return 1
     }
     
 }

@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var wineCountLabel: UILabel!
     @IBOutlet weak var shotCountLabel: UILabel!
     @IBOutlet weak var mixerCountLabel: UILabel!
+    @IBOutlet weak var drinkCountLabel: UILabel!
     
     let BeerObj = Beer()
     let WineObj = Wine()
@@ -31,44 +32,37 @@ class ViewController: UIViewController {
      */
     @IBAction func drinkSelected(sender: AnyObject) {
         var buttonId = sender.restorationIdentifier!!
+        var selectedDrinkCount: Int = 0
         
         let dateDict = getFormattedDate()
         
         if buttonId == "beer" {
             BeerObj.saveBeerEvent(dateDict)
-            beerCountLabel.text = String(BeerObj.getSessionTotal())
-            beerCountLabel.alpha = 1.0
-            beerCountLabel.fadeOut()
-            BeerObj.setWeeklyTotal(555)
+            selectedDrinkCount = BeerObj.getSessionTotal()
         }
         else if buttonId == "wine" {
             WineObj.saveWineEvent(dateDict)
-            wineCountLabel.text = String(WineObj.getSessionTotal())
-            wineCountLabel.alpha = 1.0
-            wineCountLabel.fadeOut()
+            selectedDrinkCount = WineObj.getSessionTotal()
         }
         else if buttonId == "shot" {
             ShotObj.saveShotEvent(dateDict)
-            shotCountLabel.text = String(ShotObj.getSessionTotal())
-            shotCountLabel.alpha = 1.0
-            shotCountLabel.fadeOut()
+            selectedDrinkCount = ShotObj.getSessionTotal()
         }
         else if buttonId == "mixer" {
             MixerObj.saveMixerEvent(dateDict)
-            mixerCountLabel.text = String(MixerObj.getSessionTotal())
-            mixerCountLabel.alpha = 1.0
-            mixerCountLabel.fadeOut()
+            selectedDrinkCount = MixerObj.getSessionTotal()
         }
-    }
-    
-    /**
-     *  Updates the Counts on each button
-     */
-    func updateButtonCounts() {
-        beerCountLabel.text = String(BeerObj.getSessionTotal())
-        wineCountLabel.text = String(WineObj.getSessionTotal())
-        shotCountLabel.text = String(ShotObj.getSessionTotal())
-        mixerCountLabel.text = String(MixerObj.getSessionTotal())
+        
+        //Add the s if the count is more than 1
+        if selectedDrinkCount == 1 {
+            drinkCountLabel.text = "\(selectedDrinkCount) \(buttonId)"
+        }
+        else {
+            drinkCountLabel.text = "\(selectedDrinkCount) \(buttonId)s"
+        }
+        
+        drinkCountLabel.alpha = 1.0
+        drinkCountLabel.fadeOut()
     }
     
     /**
@@ -143,12 +137,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        beerCountLabel.alpha = 0.0
-        wineCountLabel.alpha = 0.0
-        shotCountLabel.alpha = 0.0
-        mixerCountLabel.alpha = 0.0
-        
-        updateButtonCounts()
+        drinkCountLabel.alpha = 0.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -158,8 +147,6 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
         whichView()
-        
-        updateButtonCounts()
     }
 }
 
