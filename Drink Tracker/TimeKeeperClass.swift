@@ -1,0 +1,77 @@
+//
+//  TimeKeeperClass.swift
+//  Drink Tracker
+//
+//  Created by Scott Minter on 3/21/15.
+//  Copyright (c) 2015 Scott Minter Designs. All rights reserved.
+//
+
+import Foundation
+
+class TimeKeeper: NSObject {
+    
+    override init() {
+        super.init()
+    }
+    
+    /**
+    * Returns a Dictionary object containing various date info
+    */
+    func getFormattedDate()->Dictionary<String, Any> {
+        var dateObj = Dictionary<String, Any>()
+        
+        var date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitWeekday | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
+        let year = components.year
+        let month = components.month
+        let dayAsInt = components.day
+        let dayOfWeekAsInt = components.weekday
+        let weekInMonth = (dayAsInt % 7 == 0) ? dayAsInt / 7 : dayAsInt / 7 + 1
+        let hour = components.hour
+        let minutes = components.minute
+        let seconds = components.second
+        
+        var dayAsStr = String()
+        switch dayOfWeekAsInt {
+        case 1:
+            dayAsStr = "Sunday"
+            break
+        case 2:
+            dayAsStr = "Monday"
+            break
+        case 3:
+            dayAsStr = "Tuesday"
+            break
+        case 4:
+            dayAsStr = "Wednesday"
+            break
+        case 5:
+            dayAsStr = "Thursday"
+            break
+        case 6:
+            dayAsStr = "Friday"
+            break
+        case 7:
+            dayAsStr = "Saturday"
+            break
+        default:
+            dayAsStr = ""
+            break
+        }
+        
+        dateObj["year"] = year
+        dateObj["month"] = month
+        dateObj["weekInMonth"] = weekInMonth
+        dateObj["dayAsInt"] = dayAsInt
+        dateObj["dayOfWeekAsInt"] = dayOfWeekAsInt
+        dateObj["dayOfWeekAsStr"] = dayAsStr
+        dateObj["hour"] = hour
+        dateObj["minute"] = minutes
+        dateObj["seconds"] = seconds
+        
+        return dateObj
+    }
+    
+    
+}

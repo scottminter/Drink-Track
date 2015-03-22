@@ -25,6 +25,7 @@
 		5880B7ED1AAEA17F00863519 /* ShotClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880B7EC1AAEA17F00863519 /* ShotClass.swift */; };
 		5880B7EF1AAEA3AA00863519 /* MixerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880B7EE1AAEA3AA00863519 /* MixerClass.swift */; };
 		5880B7F11AAF190000863519 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880B7F01AAF190000863519 /* UIViewExtensions.swift */; };
+		589555A81ABD9BD400DD79D2 /* TimeKeeperClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589555A71ABD9BD400DD79D2 /* TimeKeeperClass.swift */; };
 		58A01BBA1A98CBA800AB17E9 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */; };
 		58AACFA51AB34846003BF872 /* DrinkDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AACFA41AB34846003BF872 /* DrinkDAO.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		5880B7EC1AAEA17F00863519 /* ShotClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotClass.swift; sourceTree = "<group>"; };
 		5880B7EE1AAEA3AA00863519 /* MixerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixerClass.swift; sourceTree = "<group>"; };
 		5880B7F01AAF190000863519 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		589555A71ABD9BD400DD79D2 /* TimeKeeperClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeKeeperClass.swift; sourceTree = "<group>"; };
 		58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		58AACFA41AB34846003BF872 /* DrinkDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				584E2ABF1A98C32200ABC1E7 /* AppDelegate.swift */,
+				589555A71ABD9BD400DD79D2 /* TimeKeeperClass.swift */,
 				58AACFA41AB34846003BF872 /* DrinkDAO.swift */,
 				5836B06A1AAC7F17006F6EA1 /* BeerClass.swift */,
 				5880B7EA1AAE9DC300863519 /* WineClass.swift */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5836B06B1AAC7F17006F6EA1 /* BeerClass.swift in Sources */,
+				589555A81ABD9BD400DD79D2 /* TimeKeeperClass.swift in Sources */,
 				5880B7EB1AAE9DC300863519 /* WineClass.swift in Sources */,
 				584E2AC51A98C32300ABC1E7 /* ViewController.swift in Sources */,
 				584E2AC01A98C32200ABC1E7 /* AppDelegate.swift in Sources */,

@@ -47,7 +47,8 @@ class Mixer:NSObject {
     * Updates Mixer total since tracking began
     */
     func updateAllTotal() {
-        self.setAllTotal(allTotal + 75)
+        //self.setAllTotal(allTotal + 75)
+        self.setAllTotal(drinkDAO.getAllTimeTotal())
     }
     
     /**

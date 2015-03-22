@@ -47,7 +47,8 @@ class Wine:NSObject {
     * Updates Wine total since tracking began
     */
     func updateAllTotal() {
-        self.setAllTotal(allTotal + 75)
+        //self.setAllTotal(allTotal + 75)
+        self.setAllTotal(drinkDAO.getAllTimeTotal())
     }
     
     /**

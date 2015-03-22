@@ -242,7 +242,9 @@
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="tCz-zY-8K6"/>
+                                    <constraint firstAttribute="height" constant="72" id="tCz-zY-8K6">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="65"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -296,7 +298,9 @@
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="ip3-lc-JXM" firstAttribute="leading" secondItem="IcM-gH-N9d" secondAttribute="trailing" constant="10" id="YnJ-8w-7Sl"/>
-                            <constraint firstItem="vxr-4V-qff" firstAttribute="top" secondItem="o2N-r0-Hum" secondAttribute="bottom" constant="-32" id="ZTf-tV-njw"/>
+                            <constraint firstItem="vxr-4V-qff" firstAttribute="top" secondItem="o2N-r0-Hum" secondAttribute="bottom" constant="-32" id="ZTf-tV-njw">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-29"/>
+                            </constraint>
                             <constraint firstItem="pqQ-aW-7Iu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="45" id="aVt-cS-umI"/>
                             <constraint firstItem="skL-e1-FsI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="8" id="ezu-sE-Ecw">
                                 <variation key="widthClass=compact" constant="20"/>
@@ -315,7 +319,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ip3-lc-JXM" secondAttribute="bottom" id="tzP-L8-B75"/>
                             <constraint firstItem="pqQ-aW-7Iu" firstAttribute="width" secondItem="ip3-lc-JXM" secondAttribute="width" id="uOS-wP-9hR"/>
                             <constraint firstItem="pqQ-aW-7Iu" firstAttribute="width" secondItem="LdV-jc-iHo" secondAttribute="width" id="xPL-Wg-GeD"/>
-                            <constraint firstItem="uK3-jm-5zA" firstAttribute="top" secondItem="vxr-4V-qff" secondAttribute="bottom" constant="-31" id="y80-R8-WI0"/>
+                            <constraint firstItem="uK3-jm-5zA" firstAttribute="top" secondItem="vxr-4V-qff" secondAttribute="bottom" constant="-31" id="y80-R8-WI0">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-27"/>
+                            </constraint>
                             <constraint firstItem="pqQ-aW-7Iu" firstAttribute="height" secondItem="LdV-jc-iHo" secondAttribute="height" id="zZe-La-hYW"/>
                         </constraints>
                         <variation key="default">
