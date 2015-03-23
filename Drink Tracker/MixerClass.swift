@@ -171,6 +171,8 @@ class Mixer:NSObject {
     * Getter for Today Total
     */
     func getTodayTotal()->Int {
+        self.setTodayTotal(drinkDAO.getDailyTotal())
+
         return todayTotal
     }
     

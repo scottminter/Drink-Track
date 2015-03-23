@@ -183,6 +183,8 @@ println("\n")
         
         var tempDayInMonth: Int = currentDayInMonth as Int
         
+        //TODO: Move this to Time keeper as a method
+        
         //Count back to beginning of week
         for var i: Int = currentDayOfWeek as Int; i > 1; i-- {
             tempDayInMonth--
@@ -239,7 +241,31 @@ println("week started on : \(monthAtStartOfWeek)/\(dayInMonthAtStartOfWeek)/\(ye
     }
     
     func getDailyTotal()->Int {
-        return 10
+        //Get formatted date dictionary
+        var dateDict: Dictionary = TimeObj.getFormattedDate()
+        
+        var currDay: NSNumber = ((dateDict["dayAsInt"] != nil) ? dateDict["dayAsInt"]! : 0) as NSNumber
+        var currMonth: NSNumber = ((dateDict["month"] != nil) ? dateDict["month"]! : 0) as NSNumber
+        var currYear: NSNumber = ((dateDict["year"] != nil) ? dateDict["year"]! : 0) as NSNumber
+        
+        var request = NSFetchRequest(entityName: self.EntityName)
+        
+        var predDrinkType = NSPredicate(format: "drinkType == %@", self.DrinkType)
+        var predDay = NSPredicate(format: "dayAsInt == %@", currDay)
+        var predMonth = NSPredicate(format: "month == %@", currMonth)
+        var predYear = NSPredicate(format: "year == %@", currYear)
+        var allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predDrinkType!, predDay!, predMonth!, predYear!])
+        
+        request.predicate = allPreds
+        
+        var results = context.executeFetchRequest(request, error: nil)
+        
+        if results != nil {
+            return results!.count
+        }
+        else {
+            return 0
+        }
     }
     
     func getSessionTotal()->Int {
