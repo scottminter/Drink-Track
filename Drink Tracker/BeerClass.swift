@@ -54,6 +54,7 @@ class Beer:NSObject {
     * Updates Beer total for the year
     */
     func updateYearTotal() {
+        drinkDAO.getYearlyTotal()
         self.setYearTotal(yearTotal + 60)
     }
     
@@ -122,6 +123,8 @@ class Beer:NSObject {
      * Getter for the Year Total
      */
     func getYearTotal()->Int {
+        self.setYearTotal(drinkDAO.getYearlyTotal())
+        
         return yearTotal
     }
     
@@ -136,6 +139,8 @@ class Beer:NSObject {
      * Getter for the Monthly Total
      */
     func getMonthlyTotal()->Int {
+        self.setMonthlyTotal(drinkDAO.getMonthlyTotal())
+        
         return monthlyTotal
     }
     
@@ -150,6 +155,8 @@ class Beer:NSObject {
      * Getter for Weekly Total
      */
     func getWeeklyTotal()->Int {
+        self.setWeeklyTotal(drinkDAO.getWeeklyTotal())
+        
         return weeklyTotal
     }
     

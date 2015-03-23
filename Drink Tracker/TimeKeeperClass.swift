@@ -73,5 +73,79 @@ class TimeKeeper: NSObject {
         return dateObj
     }
     
+    func isLeapYear(iYear: Int)->Bool {
+        
+        if iYear % 4 == 0  {
+         
+            if iYear % 100 == 0 {
+                
+                if iYear % 400 == 0 {
+                    return true
+                }
+                else {
+                    return false
+                }
+            }
+            else {
+                return false
+            }
+        }
+        else {
+            return false
+        }
+    }
+    
+    func getNumberOfDaysInMonth(iMonth: Int, isLeapYear: Bool)-> Int {
+        var numOfDays: Int = 0
+        
+        switch(iMonth) {
+        case 1:
+            numOfDays = 31
+            break
+        case 2:
+            numOfDays = 28
+            break
+        case 3:
+            numOfDays = 31
+            break
+        case 4:
+            numOfDays = 30
+            break
+        case 5:
+            numOfDays = 31
+            break
+        case 6:
+            numOfDays = 30
+            break
+        case 7:
+            numOfDays = 31
+            break
+        case 8:
+            numOfDays = 31
+            break
+        case 9:
+            numOfDays = 30
+            break
+        case 10:
+            numOfDays = 31
+            break
+        case 11:
+            numOfDays = 30
+            break
+        case 12:
+            numOfDays = 31
+            break
+        default:
+            numOfDays = 30
+            break
+        }
+        
+        if isLeapYear && iMonth == 2{
+            numOfDays = 29
+        }
+        
+        return numOfDays
+    }
+    
     
 }
