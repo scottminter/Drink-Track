@@ -179,7 +179,11 @@ println("\n")
 //currentMonth = 1
 //currentDayInMonth = 5
 //currentDayOfWeek = 7
+//currentYear = 2016
+        
         var tempDayInMonth: Int = currentDayInMonth as Int
+        
+        //Count back to beginning of week
         for var i: Int = currentDayOfWeek as Int; i > 1; i-- {
             tempDayInMonth--
         }
@@ -191,7 +195,7 @@ println("\n")
         //Year at Beginning of Week
         var yearAtStartOfWeek: Int = currentYear as Int
         
-        //Handles weeks that cross months
+        //If this is less than 0 it means we went back a month
         if tempDayInMonth <= 0 {
             //account for beginning of the year
             if monthAtStartOfWeek != 1 {
@@ -200,7 +204,7 @@ println("\n")
             else {
                 monthAtStartOfWeek = 12
                 
-                //back year off by 1 if it's January
+                //back year off by 1 because it's January
                 yearAtStartOfWeek--
             }
             
