@@ -31,7 +31,8 @@ class TimeKeeper: NSObject {
         let hour = components.hour
         let minutes = components.minute
         let seconds = components.second
-        
+        let unixTime = date.timeIntervalSince1970
+println("unix time from time keeper: \(unixTime)")
         var dayAsStr = String()
         switch dayOfWeekAsInt {
         case 1:
@@ -69,6 +70,7 @@ class TimeKeeper: NSObject {
         dateObj["hour"] = hour
         dateObj["minute"] = minutes
         dateObj["seconds"] = seconds
+        dateObj["unixTime"] = unixTime
         
         return dateObj
     }

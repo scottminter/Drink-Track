@@ -47,6 +47,7 @@ class DrinkDAO: NSObject {
         var sec: NSNumber = (dateDict["seconds"] != nil ? dateDict["seconds"] : 0) as NSNumber
         var wkInMonth: NSNumber = (dateDict["weekInMonth"] != nil ? dateDict["weekInMonth"] : 0) as NSNumber
         var year: NSNumber = (dateDict["year"] != nil ? dateDict["year"] : 0) as NSNumber
+        var unixTime: Double = (dateDict["unixTime"] != nil ? dateDict["unixTime"] : 0.0) as Double
         
         //Add fields to the Event
         newDrinkEvent.setValue(dayAsNsNum, forKey: "dayAsInt")
@@ -58,6 +59,7 @@ class DrinkDAO: NSObject {
         newDrinkEvent.setValue(sec, forKey: "second")
         newDrinkEvent.setValue(wkInMonth, forKey: "weekInMonth")
         newDrinkEvent.setValue(year, forKey: "year")
+        newDrinkEvent.setValue(unixTime, forKey: "unixTime")
         
         //Save the Event
         var err: NSErrorPointer = nil
@@ -269,7 +271,129 @@ println("week started on : \(monthAtStartOfWeek)/\(dayInMonthAtStartOfWeek)/\(ye
     }
     
     func getSessionTotal()->Int {
+println("\n*** Session Work ***")
+        //Get formatted date
+        var dateDict: Dictionary = TimeObj.getFormattedDate()
+println(dateDict)
+        
+        var currDay: Int = ((dateDict["dayAsInt"] != nil) ? dateDict["dayAsInt"] : 0) as Int
+        var currMonth: Int = ((dateDict["month"] != nil) ? dateDict["month"] : 0) as Int
+        var currYear: Int = ((dateDict["year"] != nil) ? dateDict["year"] : 0) as Int
+        var currHour: Int = ((dateDict["hour"] != nil) ? dateDict["hour"] : 0) as Int
+        var currMin: Int = ((dateDict["minute"] != nil) ? dateDict["minute"] : 0) as Int
+        var currSec: Int = ((dateDict["seconds"] != nil) ? dateDict["seconds"] : 0) as Int
+/*
+currDay = 1
+currMonth = 1
+currHour = 0
+currYear = 2000
+*/
+        //Get Session Start Date Obj
+        var sessStartDict: Dictionary = getStartDateTimeOfSession(currHour, date: currDay, month: currMonth, year: currYear)
+
+        let startYear: String = String(sessStartDict["yearAtStart"]!)
+        let startMonth: String = (sessStartDict["monthAtStart"]! < 10) ? "0" + String(sessStartDict["monthAtStart"]!) : String(sessStartDict["monthAtStart"]!)
+        let startDate: String = (sessStartDict["dateAtStart"]! < 10) ? "0" + String(sessStartDict["dateAtStart"]!) : String(sessStartDict["dateAtStart"]!)
+        let startHour: String = (sessStartDict["hourAtStart"]! < 10) ? "0" + String(sessStartDict["hourAtStart"]!) : String(sessStartDict["hourAtStart"]!)
+        let startMin: String = (currMin < 10) ? "0" + String(currMin) : String(currMin)
+        let startSec: String = (currSec < 10) ? "0" + String(currSec) : String(currSec)
+        
+        //Make Time String
+        let dateAsString: String = "\(startYear)-\(startMonth)-\(startDate) \(startHour):\(startMin):\(startSec)"
+println(dateAsString)
+        
+        //Create Unix TimeStamp of session start date
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-d HH:mm:SS"
+        formatter.timeZone = NSTimeZone(name: NSTimeZone.localTimeZone().name)
+        let dateObj = formatter.dateFromString(dateAsString)
+        let startUnix: NSNumber = dateObj!.timeIntervalSince1970 as NSNumber
+println(startUnix)
+        
+        var request = NSFetchRequest(entityName: self.EntityName)
+        
+        var drinkTypePred = NSPredicate(format: "drinkType == %@", self.DrinkType)
+        var sessPred = NSPredicate(format: "unixTime >= %@", startUnix)
+        var sortDesc = NSSortDescriptor(key: "unixTime", ascending: true)
+        var allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [drinkTypePred!, sessPred!])
+        
+        request.predicate = allPreds
+        request.sortDescriptors = [sortDesc]
+        
+        var results = context.executeFetchRequest(request, error: nil)
+/*
+        for var i = 0; i < results!.count; i++ {
+            println(results![i].valueForKey("unixTime")!)
+        }
+*/
+        if results != nil {
+            var low: Double = results![0].valueForKey("unixTime") as Double
+            println("last unix: \(low)")
+        }
+        else {
+            println("Seomthing went wrong")
+        }
+        
         return 1
+    }
+    
+    
+    func getStartDateTimeOfSession(hour: Int, date: Int, month: Int, year: Int)->Dictionary<String, Int> {
+        var sessionTimeDefinition = 2
+        var results = Dictionary<String, Int>()
+        
+        //Find out if it's a leap year
+        var isLeapYear: Bool = TimeObj.isLeapYear(year as Int)
+        
+        //Variables for the time at start of session
+        var hourAtStartOfSession: Int = hour
+        var dateAtStartOfSession: Int = date
+        var monthAtStartOfSession: Int = month
+        var yearAtStartOfSession: Int = year
+        
+        //1 Go back 3 hours
+        var tempHour: Int = hourAtStartOfSession
+        tempHour = tempHour - sessionTimeDefinition
+        println("temp hour: \(tempHour)")
+        if tempHour < 0 {
+            hourAtStartOfSession = 24 + tempHour
+            
+            var tempDate: Int = dateAtStartOfSession as Int
+            tempDate = tempDate - 1
+            println("temp date: \(tempDate)")
+            if tempDate <= 0 {
+                var prevMonth: Int = monthAtStartOfSession as Int
+                prevMonth--
+                println("prev month: \(prevMonth)")
+                
+                if prevMonth <= 0 {
+                    monthAtStartOfSession = 12
+                    
+                    yearAtStartOfSession--
+                }
+                else {
+                    monthAtStartOfSession = prevMonth
+                }
+                
+                //Date is end of previous month
+                dateAtStartOfSession = TimeObj.getNumberOfDaysInMonth(monthAtStartOfSession, isLeapYear: isLeapYear)
+            }
+            else {
+                dateAtStartOfSession = tempDate
+            }
+        }
+        else {
+            hourAtStartOfSession = tempHour
+        }
+
+        
+        results["hourAtStart"] = hourAtStartOfSession
+        results["monthAtStart"] = monthAtStartOfSession
+        results["dateAtStart"] = dateAtStartOfSession
+        results["yearAtStart"] = yearAtStartOfSession
+        
+        return results
+        
     }
     
 }

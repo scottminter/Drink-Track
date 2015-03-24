@@ -8,10 +8,11 @@
         <attribute name="minute" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="month" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="second" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="unixTime" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="weekInMonth" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DrinkEvents" positionX="-54" positionY="-9" width="128" height="180"/>
+        <element name="DrinkEvents" positionX="-54" positionY="-9" width="128" height="195"/>
     </elements>
 </model>

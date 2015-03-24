@@ -187,6 +187,8 @@ class Beer:NSObject {
      * Getter for Session Total
      */
     func getSessionTotal()->Int {
+        self.setSessionTotal(drinkDAO.getSessionTotal())
+        
         return sessionTotal
     }
     

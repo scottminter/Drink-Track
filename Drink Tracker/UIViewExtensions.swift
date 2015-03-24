@@ -15,7 +15,7 @@ extension UIView {
     func fadeIn() {
         // Move our fade out code from earlier
         UIView.animateWithDuration(1.0, delay: 3.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-            self.alpha = 1.0 // Instead of a specific instance of set [thisInstance] (ie, self)'s alpha
+            self.alpha = 1.0
             }, completion: nil)
     }
     
