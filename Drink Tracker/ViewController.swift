@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         
         drinkCountLabel.alpha = 0.0
         
-        BeerObj.getAllTotal()
+//        BeerObj.getAllTotal()
     }
 
     override func didReceiveMemoryWarning() {

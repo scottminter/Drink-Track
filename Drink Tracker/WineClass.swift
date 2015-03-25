@@ -47,7 +47,6 @@ class Wine:NSObject {
     * Updates Wine total since tracking began
     */
     func updateAllTotal() {
-        //self.setAllTotal(allTotal + 75)
         self.setAllTotal(drinkDAO.getAllTimeTotal())
     }
     
@@ -55,35 +54,35 @@ class Wine:NSObject {
     * Updates Wine total for the year
     */
     func updateYearTotal() {
-        self.setYearTotal(yearTotal + 60)
+        self.setYearTotal(drinkDAO.getYearlyTotal())
     }
     
     /**
     * Updates Wine total for the month
     */
     func updateMonthTotal() {
-        self.setMonthlyTotal(monthlyTotal + 45)
+        self.setMonthlyTotal(drinkDAO.getMonthlyTotal())
     }
     
     /**
     * Updates Wine total for the week
     */
     func updateWeekTotal() {
-        self.setWeeklyTotal(weeklyTotal + 30)
+        self.setWeeklyTotal(drinkDAO.getWeeklyTotal())
     }
     
     /**
     * Updates Wine total for today
     */
     func updateTodayTotal() {
-        self.setTodayTotal(todayTotal + 15)
+        self.setTodayTotal(drinkDAO.getDailyTotal())
     }
     
     /**
     * Updates Wine total for this session
     */
     func updateSessionTotal() {
-        self.setSessionTotal(sessionTotal + 5)
+        self.setSessionTotal(drinkDAO.getSessionTotal())
     }
     
     /**
@@ -187,6 +186,8 @@ class Wine:NSObject {
     * Getter for Session Total
     */
     func getSessionTotal()->Int {
+        self.setSessionTotal(drinkDAO.getSessionTotal())
+        
         return sessionTotal
     }
     

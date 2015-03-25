@@ -70,7 +70,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="mixer" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aog-aG-GWf">
                                         <rect key="frame" x="118" y="117" width="59" height="30"/>
                                         <rect key="contentStretch" x="0.54999999999999993" y="0.0" width="1" height="1"/>
-                                        <state key="normal" image="mixer_300_300.png">
+                                        <state key="normal" image="mixer_offset_300_300_new.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -334,22 +334,22 @@
                                 <exclude reference="vxr-4V-qff"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="5vg-MY-2Ez"/>
-                                <exclude reference="AvL-fT-2Tq"/>
-                                <exclude reference="Ix2-yg-sA3"/>
-                                <exclude reference="Y2F-l8-npM"/>
                                 <exclude reference="B2D-2n-4w1"/>
                                 <exclude reference="BAK-RG-2oo"/>
                                 <exclude reference="ezu-sE-Ecw"/>
                                 <exclude reference="pOR-nX-DvE"/>
-                                <exclude reference="Def-Eg-IYg"/>
-                                <exclude reference="seg-lD-Zs2"/>
                                 <exclude reference="8DU-Z9-h8y"/>
                                 <exclude reference="Hkx-cm-7Sk"/>
                                 <exclude reference="ZTf-tV-njw"/>
                                 <exclude reference="krj-6V-wWZ"/>
+                                <exclude reference="5vg-MY-2Ez"/>
+                                <exclude reference="AvL-fT-2Tq"/>
+                                <exclude reference="Ix2-yg-sA3"/>
+                                <exclude reference="Y2F-l8-npM"/>
                                 <exclude reference="Acx-aj-sFJ"/>
                                 <exclude reference="y80-R8-WI0"/>
+                                <exclude reference="Def-Eg-IYg"/>
+                                <exclude reference="seg-lD-Zs2"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -358,14 +358,14 @@
                                 <include reference="ups-Fb-qfu"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="5vg-MY-2Ez"/>
-                                <include reference="AvL-fT-2Tq"/>
-                                <exclude reference="Ix2-yg-sA3"/>
-                                <include reference="Y2F-l8-npM"/>
                                 <include reference="B2D-2n-4w1"/>
                                 <include reference="BAK-RG-2oo"/>
                                 <include reference="ezu-sE-Ecw"/>
                                 <include reference="pOR-nX-DvE"/>
+                                <include reference="5vg-MY-2Ez"/>
+                                <include reference="AvL-fT-2Tq"/>
+                                <exclude reference="Ix2-yg-sA3"/>
+                                <include reference="Y2F-l8-npM"/>
                                 <include reference="Def-Eg-IYg"/>
                                 <include reference="seg-lD-Zs2"/>
                             </mask>
@@ -796,7 +796,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7Z-Lr-CtU">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <string key="text">This will show the number of each type of drink tracked for the current session.  A session is made of any drinks had within a consecutive two hours of each other.</string>
+                                        <string key="text">This will show the number of each type of drink tracked for the current session.  A session is made of any drinks had within a consecutive TWO hours of each other.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -1544,6 +1544,7 @@
     <resources>
         <image name="beer_280_280.png" width="140" height="140"/>
         <image name="mixer_300_300.png" width="150" height="150"/>
+        <image name="mixer_offset_300_300_new.png" width="150" height="150"/>
         <image name="tumbler_270_270.png" width="135" height="135"/>
         <image name="wine_300_300.png" width="150" height="150"/>
     </resources>

@@ -18,7 +18,9 @@ class DrinkDAO: NSObject {
     private var context = NSManagedObjectContext()
     private var DrinkType = String()
     private var TimeObj = TimeKeeper()
-
+    private var SessionDuration: NSNumber = 2 //hours
+    private var SecInDay: NSNumber = 86400
+    private var SecInHour: NSNumber = 3600
     
     override init() {
         super.init()
@@ -34,6 +36,9 @@ class DrinkDAO: NSObject {
         context = appDel.managedObjectContext!
     }
     
+    /*
+     *  This saves a drink event
+     */
     func saveDrinkEvent(dateDict: Dictionary<String, Any>)->Bool {
         //Get Model for the Drink Event
         var newDrinkEvent: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(self.EntityName, inManagedObjectContext: self.context) as NSManagedObject
@@ -75,26 +80,38 @@ class DrinkDAO: NSObject {
         }
     }
     
+    /*
+     *  Get all totals based on drink type
+     */
     func getAllTimeTotal()->Int {
-        
+        //Set up request
         var request = NSFetchRequest(entityName: self.EntityName)
+        
+        //Add drink type predicate
         request.predicate = NSPredicate(format: "drinkType == %@", self.DrinkType)
+        
+        //Add this line because it helps something bc Rob Percival said so
         request.returnsObjectsAsFaults = false
         
-        var results = context.executeFetchRequest(request, error: nil)
+        //Instantiate Error Obj
+        var err: NSErrorPointer = nil
         
-        if results != nil {
-
-            //println(results!)
-            println("Total Beers: \(results!.count)")
-            
+        //Get results from CoreData
+        var results = context.executeFetchRequest(request, error: err)
+        
+        if err == nil {
+            NSLog("OK! All time: \(results!.count) for \(DrinkType)")
             return results!.count
         }
         else {
+            NSLog("Error: \(err)")
             return 0
         }
     }
     
+    /*
+     *  Get the year totals for current year
+     */
     func getYearlyTotal()->Int {
         //Get the current date
         var dateDict: Dictionary = TimeObj.getFormattedDate()
@@ -112,34 +129,44 @@ class DrinkDAO: NSObject {
         //Add predicates to request
         request.predicate = allPredicates
         
-        //Get results
-        var results = context.executeFetchRequest(request, error: nil)
+        //Instantiate Error Obj
+        var err: NSErrorPointer = nil
         
-        if results != nil {
-            
-            println("year counts: \(results!.count)")
-            
+        //Get results
+        var results = context.executeFetchRequest(request, error: err)
+        
+        if err == nil {
+            NSLog("OK! Year: \(results!.count) for \(DrinkType)")
             return results!.count
         }
         else {
+            NSLog("Error: \(err)")
             return 0
         }
     }
     
+    /*
+     *  Get the monthly totals
+     */
     func getMonthlyTotal()->Int {
         //Get Current Date
         var dateDict: Dictionary = TimeObj.getFormattedDate()
+        
         //Get Current Month
         var currentMonth: NSNumber = ((dateDict["month"] != nil) ? dateDict["month"] : 0) as NSNumber
         
         //Set Up Request
         var request = NSFetchRequest(entityName: self.EntityName)
+        
         //Build drink type predicate
         let predicate1 = NSPredicate(format: "drinkType == %@", self.DrinkType)
+        
         //Build current year predicate
         let predicate2 = NSPredicate(format: "month == %@", currentMonth)
+        
         //Combine Predicates with an AND
         let allPredicates = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predicate1!, predicate2!])
+        
         //Add predicates to request
         request.predicate = allPredicates
         
@@ -147,8 +174,6 @@ class DrinkDAO: NSObject {
         var results = context.executeFetchRequest(request, error: nil)
         
         if results != nil {
-            println("month counts \(results!.count)")
-            
             return results!.count
         }
         else {
@@ -156,8 +181,60 @@ class DrinkDAO: NSObject {
         }
     }
     
+    /*
+     *
+     */
     func getWeeklyTotal()->Int {
-println("\n")
+        //Get current time dictionary
+        var dateDict: Dictionary<String, Any> = TimeObj.getFormattedDate()
+        
+        //Current Hour
+        var currHour: Int = ((dateDict["hour"] != nil) ? dateDict["hour"] : 0) as Int
+
+        //Current Minute
+        var currMin: Int = ((dateDict["minute"] != nil) ? dateDict["minute"] : 0) as Int
+        
+        //Current Second
+        var currSec: Int = ((dateDict["seconds"] != nil) ? dateDict["seconds"] : 0) as Int
+        
+        //Get current unix time
+        var unixTime: NSNumber = ((dateDict["unixTime"] != nil) ? dateDict["unixTime"] : 0.0) as NSNumber
+
+        //Get the day of the week as an int
+        //ex. Wed = 4, Sun = 1 ... etc
+        var dayOfWeekAsInt = ((dateDict["dayOfWeekAsInt"] != nil) ? dateDict["dayOfWeekAsInt"] : 1) as Int
+        
+        //We need to get all full days as secs plus all secs of today
+        var secsInThisDay: Double = TimeObj.getNumberOfSecondsBasedOnTime(currHour, min: currMin, sec: currSec)
+        
+        //Get number of seconds in previous days of week
+        var secsInPriorDaysOfWeek: Double = 0.0
+        if dayOfWeekAsInt > 1 {
+            secsInPriorDaysOfWeek = Double(SecInDay) * (Double(dayOfWeekAsInt) - 1.0)
+        }
+        
+        //Total Number of Seconds Since Start of Current Week
+        var totalSecsSinceBeginningOfWeek: Double = secsInThisDay + secsInPriorDaysOfWeek
+        
+        //Get Unix Time at Start of Week
+        var unixTimeAtStartOfWeek: Double = Double(unixTime) - totalSecsSinceBeginningOfWeek
+        
+        //Get results from CoreData
+        var results: Array<AnyObject> = getDataSinceUnixTime(unixTimeAtStartOfWeek)
+        
+        if results.count > 0 {
+            println("drink count: \(results.count)")
+            
+            return results.count
+        }
+        else {
+            return 0
+        }
+    }
+    
+    //TODO: Redo weekly with UnixTime
+    //Old version not being called any longer
+    func getWeeklyTotal_Old()->Int {
         //Get Date Dict
         var dateDict: Dictionary = TimeObj.getFormattedDate()
 
@@ -169,19 +246,12 @@ println("\n")
         var currentMonth: NSNumber = ((dateDict["month"] != nil) ? dateDict["month"] : 0) as NSNumber
         //Get Year
         var currentYear: NSNumber = ((dateDict["year"] != nil) ? dateDict["year"] : 0) as NSNumber
-//println("day of week: \(currentDayOfWeek), day in month: \(currentDayInMonth), month: \(currentMonth), year: \(currentYear)")
+        
         //Determine if leap years
         var isLeapYear: Bool = TimeObj.isLeapYear(currentYear as Int)
-//println("is leap year: \(isLeapYear)")
         
         //Determine Number of days in month
         var numOfDaysInMonth: Int = TimeObj.getNumberOfDaysInMonth(currentMonth as Int, isLeapYear: isLeapYear) as Int
-//println("number of days in month: \(numOfDaysInMonth)")
-
-//currentMonth = 1
-//currentDayInMonth = 5
-//currentDayOfWeek = 7
-//currentYear = 2016
         
         var tempDayInMonth: Int = currentDayInMonth as Int
         
@@ -216,7 +286,6 @@ println("\n")
             dayInMonthAtStartOfWeek = daysInPrevMonth + tempDayInMonth
         }
         
-println("week started on : \(monthAtStartOfWeek)/\(dayInMonthAtStartOfWeek)/\(yearAtStartOfWeek)")
         //Set Up Request
         var request = NSFetchRequest(entityName: self.EntityName)
         
@@ -233,8 +302,6 @@ println("week started on : \(monthAtStartOfWeek)/\(dayInMonthAtStartOfWeek)/\(ye
         var results = context.executeFetchRequest(request, error: nil)
         
         if results != nil {
-            println("week counts \(results!.count) for \(self.DrinkType)")
-            
             return results!.count
         }
         else {
@@ -242,6 +309,9 @@ println("week started on : \(monthAtStartOfWeek)/\(dayInMonthAtStartOfWeek)/\(ye
         }
     }
     
+    /*
+     *  Get the daily totals
+     */
     func getDailyTotal()->Int {
         //Get formatted date dictionary
         var dateDict: Dictionary = TimeObj.getFormattedDate()
@@ -270,130 +340,104 @@ println("week started on : \(monthAtStartOfWeek)/\(dayInMonthAtStartOfWeek)/\(ye
         }
     }
     
+    /*
+     *  Gets the total results for the current session
+     */
     func getSessionTotal()->Int {
-println("\n*** Session Work ***")
+
         //Get formatted date
         var dateDict: Dictionary = TimeObj.getFormattedDate()
-println(dateDict)
         
-        var currDay: Int = ((dateDict["dayAsInt"] != nil) ? dateDict["dayAsInt"] : 0) as Int
-        var currMonth: Int = ((dateDict["month"] != nil) ? dateDict["month"] : 0) as Int
-        var currYear: Int = ((dateDict["year"] != nil) ? dateDict["year"] : 0) as Int
-        var currHour: Int = ((dateDict["hour"] != nil) ? dateDict["hour"] : 0) as Int
-        var currMin: Int = ((dateDict["minute"] != nil) ? dateDict["minute"] : 0) as Int
-        var currSec: Int = ((dateDict["seconds"] != nil) ? dateDict["seconds"] : 0) as Int
-/*
-currDay = 1
-currMonth = 1
-currHour = 0
-currYear = 2000
-*/
-        //Get Session Start Date Obj
-        var sessStartDict: Dictionary = getStartDateTimeOfSession(currHour, date: currDay, month: currMonth, year: currYear)
+        //Grab current unix time
+        let currUnixTime: NSNumber = ((dateDict["unixTime"] != nil) ? dateDict["unixTime"] : 0.0) as NSNumber
+        
+        //Get start of current session unix time
+        let sessStart: NSNumber = getStartUnixTimeOfSession(currUnixTime)
+        
+        //Get initial results since start of session
+        var results: Array<AnyObject> = getDataSinceUnixTime(sessStart)
 
-        let startYear: String = String(sessStartDict["yearAtStart"]!)
-        let startMonth: String = (sessStartDict["monthAtStart"]! < 10) ? "0" + String(sessStartDict["monthAtStart"]!) : String(sessStartDict["monthAtStart"]!)
-        let startDate: String = (sessStartDict["dateAtStart"]! < 10) ? "0" + String(sessStartDict["dateAtStart"]!) : String(sessStartDict["dateAtStart"]!)
-        let startHour: String = (sessStartDict["hourAtStart"]! < 10) ? "0" + String(sessStartDict["hourAtStart"]!) : String(sessStartDict["hourAtStart"]!)
-        let startMin: String = (currMin < 10) ? "0" + String(currMin) : String(currMin)
-        let startSec: String = (currSec < 10) ? "0" + String(currSec) : String(currSec)
-        
-        //Make Time String
-        let dateAsString: String = "\(startYear)-\(startMonth)-\(startDate) \(startHour):\(startMin):\(startSec)"
-println(dateAsString)
-        
-        //Create Unix TimeStamp of session start date
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-d HH:mm:SS"
-        formatter.timeZone = NSTimeZone(name: NSTimeZone.localTimeZone().name)
-        let dateObj = formatter.dateFromString(dateAsString)
-        let startUnix: NSNumber = dateObj!.timeIntervalSince1970 as NSNumber
-println(startUnix)
-        
-        var request = NSFetchRequest(entityName: self.EntityName)
-        
-        var drinkTypePred = NSPredicate(format: "drinkType == %@", self.DrinkType)
-        var sessPred = NSPredicate(format: "unixTime >= %@", startUnix)
-        var sortDesc = NSSortDescriptor(key: "unixTime", ascending: true)
-        var allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [drinkTypePred!, sessPred!])
-        
-        request.predicate = allPreds
-        request.sortDescriptors = [sortDesc]
-        
-        var results = context.executeFetchRequest(request, error: nil)
-/*
-        for var i = 0; i < results!.count; i++ {
-            println(results![i].valueForKey("unixTime")!)
-        }
-*/
-        if results != nil {
-            var low: Double = results![0].valueForKey("unixTime") as Double
-            println("last unix: \(low)")
-        }
-        else {
-            println("Seomthing went wrong")
-        }
-        
-        return 1
-    }
-    
-    
-    func getStartDateTimeOfSession(hour: Int, date: Int, month: Int, year: Int)->Dictionary<String, Int> {
-        var sessionTimeDefinition = 2
-        var results = Dictionary<String, Int>()
-        
-        //Find out if it's a leap year
-        var isLeapYear: Bool = TimeObj.isLeapYear(year as Int)
-        
-        //Variables for the time at start of session
-        var hourAtStartOfSession: Int = hour
-        var dateAtStartOfSession: Int = date
-        var monthAtStartOfSession: Int = month
-        var yearAtStartOfSession: Int = year
-        
-        //1 Go back 3 hours
-        var tempHour: Int = hourAtStartOfSession
-        tempHour = tempHour - sessionTimeDefinition
-        println("temp hour: \(tempHour)")
-        if tempHour < 0 {
-            hourAtStartOfSession = 24 + tempHour
+        //If no results then we return 0
+        if results.count > 0 {
             
-            var tempDate: Int = dateAtStartOfSession as Int
-            tempDate = tempDate - 1
-            println("temp date: \(tempDate)")
-            if tempDate <= 0 {
-                var prevMonth: Int = monthAtStartOfSession as Int
-                prevMonth--
-                println("prev month: \(prevMonth)")
+            //Set total results count from initial run
+            var totalResults: Int = results.count
+
+            var stopLoop: Bool = false
+            while stopLoop == false {
+
+                //We need the earliest drink event from the first result set
+                var earliestTime: Double = results[0].valueForKey("unixTime") as Double
                 
-                if prevMonth <= 0 {
-                    monthAtStartOfSession = 12
-                    
-                    yearAtStartOfSession--
+                //Then we need the session start of that event
+                var newSessionStart: NSNumber = getStartUnixTimeOfSession(earliestTime)
+                
+                //Then we need the results set since this new session start time
+                results = getDataSinceUnixTime(newSessionStart)
+                
+                //If this is true then that means we didn't get any new results and
+                //we have our session total
+                if results.count == totalResults {
+                    var et: NSNumber = results[0].valueForKey("unixTime") as NSNumber
+                    stopLoop = true
                 }
                 else {
-                    monthAtStartOfSession = prevMonth
+                    totalResults = results.count
                 }
-                
-                //Date is end of previous month
-                dateAtStartOfSession = TimeObj.getNumberOfDaysInMonth(monthAtStartOfSession, isLeapYear: isLeapYear)
             }
-            else {
-                dateAtStartOfSession = tempDate
-            }
+            
+            return totalResults
         }
         else {
-            hourAtStartOfSession = tempHour
+            return 0
         }
+    }
 
+    /*
+     *  Gets data since a given unix time
+     */
+    func getDataSinceUnixTime(unixTime: NSNumber)->Array<AnyObject> {
+        //empty results
+        var results = [AnyObject]?()
         
-        results["hourAtStart"] = hourAtStartOfSession
-        results["monthAtStart"] = monthAtStartOfSession
-        results["dateAtStart"] = dateAtStartOfSession
-        results["yearAtStart"] = yearAtStartOfSession
+        //Set up request
+        var request = NSFetchRequest(entityName: self.EntityName)
         
-        return results
+        //Drink Type Predicate
+        var drinkTypePred = NSPredicate(format: "drinkType == %@", self.DrinkType)
+
+        //Session Predicate
+        var sessPred = NSPredicate(format: "unixTime >= %@", unixTime)
         
+        //Sorting Description
+        var sortDesc = NSSortDescriptor(key: "unixTime", ascending: true)
+        
+        //Combine the Predicates into 1
+        var allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [drinkTypePred!, sessPred!])
+        
+        //Add predicates to the request
+        request.predicate = allPreds
+        
+        //Add sort descriptors to the request
+        request.sortDescriptors = [sortDesc]
+        
+        //Execute the fetch for results
+        results = context.executeFetchRequest(request, error: nil)
+
+        return results!
     }
     
+    /*
+     *  Returns the start of a session based on a unix time stamp
+     */
+    func getStartUnixTimeOfSession(unixTime: NSNumber)-> NSNumber {
+        var startAsDbl: Double = 0.0
+        var ut: Double = unixTime as Double
+        var sessAsDouble: Double = SessionDuration as Double
+        var secsInHrAsDbl: Double = SecInHour as Double
+        
+        startAsDbl = ut - (sessAsDouble * secsInHrAsDbl)
+        
+        return startAsDbl as NSNumber
+    }
 }

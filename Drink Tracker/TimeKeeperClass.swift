@@ -10,6 +10,9 @@ import Foundation
 
 class TimeKeeper: NSObject {
     
+    private var SecsInHour: Double = 3600.00
+    private var SecsInMinute: Double = 60.00
+    
     override init() {
         super.init()
     }
@@ -32,7 +35,7 @@ class TimeKeeper: NSObject {
         let minutes = components.minute
         let seconds = components.second
         let unixTime = date.timeIntervalSince1970
-println("unix time from time keeper: \(unixTime)")
+
         var dayAsStr = String()
         switch dayOfWeekAsInt {
         case 1:
@@ -73,6 +76,22 @@ println("unix time from time keeper: \(unixTime)")
         dateObj["unixTime"] = unixTime
         
         return dateObj
+    }
+    
+    //Send an hour, min, and sec and get total secs back
+    func getNumberOfSecondsBasedOnTime(hour: Int, min: Int, sec: Int)->Double {
+        var totalSecs: Double = 0.0
+
+        //Convert hours to secs
+        var hrSecs: Double = SecsInHour * Double(hour)
+        
+        //Convert mins to secs
+        var minSecs: Double = SecsInMinute * Double(min)
+        
+        //Add all secs together for total
+        totalSecs = hrSecs + minSecs + Double(sec)
+        
+        return totalSecs
     }
     
     func isLeapYear(iYear: Int)->Bool {
