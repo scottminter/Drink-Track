@@ -16,6 +16,7 @@ class Beer:NSObject {
     private var weeklyTotal = Int()
     private var todayTotal = Int()
     private var sessionTotal = Int()
+    private var lastSessionTotal = Int()
     
     private var drinkDAO = DrinkDAO(drinkType: "beer")
     
@@ -32,8 +33,9 @@ class Beer:NSObject {
         weeklyTotal = 0
         todayTotal = 0
         sessionTotal = 0
+        lastSessionTotal = 0
         
-        self.updateTotals()
+        self.setAllTotalAtSameTime()
     }
     
     /**
@@ -44,58 +46,16 @@ class Beer:NSObject {
     }
     
     /**
-     * Updates Beer total since tracking began
+     * Sets all priv mbr data at same time
      */
-    func updateAllTotal() {
+    func setAllTotalAtSameTime() {
         self.setAllTotal(drinkDAO.getAllTimeTotal())
-    }
-    
-    /**
-    * Updates Beer total for the year
-    */
-    func updateYearTotal() {
-        drinkDAO.getYearlyTotal()
-        self.setYearTotal(yearTotal + 60)
-    }
-    
-    /**
-    * Updates Beer total for the month
-    */
-    func updateMonthTotal() {
-        self.setMonthlyTotal(monthlyTotal + 45)
-    }
-    
-    /**
-    * Updates Beer total for the week
-    */
-    func updateWeekTotal() {
-        self.setWeeklyTotal(weeklyTotal + 30)
-    }
-    
-    /**
-    * Updates Beer total for today
-    */
-    func updateTodayTotal() {
-        self.setTodayTotal(todayTotal + 15)
-    }
-    
-    /**
-    * Updates Beer total for this session
-    */
-    func updateSessionTotal() {
-        self.setSessionTotal(sessionTotal + 5)
-    }
-    
-    /**
-     * Executes all the update statements
-     */
-    func updateTotals() {
-        self.updateAllTotal()
-        self.updateYearTotal()
-        self.updateMonthTotal()
-        self.updateWeekTotal()
-        self.updateTodayTotal()
-        self.updateSessionTotal()
+        self.setYearTotal(drinkDAO.getYearlyTotal())
+        self.setMonthlyTotal(drinkDAO.getMonthlyTotal())
+        self.setWeeklyTotal(drinkDAO.getWeeklyTotal())
+        self.setTodayTotal(drinkDAO.getDailyTotal())
+        self.setSessionTotal(drinkDAO.getSessionTotal())
+        self.setLastSessionTotal(drinkDAO.getLastSessionTotal())
     }
     
     /**
@@ -193,6 +153,22 @@ class Beer:NSObject {
     }
     
     /**
+     * Setter for last Session total
+     */
+    func setLastSessionTotal(lastSessTot: Int) {
+        lastSessionTotal = lastSessTot
+    }
+    
+    /**
+     *  Setter for last Session total
+     */
+    func getLastSessionTotal()->Int {
+        self.setLastSessionTotal(drinkDAO.getLastSessionTotal())
+        
+        return lastSessionTotal
+    }
+    
+    /**
      * Returns Beer Object as Dictionary
      */
     func toDictionary()->Dictionary<String, Int> {
@@ -204,6 +180,7 @@ class Beer:NSObject {
         beerDict["weekly"] = self.getWeeklyTotal()
         beerDict["today"] = self.getTodayTotal()
         beerDict["session"] = self.getSessionTotal()
+        beerDict["lastSession"] = self.getLastSessionTotal()
         
         return beerDict
     }

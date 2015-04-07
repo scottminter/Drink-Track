@@ -18,7 +18,7 @@ class DrinkDAO: NSObject {
     private var context = NSManagedObjectContext()
     private var DrinkType = String()
     private var TimeObj = TimeKeeper()
-    private var SessionDuration: NSNumber = 2 //hours
+    private var SessionDuration: NSNumber = 3 //hours
     private var SecInDay: NSNumber = 86400
     private var SecInHour: NSNumber = 3600
     
@@ -34,6 +34,20 @@ class DrinkDAO: NSObject {
         
         appDel = UIApplication.sharedApplication().delegate as AppDelegate
         context = appDel.managedObjectContext!
+    }
+    
+    /*
+     *  Setter for drink type
+     */
+    func setDrinkType(dt: String) {
+        self.DrinkType = dt
+    }
+    
+    /*
+     *
+     */
+    func getDrinkType()->String {
+        return self.DrinkType
     }
     
     /*
@@ -220,7 +234,7 @@ class DrinkDAO: NSObject {
         var unixTimeAtStartOfWeek: Double = Double(unixTime) - totalSecsSinceBeginningOfWeek
         
         //Get results from CoreData
-        var results: Array<AnyObject> = getDataSinceUnixTime(unixTimeAtStartOfWeek)
+        var results: Array<AnyObject> = getDataSinceUnixTime(unixTimeAtStartOfWeek, ignoreType: false)
         
         if results.count > 0 {
             println("drink count: \(results.count)")
@@ -348,14 +362,14 @@ class DrinkDAO: NSObject {
         //Get formatted date
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         
-        //Grab current unix time
+        //Grab current unix time from dateDict
         let currUnixTime: NSNumber = ((dateDict["unixTime"] != nil) ? dateDict["unixTime"] : 0.0) as NSNumber
         
         //Get start of current session unix time
         let sessStart: NSNumber = getStartUnixTimeOfSession(currUnixTime)
-        
-        //Get initial results since start of session
-        var results: Array<AnyObject> = getDataSinceUnixTime(sessStart)
+
+        //Get initial results since start of session IGNORE TYPE
+        var results: Array<AnyObject> = getDataSinceUnixTime(sessStart, ignoreType: true)
 
         //If no results then we return 0
         if results.count > 0 {
@@ -363,6 +377,7 @@ class DrinkDAO: NSObject {
             //Set total results count from initial run
             var totalResults: Int = results.count
 
+            var earliestFoundTimeForAllDrinks = NSNumber()
             var stopLoop: Bool = false
             while stopLoop == false {
 
@@ -372,13 +387,13 @@ class DrinkDAO: NSObject {
                 //Then we need the session start of that event
                 var newSessionStart: NSNumber = getStartUnixTimeOfSession(earliestTime)
                 
-                //Then we need the results set since this new session start time
-                results = getDataSinceUnixTime(newSessionStart)
+                //Then we need the results set since this new session start time INGORE TYPE
+                results = getDataSinceUnixTime(newSessionStart, ignoreType: true)
                 
                 //If this is true then that means we didn't get any new results and
                 //we have our session total
                 if results.count == totalResults {
-                    var et: NSNumber = results[0].valueForKey("unixTime") as NSNumber
+                    earliestFoundTimeForAllDrinks = results[0].valueForKey("unixTime") as NSNumber
                     stopLoop = true
                 }
                 else {
@@ -386,7 +401,104 @@ class DrinkDAO: NSObject {
                 }
             }
             
-            return totalResults
+            //Use the earliest time in the session while ignoring drink type to find the drink type specific count since that time
+            var drinkTypeSpecificResults: Array<AnyObject> = getDataSinceUnixTime(earliestFoundTimeForAllDrinks, ignoreType: false)
+            
+            if drinkTypeSpecificResults.count > 0 {
+                return drinkTypeSpecificResults.count
+            }
+            else {
+                return 0
+            }
+        }
+        else {
+            return 0
+        }
+    }
+    
+    /**
+     *  Get totals from last session
+     */
+    func getLastSessionTotal()->Int {
+        //Get time of
+        
+        //empty results
+        var results = [AnyObject]?()
+        
+        //Set up request
+        var request = NSFetchRequest(entityName: self.EntityName)
+        
+        //Get first result
+        request.fetchLimit = 1
+        
+        //Sort by unixTime: most recent first
+        var sortDesc = NSSortDescriptor(key: "unixTime", ascending: false)
+        
+        //Add sorting description
+        request.sortDescriptors = [sortDesc]
+        
+        //Execute the fetch for results
+        results = context.executeFetchRequest(request, error: nil)
+        
+        //This is getting the most recent entry
+        var totals: Int = 0
+        var mostRecentEntry = NSNumber()
+        if results != nil && results!.count > 0 {
+            if results![0].valueForKey("unixTime") != nil {
+                mostRecentEntry = results![0].valueForKey("unixTime")! as NSNumber
+            }
+            
+            //Get totals of last session
+            totals = getSessionTotalsSinceUnixTime(mostRecentEntry) as Int
+        }
+        
+        return totals
+    }
+    
+    func getSessionTotalsSinceUnixTime(unixTime: NSNumber)->Int {
+        
+        //Get initial results since start of session IGNORE TYPE
+        var results: Array<AnyObject> = getDataSinceUnixTime(unixTime, ignoreType: true)
+        
+        //If no results then we return 0
+        if results.count > 0 {
+            
+            //Set total results count from initial run
+            var totalResults: Int = results.count
+            
+            var earliestFoundTimeForAllDrinks = NSNumber()
+            var stopLoop: Bool = false
+            while stopLoop == false {
+                
+                //We need the earliest drink event from the first result set
+                var earliestTime: Double = results[0].valueForKey("unixTime") as Double
+                
+                //Then we need the session start of that event
+                var newSessionStart: NSNumber = getStartUnixTimeOfSession(earliestTime)
+                
+                //Then we need the results set since this new session start time INGORE TYPE
+                results = getDataSinceUnixTime(newSessionStart, ignoreType: true)
+                
+                //If this is true then that means we didn't get any new results and
+                //we have our session total
+                if results.count == totalResults {
+                    earliestFoundTimeForAllDrinks = results[0].valueForKey("unixTime") as NSNumber
+                    stopLoop = true
+                }
+                else {
+                    totalResults = results.count
+                }
+            }
+            
+            //Use the earliest time in the session while ignoring drink type to find the drink type specific count since that time
+            var drinkTypeSpecificResults: Array<AnyObject> = getDataSinceUnixTime(earliestFoundTimeForAllDrinks, ignoreType: false)
+            
+            if drinkTypeSpecificResults.count > 0 {
+                return drinkTypeSpecificResults.count
+            }
+            else {
+                return 0
+            }
         }
         else {
             return 0
@@ -396,7 +508,10 @@ class DrinkDAO: NSObject {
     /*
      *  Gets data since a given unix time
      */
-    func getDataSinceUnixTime(unixTime: NSNumber)->Array<AnyObject> {
+    func getDataSinceUnixTime(unixTime: NSNumber, ignoreType: Bool)->Array<AnyObject> {
+        //Remove 1 second from unix time to give buffer
+        var unixTimeMinusOneSec: Double = Double(unixTime) - 1.0
+        
         //empty results
         var results = [AnyObject]?()
         
@@ -404,20 +519,31 @@ class DrinkDAO: NSObject {
         var request = NSFetchRequest(entityName: self.EntityName)
         
         //Drink Type Predicate
-        var drinkTypePred = NSPredicate(format: "drinkType == %@", self.DrinkType)
-
+        var drinkTypePred = NSPredicate() //format: "drinkType == %@", self.DrinkType)
+        if ignoreType == false {
+            drinkTypePred = NSPredicate(format: "drinkType == %@", self.DrinkType)!
+        }
+        
         //Session Predicate
-        var sessPred = NSPredicate(format: "unixTime >= %@", unixTime)
+        var sessPred = NSPredicate(format: "unixTime >= %@", unixTimeMinusOneSec as NSNumber)
         
         //Sorting Description
         var sortDesc = NSSortDescriptor(key: "unixTime", ascending: true)
         
         //Combine the Predicates into 1
-        var allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [drinkTypePred!, sessPred!])
-        
+        var allPreds = NSCompoundPredicate()
+        if ignoreType == false {
+            allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [drinkTypePred, sessPred!])
+        }
+
         //Add predicates to the request
-        request.predicate = allPreds
-        
+        if ignoreType == false {
+            request.predicate = allPreds
+        }
+        else {
+            request.predicate = sessPred
+        }
+
         //Add sort descriptors to the request
         request.sortDescriptors = [sortDesc]
         

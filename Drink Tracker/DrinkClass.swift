@@ -1,46 +1,74 @@
 //
-//  ShotClass.swift
+//  DrinkClass.swift
 //  Drink Tracker
 //
-//  Created by Scott Minter on 3/9/15.
+//  Created by Scott Minter on 4/7/15.
 //  Copyright (c) 2015 Scott Minter Designs. All rights reserved.
 //
 
 import Foundation
 
-class Shot:NSObject {
+class DrinkClass: NSObject {
+    //Type of drink the object is for: beer, wine, mixer, shot
+    private var drinkType = String()
     
+    //All time total based on drink type
     private var allTotal = Int()
+    
+    //This years total based on drink type
     private var yearTotal = Int()
+    
+    //This months total based on drink type
     private var monthlyTotal = Int()
+    
+    //This weeks total based on drink type
     private var weeklyTotal = Int()
+    
+    //Todays total based on drink type
     private var todayTotal = Int()
+    
+    //This session's total based on drink type
     private var sessionTotal = Int()
+    
+    //Last sessions total based on drink type
     private var lastSessionTotal = Int()
     
-    private var drinkDAO = DrinkDAO(drinkType: "shot")
+    private var drinkDAO = DrinkDAO()
+    
+    override init() {
+        super.init()
+        
+        
+    }
     
     /**
-    * Default Constructor
+    * Constructor
+    *
+    * Takes in a drink type and 
+    * sets up the object
+    *
     */
-    override init() {
+    init(dt: String) {
         
         super.init()
         
+        self.drinkType = dt
+        self.drinkDAO = DrinkDAO(drinkType: drinkType)
         allTotal = 0
         yearTotal = 0
         monthlyTotal = 0
         weeklyTotal = 0
         todayTotal = 0
         sessionTotal = 0
+        lastSessionTotal = 0
         
         self.setAllTotalAtSameTime()
     }
     
     /**
-    * Takes in a Date dictionary and saves a Shot event
+    * Takes in a Date dictionary and saves a drink event
     */
-    func saveShotEvent(dateDict: Dictionary<String, Any>) {
+    func saveDrinkEvent(dateDict: Dictionary<String, Any>) {
         drinkDAO.saveDrinkEvent(dateDict)
     }
     
@@ -168,18 +196,19 @@ class Shot:NSObject {
     }
     
     /**
-    * Returns Shot Object as Dictionary
+    * Returns Drink Object as Dictionary
     */
     func toDictionary()->Dictionary<String, Int> {
-        var shotDict: Dictionary<String, Int> = Dictionary<String, Int>()
+        var drinkDict: Dictionary<String, Int> = Dictionary<String, Int>()
         
-        shotDict["all"] = self.getAllTotal()
-        shotDict["year"] = self.getYearTotal()
-        shotDict["monthly"] = self.getMonthlyTotal()
-        shotDict["weekly"] = self.getWeeklyTotal()
-        shotDict["today"] = self.getTodayTotal()
-        shotDict["session"] = self.getSessionTotal()
+        drinkDict["all"] = self.getAllTotal()
+        drinkDict["year"] = self.getYearTotal()
+        drinkDict["monthly"] = self.getMonthlyTotal()
+        drinkDict["weekly"] = self.getWeeklyTotal()
+        drinkDict["today"] = self.getTodayTotal()
+        drinkDict["session"] = self.getSessionTotal()
+        drinkDict["lastSession"] = self.getLastSessionTotal()
         
-        return shotDict
+        return drinkDict
     }
 }

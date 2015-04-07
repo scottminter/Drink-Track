@@ -15,13 +15,11 @@ class DrinkTypeInfoViewController: UIViewController {
    
     @IBAction func backButtonAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: {});//This is intended to dismiss the Info sceen.
-        println("pressed")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        println("Time info view controller woot woot")
         
     }
     

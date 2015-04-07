@@ -212,7 +212,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="PZo-dY-BuQ" kind="show" id="KDC-dr-Ejy"/>
+                                    <segue destination="PZo-dY-BuQ" kind="show" identifier="TrackingToInfoSegue" id="KDC-dr-Ejy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ked-1E-jiN">
@@ -238,12 +238,12 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="gsz-RT-bek" kind="show" id="GhD-wa-pk4"/>
+                                    <segue destination="gsz-RT-bek" kind="show" identifier="TrackingToTotalsSegue" id="GhD-wa-pk4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxr-4V-qff">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.047183388157894739" alpha="0.82000000000000006" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="tCz-zY-8K6">
                                         <variation key="heightClass=regular-widthClass=compact" constant="50"/>
@@ -505,13 +505,6 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer.  Use this to track any beers you drink ." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSt-lF-3xw">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <color key="backgroundColor" red="0.17254901960784313" green="1" blue="0.66943248516511866" alpha="0.0" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wine.  Use this to track any wine you drink." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFe-KA-c9E">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -526,6 +519,13 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mixed Drinks.  Use this to track any mixed drink that you drink." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8x-B8-8Ui">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beer.  Use this to track any beers you drink ." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSt-lF-3xw">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <color key="backgroundColor" red="0.17254901960784313" green="1" blue="0.66943248516511866" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -569,10 +569,10 @@
                                         <exclude reference="w9K-Bw-6zv"/>
                                         <exclude reference="boD-q6-swh"/>
                                         <exclude reference="Hsn-Be-rt6"/>
-                                        <exclude reference="VSt-lF-3xw"/>
                                         <exclude reference="SFe-KA-c9E"/>
                                         <exclude reference="lJx-o1-XD6"/>
                                         <exclude reference="L8x-B8-8Ui"/>
+                                        <exclude reference="VSt-lF-3xw"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="Gxc-8K-uwp"/>
@@ -604,10 +604,10 @@
                                         <include reference="w9K-Bw-6zv"/>
                                         <include reference="boD-q6-swh"/>
                                         <include reference="Hsn-Be-rt6"/>
-                                        <include reference="VSt-lF-3xw"/>
                                         <include reference="SFe-KA-c9E"/>
                                         <include reference="lJx-o1-XD6"/>
                                         <include reference="L8x-B8-8Ui"/>
+                                        <include reference="VSt-lF-3xw"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="Gxc-8K-uwp"/>
@@ -716,7 +716,7 @@
         <!--timeSpanInfo-->
         <scene sceneID="W48-SY-WkT">
             <objects>
-                <viewController title="timeSpanInfo" id="W1F-nz-JbO" customClass="TimeInfoViewController" customModule="Drink_Tracker" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="durationInfoView" title="timeSpanInfo" id="W1F-nz-JbO" customClass="TimeInfoViewController" customModule="Drink_Tracker" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QhB-wi-0wK"/>
                         <viewControllerLayoutGuide type="bottom" id="dB3-gz-K3z"/>
@@ -796,7 +796,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7Z-Lr-CtU">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <string key="text">This will show the number of each type of drink tracked for the current session.  A session is made of any drinks had within a consecutive TWO hours of each other.</string>
+                                        <string key="text">This will show the number of each type of drink tracked for the current session.  A session is made of any drinks had within a consecutive 3 hours of each other.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -1259,7 +1259,7 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqx-GQ-kdJ">
                                 <rect key="frame" x="305" y="337" width="295" height="263"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixer_300_300.png" translatesAutoresizingMaskIntoConstraints="NO" id="YRL-vT-EQd">
+                                    <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixer_offset_300_300_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="YRL-vT-EQd">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUU-6X-8Hp">
@@ -1305,7 +1305,7 @@
                             </view>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGM-Xw-jzG">
                                 <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.72999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.83999999999999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="gsz-RT-bek" id="jEQ-Eh-qOk"/>
                                     <outlet property="delegate" destination="IjV-aI-ehn" id="xyC-5W-YHq"/>
@@ -1343,7 +1343,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="W1F-nz-JbO" kind="show" id="RUp-Az-c35"/>
+                                    <segue destination="W1F-nz-JbO" kind="show" identifier="TotalsToInfoSegue" id="RUp-Az-c35"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpQ-Dg-9Pt">
@@ -1524,7 +1524,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="rxZ-h7-IOZ"/>
+                    <toolbarItems/>
                     <connections>
                         <outlet property="beerCountUI" destination="rHG-lS-Rq6" id="GQs-mU-fSR"/>
                         <outlet property="durationLabelObj" destination="IjV-aI-ehn" id="Cb7-wY-zga"/>

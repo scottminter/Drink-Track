@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIApplicationDelegate {
     
     @IBOutlet weak var infoButtonObj: UIButton!
     @IBOutlet weak var pickerListObj: UIPickerView!
@@ -21,17 +21,17 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var shotCountUI: UILabel!
     @IBOutlet weak var mixerCountUI: UILabel!
     
-    let BeerObj = Beer()
+    let BeerObj = DrinkClass(dt: "beer") //Beer()
     let WineObj = Wine()
     let ShotObj = Shot()
     let MixerObj = Mixer()
     
-    var duration = ["All Time", "This Year", "This Month", "This Week", "Today", "This Session"]
+    var duration = ["All Time", "This Year", "This Month", "This Week", /*"Today", "This Session",*/ "Session"]
     var rowSelected = Int()
     
+    //Dismisses the view
     @IBAction func trackingButtonAction(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {});//This is intended to dismiss the Info sceen.
-        println("pressed")
+        self.dismissViewControllerAnimated(true, completion: {})
     }
     
     //Displays the picker and picker button
@@ -83,6 +83,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             shotCountUI.text = String(ShotObj.getWeeklyTotal())
             mixerCountUI.text = String(MixerObj.getWeeklyTotal())
             break
+        /*
         case 4:
             //today
             beerCountUI.text = String(BeerObj.getTodayTotal())
@@ -97,12 +98,23 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             shotCountUI.text = String(ShotObj.getSessionTotal())
             mixerCountUI.text = String(MixerObj.getSessionTotal())
             break
+        */
+        case 6:
+            //last session
+            beerCountUI.text = String(BeerObj.getLastSessionTotal())
+            wineCountUI.text = String(WineObj.getLastSessionTotal())
+            shotCountUI.text = String(ShotObj.getLastSessionTotal())
+            mixerCountUI.text = String(MixerObj.getLastSessionTotal())
+            break
         default:
             break
         }
+
+        //Get total of all drinks
+        var allTotal: Int = beerCountUI.text!.toInt()! + wineCountUI.text!.toInt()! + shotCountUI.text!.toInt()! + mixerCountUI.text!.toInt()!
         
-        //Update the Duration Button Title
-        durationLabelObj.setTitle(duration[rowSelected], forState: .Normal)
+        //Update the Duration Button Title wit all drink total
+        durationLabelObj.setTitle("\(allTotal) Drinks", forState: .Normal)
     }
     
     
@@ -126,11 +138,40 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         rowSelected = row
     }
     
+    //Handles the left and right swiping
+    func handleSwipes(sender:UISwipeGestureRecognizer) {
+        if (sender.direction == .Left) {
+            println("Swipe Left")
+            //Go to info view
+        }
+        
+        if (sender.direction == .Right) {
+            println("Swipe Right")
+            self.dismissViewControllerAnimated(true, completion: {})
+        }
+    }
+    
+    //Disables Portrait
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //Default to Session
+        
+        //Swipe Recognition
+        var leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        var rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        
+        leftSwipe.direction = .Left
+        rightSwipe.direction = .Right
+        
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
+        
+        //Default Drink Counts to Session
         rowSelected = 0
         setTotalsBasedOnDuration(rowSelected)
         

@@ -23,10 +23,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var drinkCountLabel: UILabel!
     
     let TimeKeeperObj = TimeKeeper()
-    let BeerObj = Beer()
-    let WineObj = Wine()
-    let ShotObj = Shot()
-    let MixerObj = Mixer()
+    let BeerObj = DrinkClass(dt: "beer")  //Beer()
+    let WineObj = DrinkClass(dt: "wine")  //Wine()
+    let ShotObj = DrinkClass(dt: "shot")  //Shot()
+    let MixerObj = DrinkClass(dt: "mixer") //Mixer()
     
     /*
      * Drink Buttons Action
@@ -38,19 +38,23 @@ class ViewController: UIViewController {
         let dateDict = TimeKeeperObj.getFormattedDate()
         
         if buttonId == "beer" {
-            BeerObj.saveBeerEvent(dateDict)
+            //BeerObj.saveBeerEvent(dateDict)
+            BeerObj.saveDrinkEvent(dateDict)
             selectedDrinkCount = BeerObj.getSessionTotal()
         }
         else if buttonId == "wine" {
-            WineObj.saveWineEvent(dateDict)
+            //WineObj.saveWineEvent(dateDict)
+            WineObj.saveDrinkEvent(dateDict)
             selectedDrinkCount = WineObj.getSessionTotal()
         }
         else if buttonId == "shot" {
-            ShotObj.saveShotEvent(dateDict)
+            //ShotObj.saveShotEvent(dateDict)
+            ShotObj.saveDrinkEvent(dateDict)
             selectedDrinkCount = ShotObj.getSessionTotal()
         }
         else if buttonId == "mixer" {
-            MixerObj.saveMixerEvent(dateDict)
+            //MixerObj.saveMixerEvent(dateDict)
+            MixerObj.saveDrinkEvent(dateDict)
             selectedDrinkCount = MixerObj.getSessionTotal()
         }
         
@@ -77,13 +81,15 @@ class ViewController: UIViewController {
             drinkCountLabel.text = "\(selectedDrinkCount) \(capitalizedButtonId)s"
         }
         
+        drinkCountLabel.layer.cornerRadius = 10
+        drinkCountLabel.layer.masksToBounds = true
         drinkCountLabel.fadeIn()
         //drinkCountLabel.alpha = 1.0
         drinkCountLabel.fadeOut()
     }
     
-    func whichView() {
-        println("Tracking View")
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println(segue.identifier)
     }
     
     //Disables Portrait
@@ -96,8 +102,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         drinkCountLabel.alpha = 0.0
-        
-//        BeerObj.getAllTotal()
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,7 +110,6 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        whichView()
     }
 }
 
