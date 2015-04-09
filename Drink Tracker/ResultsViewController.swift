@@ -21,12 +21,12 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var shotCountUI: UILabel!
     @IBOutlet weak var mixerCountUI: UILabel!
     
-    let BeerObj = DrinkClass(dt: "beer") //Beer()
-    let WineObj = Wine()
-    let ShotObj = Shot()
-    let MixerObj = Mixer()
+    let BeerObj = DrinkClass(dt: "beer")
+    let WineObj = DrinkClass(dt: "wine")
+    let ShotObj = DrinkClass(dt: "shot")
+    let MixerObj = DrinkClass(dt: "mixer")
     
-    var duration = ["All Time", "This Year", "This Month", "This Week", /*"Today", "This Session",*/ "Session"]
+    var duration = ["All Time", "This Year", "This Month", "This Week", "Session"]
     var rowSelected = Int()
     
     //Dismisses the view
@@ -83,23 +83,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             shotCountUI.text = String(ShotObj.getWeeklyTotal())
             mixerCountUI.text = String(MixerObj.getWeeklyTotal())
             break
-        /*
         case 4:
-            //today
-            beerCountUI.text = String(BeerObj.getTodayTotal())
-            wineCountUI.text = String(WineObj.getTodayTotal())
-            shotCountUI.text = String(ShotObj.getTodayTotal())
-            mixerCountUI.text = String(MixerObj.getTodayTotal())
-            break
-        case 5:
-            //this session
-            beerCountUI.text = String(BeerObj.getSessionTotal())
-            wineCountUI.text = String(WineObj.getSessionTotal())
-            shotCountUI.text = String(ShotObj.getSessionTotal())
-            mixerCountUI.text = String(MixerObj.getSessionTotal())
-            break
-        */
-        case 6:
             //last session
             beerCountUI.text = String(BeerObj.getLastSessionTotal())
             wineCountUI.text = String(WineObj.getLastSessionTotal())
