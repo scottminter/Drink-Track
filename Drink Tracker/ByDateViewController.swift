@@ -9,8 +9,19 @@
 import Foundation
 import UIKit
 
-class ByDateViewController: UIViewController, UIApplicationDelegate {
+class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicationDelegate {
 
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    //Handles the Date Picker changes
+    @IBAction func datePickerAction(sender: AnyObject) {
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        var strDate = dateFormatter.stringFromDate(datePicker.date)
+        
+        println(strDate)
+    }
+    
     @IBAction func backToDuration(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: {})
     }

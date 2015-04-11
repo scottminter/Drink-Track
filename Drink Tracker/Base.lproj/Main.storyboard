@@ -1617,11 +1617,23 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="y0o-pY-LAW">
+                                <rect key="frame" x="-160" y="-81" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="450467315.217498">
+                                    <!--2015-04-11 17:48:35 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePickerAction:" destination="mzj-z5-ITe" eventType="valueChanged" id="xLY-2U-6Ym"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="y0o-pY-LAW" firstAttribute="leading" secondItem="zXV-Bb-YHn" secondAttribute="leadingMargin" constant="-16" id="CWc-u9-gfa"/>
+                            <constraint firstItem="Ldx-yt-HC2" firstAttribute="top" secondItem="y0o-pY-LAW" secondAttribute="bottom" id="Ipj-f8-cDg"/>
                             <constraint firstItem="7GG-zF-00m" firstAttribute="top" secondItem="XRr-z8-htS" secondAttribute="bottom" id="QUq-zZ-rBZ"/>
                             <constraint firstItem="LfO-iZ-Aai" firstAttribute="top" secondItem="XRr-z8-htS" secondAttribute="bottom" id="S3v-p7-ANx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="y0o-pY-LAW" secondAttribute="trailing" constant="-16" id="jdp-Jx-hKu"/>
                             <constraint firstItem="7GG-zF-00m" firstAttribute="leading" secondItem="zXV-Bb-YHn" secondAttribute="leadingMargin" id="mx3-IP-sK7"/>
                             <constraint firstItem="LfO-iZ-Aai" firstAttribute="trailing" secondItem="zXV-Bb-YHn" secondAttribute="trailingMargin" id="qlT-rk-Wrg"/>
                             <constraint firstItem="zcy-1c-krB" firstAttribute="top" secondItem="XRr-z8-htS" secondAttribute="bottom" id="rYd-ML-4Ed"/>
@@ -1632,6 +1644,7 @@
                                 <exclude reference="7GG-zF-00m"/>
                                 <exclude reference="zcy-1c-krB"/>
                                 <exclude reference="LfO-iZ-Aai"/>
+                                <exclude reference="y0o-pY-LAW"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="QUq-zZ-rBZ"/>
@@ -1640,6 +1653,9 @@
                                 <exclude reference="rhq-kU-P6J"/>
                                 <exclude reference="S3v-p7-ANx"/>
                                 <exclude reference="qlT-rk-Wrg"/>
+                                <exclude reference="CWc-u9-gfa"/>
+                                <exclude reference="jdp-Jx-hKu"/>
+                                <exclude reference="Ipj-f8-cDg"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1647,6 +1663,7 @@
                                 <include reference="7GG-zF-00m"/>
                                 <include reference="zcy-1c-krB"/>
                                 <include reference="LfO-iZ-Aai"/>
+                                <include reference="y0o-pY-LAW"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="QUq-zZ-rBZ"/>
@@ -1655,9 +1672,15 @@
                                 <include reference="rhq-kU-P6J"/>
                                 <include reference="S3v-p7-ANx"/>
                                 <include reference="qlT-rk-Wrg"/>
+                                <include reference="CWc-u9-gfa"/>
+                                <include reference="jdp-Jx-hKu"/>
+                                <include reference="Ipj-f8-cDg"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="y0o-pY-LAW" id="kUi-Zy-hik"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I0W-EG-zZG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
