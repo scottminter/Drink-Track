@@ -115,17 +115,10 @@
 			children = (
 				589AE6861AD6B4D8006C0992 /* Pe-icon-7-stroke.ttf */,
 				584E2ABF1A98C32200ABC1E7 /* AppDelegate.swift */,
-				589555A71ABD9BD400DD79D2 /* TimeKeeperClass.swift */,
-				58AACFA41AB34846003BF872 /* DrinkDAO.swift */,
-				589AE6801AD40C90006C0992 /* DrinkClass.swift */,
-				584E2AC41A98C32300ABC1E7 /* ViewController.swift */,
-				58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */,
-				58F70D0C1AD80B3C004F8AA5 /* ByDateViewController.swift */,
-				585162751AB0A0BF006659AE /* DrinkTypeInfoViewController.swift */,
-				585162731AB09B95006659AE /* TimeInfoViewController.swift */,
-				5880B7F01AAF190000863519 /* UIViewExtensions.swift */,
-				584E2AC61A98C32300ABC1E7 /* Main.storyboard */,
 				589AE6891AD6B82A006C0992 /* images */,
+				58F70D101AD8C4F9004F8AA5 /* Models */,
+				58F70D0E1AD8C494004F8AA5 /* ViewControllers */,
+				584E2AC61A98C32300ABC1E7 /* Main.storyboard */,
 				584E2AC91A98C32300ABC1E7 /* Images.xcassets */,
 				584E2ACB1A98C32300ABC1E7 /* LaunchScreen.xib */,
 				584E2AC11A98C32300ABC1E7 /* Drink_Tracker.xcdatamodeld */,
@@ -172,6 +165,29 @@
 				586354151AC330F600768FA8 /* mixer_offset_300_300_new@2x.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		58F70D0E1AD8C494004F8AA5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				584E2AC41A98C32300ABC1E7 /* ViewController.swift */,
+				58A01BB91A98CBA800AB17E9 /* ResultsViewController.swift */,
+				5880B7F01AAF190000863519 /* UIViewExtensions.swift */,
+				585162731AB09B95006659AE /* TimeInfoViewController.swift */,
+				585162751AB0A0BF006659AE /* DrinkTypeInfoViewController.swift */,
+				58F70D0C1AD80B3C004F8AA5 /* ByDateViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		58F70D101AD8C4F9004F8AA5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				589555A71ABD9BD400DD79D2 /* TimeKeeperClass.swift */,
+				58AACFA41AB34846003BF872 /* DrinkDAO.swift */,
+				589AE6801AD40C90006C0992 /* DrinkClass.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
