@@ -32,7 +32,7 @@ class DrinkDAO: NSObject {
         
         DrinkType = drinkType
         
-        appDel = UIApplication.sharedApplication().delegate as AppDelegate
+        appDel = UIApplication.sharedApplication().delegate as! AppDelegate
         context = appDel.managedObjectContext!
     }
     
@@ -55,18 +55,18 @@ class DrinkDAO: NSObject {
      */
     func saveDrinkEvent(dateDict: Dictionary<String, Any>)->Bool {
         //Get Model for the Drink Event
-        var newDrinkEvent: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(self.EntityName, inManagedObjectContext: self.context) as NSManagedObject
+        var newDrinkEvent: NSManagedObject = NSEntityDescription.insertNewObjectForEntityForName(self.EntityName, inManagedObjectContext: self.context) as! NSManagedObject
         
         //Extract data from Date Dictionary
-        var dayAsNsNum: NSNumber = (dateDict["dayAsInt"] != nil ? dateDict["dayAsInt"] : 0)  as NSNumber
-        var dayStr: String = (dateDict["dayOfWeekAsStr"] != nil ? dateDict["dayOfWeekAsStr"] : "") as String
-        var hour: NSNumber = (dateDict["hour"] != nil ? dateDict["hour"] : 0 ) as NSNumber
-        var min: NSNumber = (dateDict["minute"] != nil ? dateDict["minute"] : 0 ) as NSNumber
-        var month: NSNumber = (dateDict["month"] != nil ? dateDict["month"] : 0) as NSNumber
-        var sec: NSNumber = (dateDict["seconds"] != nil ? dateDict["seconds"] : 0) as NSNumber
-        var wkInMonth: NSNumber = (dateDict["weekInMonth"] != nil ? dateDict["weekInMonth"] : 0) as NSNumber
-        var year: NSNumber = (dateDict["year"] != nil ? dateDict["year"] : 0) as NSNumber
-        var unixTime: Double = (dateDict["unixTime"] != nil ? dateDict["unixTime"] : 0.0) as Double
+        var dayAsNsNum: NSNumber = (dateDict["dayAsInt"] != nil ? dateDict["dayAsInt"] : 0)  as! NSNumber
+        var dayStr: String = (dateDict["dayOfWeekAsStr"] != nil ? dateDict["dayOfWeekAsStr"] : "") as! String
+        var hour: NSNumber = (dateDict["hour"] != nil ? dateDict["hour"] : 0 ) as! NSNumber
+        var min: NSNumber = (dateDict["minute"] != nil ? dateDict["minute"] : 0 ) as! NSNumber
+        var month: NSNumber = (dateDict["month"] != nil ? dateDict["month"] : 0) as! NSNumber
+        var sec: NSNumber = (dateDict["seconds"] != nil ? dateDict["seconds"] : 0) as! NSNumber
+        var wkInMonth: NSNumber = (dateDict["weekInMonth"] != nil ? dateDict["weekInMonth"] : 0) as! NSNumber
+        var year: NSNumber = (dateDict["year"] != nil ? dateDict["year"] : 0) as! NSNumber
+        var unixTime: Double = (dateDict["unixTime"] != nil ? dateDict["unixTime"] : 0.0) as! Double
         
         //Add fields to the Event
         newDrinkEvent.setValue(dayAsNsNum, forKey: "dayAsInt")
@@ -130,7 +130,7 @@ class DrinkDAO: NSObject {
         //Get the current date
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         //Get the current year
-        var currentYear: NSNumber = ((dateDict["year"] != nil ) ? dateDict["year"] : 0) as NSNumber
+        var currentYear: NSNumber = ((dateDict["year"] != nil ) ? dateDict["year"] : 0) as! NSNumber
 
         //Set up request
         var request = NSFetchRequest(entityName: self.EntityName)
@@ -139,7 +139,7 @@ class DrinkDAO: NSObject {
         //Build current year predicate
         let predicate2 = NSPredicate(format: "year == %@", currentYear)
         //Combine Predicates with an AND
-        let allPredicates = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predicate1!, predicate2!])
+        let allPredicates = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predicate1, predicate2])
         //Add predicates to request
         request.predicate = allPredicates
         
@@ -167,7 +167,7 @@ class DrinkDAO: NSObject {
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         
         //Get Current Month
-        var currentMonth: NSNumber = ((dateDict["month"] != nil) ? dateDict["month"] : 0) as NSNumber
+        var currentMonth: NSNumber = ((dateDict["month"] != nil) ? dateDict["month"] : 0) as! NSNumber
         
         //Set Up Request
         var request = NSFetchRequest(entityName: self.EntityName)
@@ -179,7 +179,7 @@ class DrinkDAO: NSObject {
         let predicate2 = NSPredicate(format: "month == %@", currentMonth)
         
         //Combine Predicates with an AND
-        let allPredicates = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predicate1!, predicate2!])
+        let allPredicates = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predicate1, predicate2])
         
         //Add predicates to request
         request.predicate = allPredicates
@@ -203,20 +203,20 @@ class DrinkDAO: NSObject {
         var dateDict: Dictionary<String, Any> = TimeObj.getFormattedDate()
         
         //Current Hour
-        var currHour: Int = ((dateDict["hour"] != nil) ? dateDict["hour"] : 0) as Int
+        var currHour: Int = ((dateDict["hour"] != nil) ? dateDict["hour"] : 0) as! Int
 
         //Current Minute
-        var currMin: Int = ((dateDict["minute"] != nil) ? dateDict["minute"] : 0) as Int
+        var currMin: Int = ((dateDict["minute"] != nil) ? dateDict["minute"] : 0) as! Int
         
         //Current Second
-        var currSec: Int = ((dateDict["seconds"] != nil) ? dateDict["seconds"] : 0) as Int
+        var currSec: Int = ((dateDict["seconds"] != nil) ? dateDict["seconds"] : 0) as! Int
         
         //Get current unix time
-        var unixTime: NSNumber = ((dateDict["unixTime"] != nil) ? dateDict["unixTime"] : 0.0) as NSNumber
+        var unixTime: NSNumber = ((dateDict["unixTime"] != nil) ? dateDict["unixTime"] : 0.0) as! NSNumber
 
         //Get the day of the week as an int
         //ex. Wed = 4, Sun = 1 ... etc
-        var dayOfWeekAsInt = ((dateDict["dayOfWeekAsInt"] != nil) ? dateDict["dayOfWeekAsInt"] : 1) as Int
+        var dayOfWeekAsInt = ((dateDict["dayOfWeekAsInt"] != nil) ? dateDict["dayOfWeekAsInt"] : 1) as! Int
         
         //We need to get all full days as secs plus all secs of today
         var secsInThisDay: Double = TimeObj.getNumberOfSecondsBasedOnTime(currHour, min: currMin, sec: currSec)
@@ -253,13 +253,13 @@ class DrinkDAO: NSObject {
         var dateDict: Dictionary = TimeObj.getFormattedDate()
 
         //Get Day of Week
-        var currentDayOfWeek: NSNumber = ((dateDict["dayOfWeekAsInt"] != nil) ? dateDict["dayOfWeekAsInt"] : 0) as NSNumber
+        var currentDayOfWeek: NSNumber = ((dateDict["dayOfWeekAsInt"] != nil) ? dateDict["dayOfWeekAsInt"] : 0) as! NSNumber
         //Get Day of month
-        var currentDayInMonth: NSNumber = ((dateDict["dayAsInt"] != nil) ? dateDict["dayAsInt"] : 0) as NSNumber
+        var currentDayInMonth: NSNumber = ((dateDict["dayAsInt"] != nil) ? dateDict["dayAsInt"] : 0) as! NSNumber
         //Get Month
-        var currentMonth: NSNumber = ((dateDict["month"] != nil) ? dateDict["month"] : 0) as NSNumber
+        var currentMonth: NSNumber = ((dateDict["month"] != nil) ? dateDict["month"] : 0) as! NSNumber
         //Get Year
-        var currentYear: NSNumber = ((dateDict["year"] != nil) ? dateDict["year"] : 0) as NSNumber
+        var currentYear: NSNumber = ((dateDict["year"] != nil) ? dateDict["year"] : 0) as! NSNumber
         
         //Determine if leap years
         var isLeapYear: Bool = TimeObj.isLeapYear(currentYear as Int)
@@ -308,7 +308,7 @@ class DrinkDAO: NSObject {
         var predMonth = NSPredicate(format: "month >= %@", monthAtStartOfWeek as NSNumber)
         var predDay = NSPredicate(format: "dayAsInt >= %@", dayInMonthAtStartOfWeek as NSNumber)
         var predYear = NSPredicate(format: "year >= %@", yearAtStartOfWeek as NSNumber)
-        var allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predDrinkType!, predMonth!, predDay!, predYear!])
+        var allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predDrinkType, predMonth, predDay, predYear])
         
         request.predicate = allPreds
 
@@ -330,9 +330,9 @@ class DrinkDAO: NSObject {
         //Get formatted date dictionary
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         
-        var currDay: NSNumber = ((dateDict["dayAsInt"] != nil) ? dateDict["dayAsInt"]! : 0) as NSNumber
-        var currMonth: NSNumber = ((dateDict["month"] != nil) ? dateDict["month"]! : 0) as NSNumber
-        var currYear: NSNumber = ((dateDict["year"] != nil) ? dateDict["year"]! : 0) as NSNumber
+        var currDay: NSNumber = ((dateDict["dayAsInt"] != nil) ? dateDict["dayAsInt"]! : 0) as! NSNumber
+        var currMonth: NSNumber = ((dateDict["month"] != nil) ? dateDict["month"]! : 0) as! NSNumber
+        var currYear: NSNumber = ((dateDict["year"] != nil) ? dateDict["year"]! : 0) as! NSNumber
         
         var request = NSFetchRequest(entityName: self.EntityName)
         
@@ -340,7 +340,7 @@ class DrinkDAO: NSObject {
         var predDay = NSPredicate(format: "dayAsInt == %@", currDay)
         var predMonth = NSPredicate(format: "month == %@", currMonth)
         var predYear = NSPredicate(format: "year == %@", currYear)
-        var allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predDrinkType!, predDay!, predMonth!, predYear!])
+        var allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [predDrinkType, predDay, predMonth, predYear])
         
         request.predicate = allPreds
         
@@ -363,7 +363,7 @@ class DrinkDAO: NSObject {
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         
         //Grab current unix time from dateDict
-        let currUnixTime: NSNumber = ((dateDict["unixTime"] != nil) ? dateDict["unixTime"] : 0.0) as NSNumber
+        let currUnixTime: NSNumber = ((dateDict["unixTime"] != nil) ? dateDict["unixTime"] : 0.0) as! NSNumber
         
         //Get start of current session unix time
         let sessStart: NSNumber = getStartUnixTimeOfSession(currUnixTime)
@@ -382,7 +382,7 @@ class DrinkDAO: NSObject {
             while stopLoop == false {
 
                 //We need the earliest drink event from the first result set
-                var earliestTime: Double = results[0].valueForKey("unixTime") as Double
+                var earliestTime: Double = results[0].valueForKey("unixTime") as! Double
                 
                 //Then we need the session start of that event
                 var newSessionStart: NSNumber = getStartUnixTimeOfSession(earliestTime)
@@ -393,7 +393,7 @@ class DrinkDAO: NSObject {
                 //If this is true then that means we didn't get any new results and
                 //we have our session total
                 if results.count == totalResults {
-                    earliestFoundTimeForAllDrinks = results[0].valueForKey("unixTime") as NSNumber
+                    earliestFoundTimeForAllDrinks = results[0].valueForKey("unixTime") as! NSNumber
                     stopLoop = true
                 }
                 else {
@@ -445,7 +445,7 @@ class DrinkDAO: NSObject {
         var mostRecentEntry = NSNumber()
         if results != nil && results!.count > 0 {
             if results![0].valueForKey("unixTime") != nil {
-                mostRecentEntry = results![0].valueForKey("unixTime")! as NSNumber
+                mostRecentEntry = results![0].valueForKey("unixTime")! as! NSNumber
             }
             
             //Get totals of last session
@@ -471,7 +471,7 @@ class DrinkDAO: NSObject {
             while stopLoop == false {
                 
                 //We need the earliest drink event from the first result set
-                var earliestTime: Double = results[0].valueForKey("unixTime") as Double
+                var earliestTime: Double = results[0].valueForKey("unixTime") as! Double
                 
                 //Then we need the session start of that event
                 var newSessionStart: NSNumber = getStartUnixTimeOfSession(earliestTime)
@@ -482,7 +482,7 @@ class DrinkDAO: NSObject {
                 //If this is true then that means we didn't get any new results and
                 //we have our session total
                 if results.count == totalResults {
-                    earliestFoundTimeForAllDrinks = results[0].valueForKey("unixTime") as NSNumber
+                    earliestFoundTimeForAllDrinks = results[0].valueForKey("unixTime") as! NSNumber
                     stopLoop = true
                 }
                 else {
@@ -521,7 +521,7 @@ class DrinkDAO: NSObject {
         //Drink Type Predicate
         var drinkTypePred = NSPredicate() //format: "drinkType == %@", self.DrinkType)
         if ignoreType == false {
-            drinkTypePred = NSPredicate(format: "drinkType == %@", self.DrinkType)!
+            drinkTypePred = NSPredicate(format: "drinkType == %@", self.DrinkType)
         }
         
         //Session Predicate
@@ -533,7 +533,7 @@ class DrinkDAO: NSObject {
         //Combine the Predicates into 1
         var allPreds = NSCompoundPredicate()
         if ignoreType == false {
-            allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [drinkTypePred, sessPred!])
+            allPreds = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: [drinkTypePred, sessPred])
         }
 
         //Add predicates to the request

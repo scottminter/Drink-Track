@@ -118,7 +118,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
 
     //PICKER: Set the rowSelected value
-    func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         rowSelected = row
     }
     
