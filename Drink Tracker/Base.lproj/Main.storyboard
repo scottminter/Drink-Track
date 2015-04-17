@@ -218,7 +218,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="gsz-RT-bek" kind="presentation" identifier="TrackingToTotalsSegue" id="GhD-wa-pk4"/>
+                                    <segue destination="gsz-RT-bek" kind="custom" identifier="TrackingToTotalsSegue" customClass="TrackingToDurationSegue" customModule="Drink_Tracker" id="GhD-wa-pk4"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxr-4V-qff">
@@ -993,7 +993,8 @@
                                         <include reference="c4V-wl-5ip"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="65" width="400" height="691"/>
                                     <mask key="constraints">
                                         <include reference="fVH-oz-CYq"/>
                                         <exclude reference="23P-Pc-aIW"/>
@@ -1107,12 +1108,18 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beer_280_280.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Fn-a0-GUo">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="28" y="90" width="140" height="140"/>
+                                        </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHG-lS-Rq6">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="90"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="49" y="106" width="98" height="108"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.3803921938" alpha="1" colorSpace="deviceRGB"/>
@@ -1174,18 +1181,27 @@
                                         <exclude reference="uga-tW-iVr"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="65" width="195" height="341"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qmE-8a-xEt">
                                 <rect key="frame" x="305" y="65" width="295" height="263"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wine_300_300.png" translatesAutoresizingMaskIntoConstraints="NO" id="9q7-ly-60C">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="23" y="85" width="150" height="150"/>
+                                        </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVl-gr-eKz">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="90"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="49" y="106" width="98" height="108"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.3803921938" alpha="1" colorSpace="deviceRGB"/>
@@ -1223,18 +1239,27 @@
                                         <include reference="zOr-gE-AOx"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="205" y="65" width="195" height="341"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AXn-0W-cGX">
                                 <rect key="frame" x="0.0" y="337" width="295" height="263"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumbler_270_270.png" translatesAutoresizingMaskIntoConstraints="NO" id="CdJ-xG-Z1N">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="30" y="103" width="135" height="135"/>
+                                        </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="103" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGF-nF-PpB">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="90"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="24" y="117" width="147" height="108"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.3803921938" alpha="1" colorSpace="deviceRGB"/>
@@ -1274,18 +1299,27 @@
                                         <include reference="Jsu-tB-QV9"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="415" width="195" height="341"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cqx-GQ-kdJ">
                                 <rect key="frame" x="305" y="337" width="295" height="263"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixer_offset_300_300_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="YRL-vT-EQd">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="23" y="96" width="150" height="150"/>
+                                        </variation>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUU-6X-8Hp">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="90"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="49" y="117" width="98" height="108"/>
+                                        </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oe-9B-1iL">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -1308,7 +1342,8 @@
                                                 <exclude reference="zRo-EK-7wE"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="152" y="304" width="30" height="29"/>
                                             <mask key="constraints">
                                                 <exclude reference="6FL-r6-8fx"/>
                                                 <exclude reference="zRo-EK-7wE"/>
@@ -1359,7 +1394,8 @@
                                         <include reference="PGD-rl-IL4"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="205" y="415" width="195" height="341"/>
                                     <mask key="subviews">
                                         <include reference="3oe-9B-1iL"/>
                                     </mask>
@@ -1397,6 +1433,9 @@
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGM-Xw-jzG">
                                 <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.83999999999999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="594" width="400" height="162"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="gsz-RT-bek" id="jEQ-Eh-qOk"/>
                                     <outlet property="delegate" destination="IjV-aI-ehn" id="xyC-5W-YHq"/>
@@ -1432,6 +1471,9 @@
                                         <include reference="UiF-Tt-MeK"/>
                                         <exclude reference="pfI-9l-ATE"/>
                                     </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="316" y="607" width="68" height="42"/>
                                 </variation>
                                 <connections>
                                     <action selector="pickerButtonActn:" destination="gsz-RT-bek" eventType="touchUpInside" id="Gsc-6A-l9n"/>
@@ -1636,6 +1678,9 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wine_300_300.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rh1-CU-RTy">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="22" y="96" width="150" height="150"/>
+                                        </variation>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.17254901959999999" green="1" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1652,7 +1697,8 @@
                                         <exclude reference="o2t-j2-A5h"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="205" y="65" width="195" height="341"/>
                                     <mask key="subviews">
                                         <include reference="Rh1-CU-RTy"/>
                                     </mask>
@@ -1667,6 +1713,9 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beer_280_280.png" translatesAutoresizingMaskIntoConstraints="NO" id="VLs-YI-Rsz">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="27" y="101" width="140" height="140"/>
+                                        </variation>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.17254901959999999" green="1" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1683,7 +1732,8 @@
                                         <exclude reference="qT9-rv-2en"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="65" width="195" height="341"/>
                                     <mask key="subviews">
                                         <include reference="VLs-YI-Rsz"/>
                                     </mask>
@@ -1698,6 +1748,9 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tumbler_270_270.png" translatesAutoresizingMaskIntoConstraints="NO" id="MXx-41-nts">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="30" y="103" width="135" height="135"/>
+                                        </variation>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.17254901959999999" green="1" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1714,7 +1767,8 @@
                                         <exclude reference="A4a-q0-O14"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="415" width="195" height="341"/>
                                     <mask key="subviews">
                                         <include reference="MXx-41-nts"/>
                                     </mask>
@@ -1729,6 +1783,9 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixer_offset_300_300_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="e0n-De-SRZ">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="23" y="96" width="150" height="150"/>
+                                        </variation>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.17254901959999999" green="1" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1745,7 +1802,8 @@
                                         <exclude reference="vMg-kN-363"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="205" y="415" width="195" height="341"/>
                                     <mask key="subviews">
                                         <include reference="e0n-De-SRZ"/>
                                     </mask>
