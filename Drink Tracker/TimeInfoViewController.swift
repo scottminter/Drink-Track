@@ -12,7 +12,9 @@ import UIKit
 class TimeInfoViewController: UIViewController {
     
     @IBAction func backButtonAction(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {});//This is intended to dismiss the Info sceen.
+        //self.dismissViewControllerAnimated(true, completion: {});//This is intended to dismiss the Info sceen.
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {

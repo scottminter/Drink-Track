@@ -33,7 +33,11 @@ class DrinkClass: NSObject {
     //Last sessions total based on drink type
     private var lastSessionTotal = Int()
     
+    //Data Access Object for Drink Types
     private var drinkDAO = DrinkDAO()
+    
+    //Time Keeper instance
+    private var timeKeeper = TimeKeeper()
     
     override init() {
         super.init()
@@ -52,7 +56,25 @@ class DrinkClass: NSObject {
         
         super.init()
         
-        self.drinkType = dt
+        switch dt {
+        case "beer":
+            self.drinkType = "beer"
+            break
+        case "wine":
+            self.drinkType = "wine"
+            break
+        case "shot":
+            self.drinkType = "shot"
+            break
+        case "mixer":
+            self.drinkType = "mixer"
+            break
+        default:
+            self.drinkType = "beer"
+            break
+        }
+        
+        //self.drinkType = dt
         self.drinkDAO = DrinkDAO(drinkType: drinkType)
         allTotal = 0
         yearTotal = 0
@@ -62,7 +84,12 @@ class DrinkClass: NSObject {
         sessionTotal = 0
         lastSessionTotal = 0
         
-        self.setAllTotalAtSameTime()
+        //self.setAllTotalAtSameTime()
+    }
+    
+    func getTotalByDates(startDate: String, endDate: String)->Int {
+        
+        return 12
     }
     
     /**
@@ -76,6 +103,7 @@ class DrinkClass: NSObject {
     * Sets all priv mbr data at same time
     */
     func setAllTotalAtSameTime() {
+println("\(self.drinkType): Set ALL")
         self.setAllTotal(drinkDAO.getAllTimeTotal())
         self.setYearTotal(drinkDAO.getYearlyTotal())
         self.setMonthlyTotal(drinkDAO.getMonthlyTotal())

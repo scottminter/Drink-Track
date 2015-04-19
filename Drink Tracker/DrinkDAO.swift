@@ -30,7 +30,26 @@ class DrinkDAO: NSObject {
     init(drinkType: String) {
         super.init()
         
-        DrinkType = drinkType
+        var dt = String()
+        switch drinkType {
+            case "beer":
+                dt = "beer"
+                break
+            case "wine":
+                dt = "wine"
+                break
+            case "shot":
+                dt = "shot"
+                break
+            case "mixer":
+                dt = "mixer"
+                break
+            default:
+                dt = "beer"
+                break
+        }
+        
+        DrinkType = dt
         
         appDel = UIApplication.sharedApplication().delegate as! AppDelegate
         context = appDel.managedObjectContext!
@@ -98,6 +117,7 @@ class DrinkDAO: NSObject {
      *  Get all totals based on drink type
      */
     func getAllTimeTotal()->Int {
+println("\(self.DrinkType): All Time")
         //Set up request
         var request = NSFetchRequest(entityName: self.EntityName)
         
@@ -114,7 +134,6 @@ class DrinkDAO: NSObject {
         var results = context.executeFetchRequest(request, error: err)
         
         if err == nil {
-            NSLog("OK! All time: \(results!.count) for \(DrinkType)")
             return results!.count
         }
         else {
@@ -127,6 +146,7 @@ class DrinkDAO: NSObject {
      *  Get the year totals for current year
      */
     func getYearlyTotal()->Int {
+println("\(self.DrinkType): Yearly")
         //Get the current date
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         //Get the current year
@@ -150,7 +170,6 @@ class DrinkDAO: NSObject {
         var results = context.executeFetchRequest(request, error: err)
         
         if err == nil {
-            NSLog("OK! Year: \(results!.count) for \(DrinkType)")
             return results!.count
         }
         else {
@@ -163,6 +182,7 @@ class DrinkDAO: NSObject {
      *  Get the monthly totals
      */
     func getMonthlyTotal()->Int {
+println("\(self.DrinkType): Monthly")
         //Get Current Date
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         
@@ -199,6 +219,7 @@ class DrinkDAO: NSObject {
      *
      */
     func getWeeklyTotal()->Int {
+println("\(self.DrinkType): Weekly: Good")
         //Get current time dictionary
         var dateDict: Dictionary<String, Any> = TimeObj.getFormattedDate()
         
@@ -237,7 +258,6 @@ class DrinkDAO: NSObject {
         var results: Array<AnyObject> = getDataSinceUnixTime(unixTimeAtStartOfWeek, ignoreType: false)
         
         if results.count > 0 {
-            println("drink count: \(results.count)")
             
             return results.count
         }
@@ -249,6 +269,7 @@ class DrinkDAO: NSObject {
     //TODO: Redo weekly with UnixTime
     //Old version not being called any longer
     func getWeeklyTotal_Old()->Int {
+println("\(self.DrinkType): Weekly: Bad")
         //Get Date Dict
         var dateDict: Dictionary = TimeObj.getFormattedDate()
 
@@ -327,6 +348,7 @@ class DrinkDAO: NSObject {
      *  Get the daily totals
      */
     func getDailyTotal()->Int {
+println("\(self.DrinkType): Daily")
         //Get formatted date dictionary
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         
@@ -358,7 +380,7 @@ class DrinkDAO: NSObject {
      *  Gets the total results for the current session
      */
     func getSessionTotal()->Int {
-
+println("\(self.DrinkType): Sessions: Current")
         //Get formatted date
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         
@@ -420,6 +442,7 @@ class DrinkDAO: NSObject {
      *  Get totals from last session
      */
     func getLastSessionTotal()->Int {
+println("\(self.DrinkType): Session: Last")        
         //Get time of
         
         //empty results

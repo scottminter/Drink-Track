@@ -11,6 +11,7 @@ import UIKit
 
 class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIApplicationDelegate {
     
+    @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var infoButtonObj: UIButton!
     @IBOutlet weak var pickerListObj: UIPickerView!
     @IBOutlet weak var pickerBtnObj: UIButton!
@@ -31,7 +32,8 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     //Dismisses the view
     @IBAction func trackingButtonAction(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {})
+        //self.dismissViewControllerAnimated(true, completion: {})
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     //Displays the picker and picker button
@@ -42,8 +44,6 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     //"Done" Button in picker
     @IBAction func pickerButtonActn(sender: AnyObject) {
-        println("row: \(rowSelected), value: \(duration[rowSelected])")
-        
         setTotalsBasedOnDuration(rowSelected)
         
         pickerListObj.hidden = true

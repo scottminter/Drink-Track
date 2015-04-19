@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>54404315-A223-4FBD-A467-CD48F539CC3E</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Drink Tracker</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>57C40B103259A42971CAFE43F01D5DBB97E05C02</key>
 		<string>github.com:scottminter/Drink-Track.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Drink Tracker.xcodeproj</string>
+	<string>Drink Tracker.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>57C40B103259A42971CAFE43F01D5DBB97E05C02</key>
