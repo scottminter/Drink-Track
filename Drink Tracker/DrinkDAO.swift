@@ -113,6 +113,57 @@ class DrinkDAO: NSObject {
         }
     }
     
+    /**
+     * Returns drink totals for a date span
+     */
+    func getTotalByDates(startDt start: Dictionary<String , Any>, endDt end: Dictionary<String, Any>)->Int {
+
+        let startUnix: NSNumber = start["unixTime"]! as! NSNumber
+        let endUnix: NSNumber = end["unixTime"]! as! NSNumber
+
+        //Set up request
+        var request = NSFetchRequest(entityName: self.EntityName)
+        
+        var predArr: [NSPredicate] = []
+        
+        //Build drink type predicate
+        let predicate1: NSPredicate = NSPredicate(format: "drinkType == %@", self.DrinkType)
+        predArr.append(predicate1)
+        
+        //Build predicate for all unix greater than start
+        let predicate2: NSPredicate = NSPredicate(format: "unixTime >= %@", startUnix)
+
+        predArr.append(predicate2)
+        
+        //Build predicate for all unix less than end
+        let predicate3: NSPredicate = NSPredicate(format: "unixTime <= %@", endUnix)
+        predArr.append(predicate3)
+
+        let allPredicates = NSCompoundPredicate(type: NSCompoundPredicateType.AndPredicateType, subpredicates: predArr)
+        
+        //Sorting Description
+        var sortDesc = NSSortDescriptor(key: "unixTime", ascending: true)
+        
+        request.predicate = allPredicates
+
+    
+        //Add sort descriptors to the request
+        request.sortDescriptors = [sortDesc]
+        
+        var err: NSErrorPointer = nil
+    
+        //Execute the fetch for results
+        let results = context.executeFetchRequest(request, error: err)
+    
+        if results != nil {
+            return results!.count
+        }
+        else {
+            NSLog("Error: \(err)")
+            return 0
+        }
+    }
+    
     /*
      *  Get all totals based on drink type
      */

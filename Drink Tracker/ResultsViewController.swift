@@ -98,7 +98,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         var allTotal: Int = beerCountUI.text!.toInt()! + wineCountUI.text!.toInt()! + shotCountUI.text!.toInt()! + mixerCountUI.text!.toInt()!
         
         //Update the Duration Button Title wit all drink total
-        durationLabelObj.setTitle("\(allTotal) Drinks", forState: .Normal)
+        durationLabelObj.setTitle(duration[selectedDuration], forState: .Normal) //"\(allTotal) Drinks", forState: .Normal)
     }
     
     

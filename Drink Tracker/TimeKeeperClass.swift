@@ -12,6 +12,7 @@ class TimeKeeper: NSObject {
     
     private var SecsInHour: Double = 3600.00
     private var SecsInMinute: Double = 60.00
+    private var dateObj = Dictionary<String, Any>()
     
     override init() {
         super.init()
@@ -20,10 +21,17 @@ class TimeKeeper: NSObject {
     /**
     * Returns a Dictionary object containing various date info
     */
-    func getFormattedDate()->Dictionary<String, Any> {
-        var dateObj = Dictionary<String, Any>()
+    func getFormattedDate(dateAsString: String = "")->Dictionary<String, Any> {
         
         var date = NSDate()
+        
+        //Handles converting param time to NSDate
+        if(dateAsString != "") {
+            var dateFormatter: NSDateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+            date = dateFormatter.dateFromString(dateAsString)!
+        }
+        
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitWeekday | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
         let year = components.year
@@ -78,6 +86,20 @@ class TimeKeeper: NSObject {
         return dateObj
     }
     
+    func getCurrentDateAsString()-> String {
+        if dateObj.isEmpty {
+            self.getFormattedDate()
+        }
+        
+        var month: String = String(stringInterpolationSegment: dateObj["month"]!)
+        var day: String = String(stringInterpolationSegment: dateObj["dayAsInt"]!)
+        var year: String = String(stringInterpolationSegment: dateObj["year"]!)
+        
+        var dateString =  month + "-" + day + "-" + year
+
+        return dateString
+    }
+    
     //Send an hour, min, and sec and get total secs back
     func getNumberOfSecondsBasedOnTime(hour: Int, min: Int, sec: Int)->Double {
         var totalSecs: Double = 0.0
@@ -94,6 +116,7 @@ class TimeKeeper: NSObject {
         return totalSecs
     }
     
+    // Lets you know if a year is a leap year
     func isLeapYear(iYear: Int)->Bool {
         
         if iYear % 4 == 0  {
@@ -116,6 +139,7 @@ class TimeKeeper: NSObject {
         }
     }
     
+    // Gets the number of days for a given month and accounts for leap year
     func getNumberOfDaysInMonth(iMonth: Int, isLeapYear: Bool)-> Int {
         var numOfDays: Int = 0
         
@@ -167,6 +191,4 @@ class TimeKeeper: NSObject {
         
         return numOfDays
     }
-    
-    
 }

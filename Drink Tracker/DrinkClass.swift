@@ -48,9 +48,7 @@ class DrinkClass: NSObject {
     /**
     * Constructor
     *
-    * Takes in a drink type and 
-    * sets up the object
-    *
+    * Takes in a drink type and sets up the object.
     */
     init(dt: String) {
         
@@ -74,7 +72,6 @@ class DrinkClass: NSObject {
             break
         }
         
-        //self.drinkType = dt
         self.drinkDAO = DrinkDAO(drinkType: drinkType)
         allTotal = 0
         yearTotal = 0
@@ -87,23 +84,34 @@ class DrinkClass: NSObject {
         //self.setAllTotalAtSameTime()
     }
     
+    /**
+     * Gets totals over a date range
+     */
     func getTotalByDates(startDate: String, endDate: String)->Int {
+
+        var startWithTime: String = startDate + " 00:00:00"
+        var endWithTime: String = endDate + " 23:59:59"
+
+       var startDateDict: Dictionary<String, Any> = self.timeKeeper.getFormattedDate(dateAsString: startWithTime)
+
+        var endDateDict: Dictionary<String, Any> = self.timeKeeper.getFormattedDate(dateAsString: endWithTime)
         
-        return 12
+        var total: Int = self.drinkDAO.getTotalByDates(startDt: startDateDict, endDt: endDateDict)
+        
+        return total
     }
     
     /**
-    * Takes in a Date dictionary and saves a drink event
-    */
+     * Takes in a Date dictionary and saves a drink event
+     */
     func saveDrinkEvent(dateDict: Dictionary<String, Any>) {
         drinkDAO.saveDrinkEvent(dateDict)
     }
     
     /**
-    * Sets all priv mbr data at same time
-    */
+     * Sets all priv mbr data at same time
+     */
     func setAllTotalAtSameTime() {
-println("\(self.drinkType): Set ALL")
         self.setAllTotal(drinkDAO.getAllTimeTotal())
         self.setYearTotal(drinkDAO.getYearlyTotal())
         self.setMonthlyTotal(drinkDAO.getMonthlyTotal())
@@ -114,29 +122,31 @@ println("\(self.drinkType): Set ALL")
     }
     
     /**
-    * Setter for All Total
-    */
+     * Setter for All Total
+     */
     func setAllTotal(allTot: Int) {
         allTotal = allTot
     }
     
     /**
-    * Getter for All Total
-    */
+     * Getter for All Total
+     */
     func getAllTotal()->Int {
+        self.setAllTotal(drinkDAO.getAllTimeTotal())
+        
         return allTotal
     }
     
     /**
-    * Setter for Year Total
-    */
+     * Setter for Year Total
+     */
     func setYearTotal(yearTot: Int) {
         yearTotal = yearTot
     }
     
     /**
-    * Getter for the Year Total
-    */
+     * Getter for the Year Total
+     */
     func getYearTotal()->Int {
         self.setYearTotal(drinkDAO.getYearlyTotal())
         
@@ -144,15 +154,15 @@ println("\(self.drinkType): Set ALL")
     }
     
     /**
-    * Setter for the Monthly Total
-    */
+     * Setter for the Monthly Total
+     */
     func setMonthlyTotal(monthTot: Int) {
         monthlyTotal = monthTot
     }
     
     /**
-    * Getter for the Monthly Total
-    */
+     * Getter for the Monthly Total
+     */
     func getMonthlyTotal()->Int {
         self.setMonthlyTotal(drinkDAO.getMonthlyTotal())
         
@@ -160,15 +170,15 @@ println("\(self.drinkType): Set ALL")
     }
     
     /**
-    * Setter for Weekly Total
-    */
+     * Setter for Weekly Total
+     */
     func setWeeklyTotal(weekTot: Int) {
         weeklyTotal = weekTot
     }
     
     /**
-    * Getter for Weekly Total
-    */
+     * Getter for Weekly Total
+     */
     func getWeeklyTotal()->Int {
         self.setWeeklyTotal(drinkDAO.getWeeklyTotal())
         
@@ -176,15 +186,15 @@ println("\(self.drinkType): Set ALL")
     }
     
     /**
-    * Setter for Today Total
-    */
+     * Setter for Today Total
+     */
     func setTodayTotal(todayTot: Int) {
         todayTotal = todayTot
     }
     
     /**
-    * Getter for Today Total
-    */
+     * Getter for Today Total
+     */
     func getTodayTotal()->Int {
         self.setTodayTotal(drinkDAO.getDailyTotal())
         
@@ -192,15 +202,15 @@ println("\(self.drinkType): Set ALL")
     }
     
     /**
-    * Setter for Session Total
-    */
+     * Setter for Session Total
+     */
     func setSessionTotal(sessionTot: Int) {
         sessionTotal = sessionTot
     }
     
     /**
-    * Getter for Session Total
-    */
+     * Getter for Session Total
+     */
     func getSessionTotal()->Int {
         self.setSessionTotal(drinkDAO.getSessionTotal())
         
@@ -208,15 +218,15 @@ println("\(self.drinkType): Set ALL")
     }
     
     /**
-    * Setter for last Session total
-    */
+     * Setter for last Session total
+     */
     func setLastSessionTotal(lastSessTot: Int) {
         lastSessionTotal = lastSessTot
     }
     
     /**
-    *  Setter for last Session total
-    */
+     *  Setter for last Session total
+     */
     func getLastSessionTotal()->Int {
         self.setLastSessionTotal(drinkDAO.getLastSessionTotal())
         
@@ -224,8 +234,8 @@ println("\(self.drinkType): Set ALL")
     }
     
     /**
-    * Returns Drink Object as Dictionary
-    */
+     * Returns Drink Object as Dictionary
+     */
     func toDictionary()->Dictionary<String, Int> {
         var drinkDict: Dictionary<String, Int> = Dictionary<String, Int>()
         
