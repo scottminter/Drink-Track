@@ -108,15 +108,48 @@ class DrinkDAO: NSObject {
             return false
         }
         else {
-            NSLog("Data Save Successful: \(newDrinkEvent)")
+            //NSLog("Data Save Successful: \(newDrinkEvent)")
             return true
+        }
+    }
+    
+    /**
+     * Delete most recent event of self type
+     */
+    func deleteMostRecentEvent() {
+        println("Lets delete something")
+
+        //Set up request
+        var request = NSFetchRequest(entityName: self.EntityName)
+        
+        //Build drink type predicate
+        let predicate1: NSPredicate = NSPredicate(format: "drinkType == %@", self.DrinkType)
+        
+        //Add drink type predicate to the request
+        request.predicate = predicate1
+        
+        //Sort Descending
+        var sortDesc = NSSortDescriptor(key: "unixTime", ascending: false)
+        
+        //Add sort descriptors to the request
+        request.sortDescriptors = [sortDesc]
+        
+        var err: NSErrorPointer = nil
+        
+        //Execute the fetch for results
+        let results = context.executeFetchRequest(request, error: err)
+
+        if results?.count > 0 {
+            var toDelete: AnyObject = results!.first!
+        
+            context.deleteObject(toDelete as! NSManagedObject)
         }
     }
     
     /**
      * Returns drink totals for a date span
      */
-    func getTotalByDates(startDt start: Dictionary<String , Any>, endDt end: Dictionary<String, Any>)->Int {
+    func getTotalByDates(startDt start: Dictionary<String, Any>, endDt end: Dictionary<String, Any>)->Int {
 
         let startUnix: NSNumber = start["unixTime"]! as! NSNumber
         let endUnix: NSNumber = end["unixTime"]! as! NSNumber
@@ -149,7 +182,7 @@ class DrinkDAO: NSObject {
     
         //Add sort descriptors to the request
         request.sortDescriptors = [sortDesc]
-        
+
         var err: NSErrorPointer = nil
     
         //Execute the fetch for results

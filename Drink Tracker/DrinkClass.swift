@@ -41,8 +41,6 @@ class DrinkClass: NSObject {
     
     override init() {
         super.init()
-        
-        
     }
     
     /**
@@ -106,6 +104,13 @@ class DrinkClass: NSObject {
      */
     func saveDrinkEvent(dateDict: Dictionary<String, Any>) {
         drinkDAO.saveDrinkEvent(dateDict)
+    }
+    
+    /**
+     * Deletes the most recent drink event
+     */
+    func deleteMostRecentDrinkEvent() {
+        self.drinkDAO.deleteMostRecentEvent()
     }
     
     /**

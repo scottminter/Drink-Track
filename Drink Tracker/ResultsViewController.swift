@@ -29,6 +29,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     var duration = ["All Time", "This Year", "This Month", "This Week", "Session"]
     var rowSelected = Int()
+    let defaultDuration: Int = 0
     
     //Dismisses the view
     @IBAction func trackingButtonAction(sender: AnyObject) {
@@ -155,9 +156,8 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
         
-        //Default Drink Counts to Session
-        rowSelected = 0
-        setTotalsBasedOnDuration(rowSelected)
+        //Default Drink Counts to All
+        setTotalsBasedOnDuration(self.defaultDuration)
         
         //Set the picker delegate
         pickerListObj.dataSource = self
@@ -177,6 +177,9 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     override func viewDidAppear(animated: Bool) {
         pickerListObj.hidden = true
         pickerBtnObj.hidden = true
+        
+        //Default Drink Counts to All
+        setTotalsBasedOnDuration(self.defaultDuration)
     }
     
 }

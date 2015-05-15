@@ -76,15 +76,16 @@ class ViewController: UIViewController {
         else {
             drinkCountLabel.text = "\(selectedDrinkCount) \(capitalizedButtonId)s"
         }
-        
-        drinkCountLabel.layer.cornerRadius = 10
-        drinkCountLabel.layer.masksToBounds = true
+
+        //Fade-In the drink total label
         drinkCountLabel.fadeIn()
+        
+        //Fade-Out the drink total label
         drinkCountLabel.fadeOut()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        println(segue.identifier)
+        //println(segue.identifier)
     }
     
     //Disables Portrait
@@ -96,7 +97,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //Set the transparensy level for the drink count label
         drinkCountLabel.alpha = 0.0
+        drinkCountLabel.layer.cornerRadius = 10
+        drinkCountLabel.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,7 +108,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewDidAppear(animated: Bool) {
-    }
+    override func viewDidAppear(animated: Bool) {}
 }
 
