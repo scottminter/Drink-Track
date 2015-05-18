@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		581E283A1B0A89B500D9616D /* DrinkAppIcon_87_87.png in Resources */ = {isa = PBXBuildFile; fileRef = 581E28391B0A89B500D9616D /* DrinkAppIcon_87_87.png */; };
+		581E283E1B0A8A3000D9616D /* DrinkAppIcon_80_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 581E283D1B0A8A3000D9616D /* DrinkAppIcon_80_80.png */; };
+		581E28401B0A8A7400D9616D /* DrinkAppIcon_120_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 581E283F1B0A8A7400D9616D /* DrinkAppIcon_120_120.png */; };
+		581E28421B0A8AB500D9616D /* DrinkAppIcon_120_120@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 581E28411B0A8AB500D9616D /* DrinkAppIcon_120_120@2x.png */; };
+		581E28441B0A8B2000D9616D /* DrinkAppIcon_180_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 581E28431B0A8B2000D9616D /* DrinkAppIcon_180_180.png */; };
+		581E28461B0A8B5F00D9616D /* DrinkAppIcon_76_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 581E28451B0A8B5F00D9616D /* DrinkAppIcon_76_76.png */; };
+		581E28481B0A8B9F00D9616D /* DrinkAppIcon_152_152@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 581E28471B0A8B9F00D9616D /* DrinkAppIcon_152_152@2x.png */; };
+		581E284A1B0A8C1D00D9616D /* DrinkAppIcon_58_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 581E28491B0A8C1D00D9616D /* DrinkAppIcon_58_58.png */; };
+		581E284C1B0A8F7300D9616D /* DrinkAppStartScreen_larger_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 581E284B1B0A8F7300D9616D /* DrinkAppStartScreen_larger_circle.png */; };
 		584E2AC01A98C32200ABC1E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E2ABF1A98C32200ABC1E7 /* AppDelegate.swift */; };
 		584E2AC31A98C32300ABC1E7 /* Drink_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 584E2AC11A98C32300ABC1E7 /* Drink_Tracker.xcdatamodeld */; };
 		584E2AC51A98C32300ABC1E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584E2AC41A98C32300ABC1E7 /* ViewController.swift */; };
@@ -26,14 +35,6 @@
 		5880B7F11AAF190000863519 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880B7F01AAF190000863519 /* UIViewExtensions.swift */; };
 		588711231B0670D100C02CA6 /* DrinkAppStartScreen2.png in Resources */ = {isa = PBXBuildFile; fileRef = 588711221B0670D100C02CA6 /* DrinkAppStartScreen2.png */; };
 		588711251B067C1F00C02CA6 /* DrinkAppIcon_240_240@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588711241B067C1F00C02CA6 /* DrinkAppIcon_240_240@2x.png */; };
-		5887112D1B06804F00C02CA6 /* DrinkAppIcon_58_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 5887112C1B06804F00C02CA6 /* DrinkAppIcon_58_58.png */; };
-		5887112F1B0680BA00C02CA6 /* DrinkAppIcon_87_87.png in Resources */ = {isa = PBXBuildFile; fileRef = 5887112E1B0680BA00C02CA6 /* DrinkAppIcon_87_87.png */; };
-		588711311B06816E00C02CA6 /* DrinkAppIcon_80_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 588711301B06816E00C02CA6 /* DrinkAppIcon_80_80.png */; };
-		588711331B0681FE00C02CA6 /* DrinkAppIcon_120_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 588711321B0681FE00C02CA6 /* DrinkAppIcon_120_120.png */; };
-		588711351B06825F00C02CA6 /* DrinkAppIcon_120_120@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588711341B06825F00C02CA6 /* DrinkAppIcon_120_120@2x.png */; };
-		588711371B0682AE00C02CA6 /* DrinkAppIcon_76_76.png in Resources */ = {isa = PBXBuildFile; fileRef = 588711361B0682AE00C02CA6 /* DrinkAppIcon_76_76.png */; };
-		588711391B06833000C02CA6 /* DrinkAppIcon_152_152@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 588711381B06833000C02CA6 /* DrinkAppIcon_152_152@2x.png */; };
-		5887113B1B0683BC00C02CA6 /* DrinkAppIcon_180_180.png in Resources */ = {isa = PBXBuildFile; fileRef = 5887113A1B0683BC00C02CA6 /* DrinkAppIcon_180_180.png */; };
 		589880731AD6C83E007B0C04 /* info_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 589880721AD6C83E007B0C04 /* info_icon.png */; };
 		589AE6811AD40C90006C0992 /* DrinkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589AE6801AD40C90006C0992 /* DrinkClass.swift */; };
 		589AE6881AD6B71C006C0992 /* Pe-icon-7-stroke.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 589AE6861AD6B4D8006C0992 /* Pe-icon-7-stroke.ttf */; };
@@ -56,6 +57,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		581E28391B0A89B500D9616D /* DrinkAppIcon_87_87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_87_87.png; sourceTree = "<group>"; };
+		581E283D1B0A8A3000D9616D /* DrinkAppIcon_80_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_80_80.png; sourceTree = "<group>"; };
+		581E283F1B0A8A7400D9616D /* DrinkAppIcon_120_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_120_120.png; sourceTree = "<group>"; };
+		581E28411B0A8AB500D9616D /* DrinkAppIcon_120_120@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DrinkAppIcon_120_120@2x.png"; sourceTree = "<group>"; };
+		581E28431B0A8B2000D9616D /* DrinkAppIcon_180_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_180_180.png; sourceTree = "<group>"; };
+		581E28451B0A8B5F00D9616D /* DrinkAppIcon_76_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_76_76.png; sourceTree = "<group>"; };
+		581E28471B0A8B9F00D9616D /* DrinkAppIcon_152_152@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DrinkAppIcon_152_152@2x.png"; sourceTree = "<group>"; };
+		581E28491B0A8C1D00D9616D /* DrinkAppIcon_58_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_58_58.png; sourceTree = "<group>"; };
+		581E284B1B0A8F7300D9616D /* DrinkAppStartScreen_larger_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppStartScreen_larger_circle.png; sourceTree = "<group>"; };
 		584E2ABA1A98C32200ABC1E7 /* Drink Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drink Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		584E2ABE1A98C32200ABC1E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		584E2ABF1A98C32200ABC1E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,14 +89,6 @@
 		5880B7F01AAF190000863519 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		588711221B0670D100C02CA6 /* DrinkAppStartScreen2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppStartScreen2.png; sourceTree = "<group>"; };
 		588711241B067C1F00C02CA6 /* DrinkAppIcon_240_240@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DrinkAppIcon_240_240@2x.png"; sourceTree = "<group>"; };
-		5887112C1B06804F00C02CA6 /* DrinkAppIcon_58_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_58_58.png; sourceTree = "<group>"; };
-		5887112E1B0680BA00C02CA6 /* DrinkAppIcon_87_87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_87_87.png; sourceTree = "<group>"; };
-		588711301B06816E00C02CA6 /* DrinkAppIcon_80_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_80_80.png; sourceTree = "<group>"; };
-		588711321B0681FE00C02CA6 /* DrinkAppIcon_120_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_120_120.png; sourceTree = "<group>"; };
-		588711341B06825F00C02CA6 /* DrinkAppIcon_120_120@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DrinkAppIcon_120_120@2x.png"; sourceTree = "<group>"; };
-		588711361B0682AE00C02CA6 /* DrinkAppIcon_76_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_76_76.png; sourceTree = "<group>"; };
-		588711381B06833000C02CA6 /* DrinkAppIcon_152_152@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DrinkAppIcon_152_152@2x.png"; sourceTree = "<group>"; };
-		5887113A1B0683BC00C02CA6 /* DrinkAppIcon_180_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DrinkAppIcon_180_180.png; sourceTree = "<group>"; };
 		589880721AD6C83E007B0C04 /* info_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_icon.png; sourceTree = "<group>"; };
 		589AE6801AD40C90006C0992 /* DrinkClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkClass.swift; sourceTree = "<group>"; };
 		589AE6861AD6B4D8006C0992 /* Pe-icon-7-stroke.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pe-icon-7-stroke.ttf"; sourceTree = "<group>"; };
@@ -183,14 +185,15 @@
 				5880B7E61AAE920800863519 /* beer_280_280@2x.png */,
 				58CB5AD01AC3A3240096B17D /* beer_512_512@2x.png */,
 				588711221B0670D100C02CA6 /* DrinkAppStartScreen2.png */,
-				5887112C1B06804F00C02CA6 /* DrinkAppIcon_58_58.png */,
-				5887112E1B0680BA00C02CA6 /* DrinkAppIcon_87_87.png */,
-				588711301B06816E00C02CA6 /* DrinkAppIcon_80_80.png */,
-				588711321B0681FE00C02CA6 /* DrinkAppIcon_120_120.png */,
-				588711341B06825F00C02CA6 /* DrinkAppIcon_120_120@2x.png */,
-				588711361B0682AE00C02CA6 /* DrinkAppIcon_76_76.png */,
-				5887113A1B0683BC00C02CA6 /* DrinkAppIcon_180_180.png */,
-				588711381B06833000C02CA6 /* DrinkAppIcon_152_152@2x.png */,
+				581E284B1B0A8F7300D9616D /* DrinkAppStartScreen_larger_circle.png */,
+				581E28491B0A8C1D00D9616D /* DrinkAppIcon_58_58.png */,
+				581E28391B0A89B500D9616D /* DrinkAppIcon_87_87.png */,
+				581E283D1B0A8A3000D9616D /* DrinkAppIcon_80_80.png */,
+				581E283F1B0A8A7400D9616D /* DrinkAppIcon_120_120.png */,
+				581E28411B0A8AB500D9616D /* DrinkAppIcon_120_120@2x.png */,
+				581E28431B0A8B2000D9616D /* DrinkAppIcon_180_180.png */,
+				581E28451B0A8B5F00D9616D /* DrinkAppIcon_76_76.png */,
+				581E28471B0A8B9F00D9616D /* DrinkAppIcon_152_152@2x.png */,
 				588711241B067C1F00C02CA6 /* DrinkAppIcon_240_240@2x.png */,
 				58F70D091AD80323004F8AA5 /* icomoon_mapped_to_symbols.ttf */,
 				5880B7E81AAE925D00863519 /* tumbler_270_270@2x.png */,
@@ -307,29 +310,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				581E283A1B0A89B500D9616D /* DrinkAppIcon_87_87.png in Resources */,
 				5880B7E71AAE920800863519 /* beer_280_280@2x.png in Resources */,
-				5887112F1B0680BA00C02CA6 /* DrinkAppIcon_87_87.png in Resources */,
-				588711351B06825F00C02CA6 /* DrinkAppIcon_120_120@2x.png in Resources */,
 				58F70D0B1AD8039D004F8AA5 /* icomoon_mapped_to_symbols.ttf in Resources */,
-				588711391B06833000C02CA6 /* DrinkAppIcon_152_152@2x.png in Resources */,
 				58721AB11AFCFF91001C1B17 /* DrinkAppStartScreen.png in Resources */,
 				584E2AC81A98C32300ABC1E7 /* Main.storyboard in Resources */,
+				581E28461B0A8B5F00D9616D /* DrinkAppIcon_76_76.png in Resources */,
 				588711231B0670D100C02CA6 /* DrinkAppStartScreen2.png in Resources */,
 				5880B7E91AAE925D00863519 /* tumbler_270_270@2x.png in Resources */,
 				588711251B067C1F00C02CA6 /* DrinkAppIcon_240_240@2x.png in Resources */,
+				581E284A1B0A8C1D00D9616D /* DrinkAppIcon_58_58.png in Resources */,
+				581E28481B0A8B9F00D9616D /* DrinkAppIcon_152_152@2x.png in Resources */,
 				5880B7DD1AAE8C5100863519 /* wine_300_300@2x.png in Resources */,
-				588711311B06816E00C02CA6 /* DrinkAppIcon_80_80.png in Resources */,
 				58CB5AD11AC3A3240096B17D /* beer_512_512@2x.png in Resources */,
 				589AE6881AD6B71C006C0992 /* Pe-icon-7-stroke.ttf in Resources */,
+				581E28401B0A8A7400D9616D /* DrinkAppIcon_120_120.png in Resources */,
+				581E283E1B0A8A3000D9616D /* DrinkAppIcon_80_80.png in Resources */,
 				586354161AC330F600768FA8 /* mixer_offset_300_300_new@2x.png in Resources */,
-				588711371B0682AE00C02CA6 /* DrinkAppIcon_76_76.png in Resources */,
-				5887112D1B06804F00C02CA6 /* DrinkAppIcon_58_58.png in Resources */,
-				5887113B1B0683BC00C02CA6 /* DrinkAppIcon_180_180.png in Resources */,
+				581E28441B0A8B2000D9616D /* DrinkAppIcon_180_180.png in Resources */,
+				581E28421B0A8AB500D9616D /* DrinkAppIcon_120_120@2x.png in Resources */,
 				584E2ACD1A98C32300ABC1E7 /* LaunchScreen.xib in Resources */,
+				581E284C1B0A8F7300D9616D /* DrinkAppStartScreen_larger_circle.png in Resources */,
 				5880B7E11AAE900500863519 /* mixer_300_300@2x.png in Resources */,
 				589880731AD6C83E007B0C04 /* info_icon.png in Resources */,
 				584E2ACA1A98C32300ABC1E7 /* Images.xcassets in Resources */,
-				588711331B0681FE00C02CA6 /* DrinkAppIcon_120_120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +493,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -502,6 +507,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

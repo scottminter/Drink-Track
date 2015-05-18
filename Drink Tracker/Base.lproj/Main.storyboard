@@ -128,7 +128,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" image="beer_280_280.png">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="default">
@@ -988,7 +988,7 @@
                                 <constraints>
                                     <constraint firstItem="lJx-o1-XD6" firstAttribute="top" secondItem="SFe-KA-c9E" secondAttribute="bottom" constant="33" id="1Vq-Wz-Fdl">
                                         <variation key="widthClass=compact" constant="28"/>
-                                        <variation key="heightClass=regular-widthClass=compact" constant="47"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="48"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="SFe-KA-c9E" secondAttribute="trailing" constant="8" id="78D-lQ-GMe"/>
                                     <constraint firstItem="w9K-Bw-6zv" firstAttribute="leading" secondItem="Qpe-ui-hug" secondAttribute="leading" constant="8" id="A0L-MU-AXo"/>
@@ -1009,7 +1009,7 @@
                                     <constraint firstItem="Hsn-Be-rt6" firstAttribute="top" secondItem="boD-q6-swh" secondAttribute="bottom" constant="8" id="Yck-z4-v79"/>
                                     <constraint firstItem="SFe-KA-c9E" firstAttribute="top" secondItem="VSt-lF-3xw" secondAttribute="bottom" constant="28" id="aTz-sw-kbm">
                                         <variation key="widthClass=compact" constant="47"/>
-                                        <variation key="heightClass=regular-widthClass=compact" constant="36"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="41"/>
                                     </constraint>
                                     <constraint firstItem="Lgj-Dc-ThY" firstAttribute="top" secondItem="Qpe-ui-hug" secondAttribute="top" constant="8" id="gjk-AY-q1J"/>
                                     <constraint firstItem="VSt-lF-3xw" firstAttribute="top" secondItem="Qpe-ui-hug" secondAttribute="top" constant="8" id="lcb-v4-AYd">
@@ -1018,7 +1018,7 @@
                                     </constraint>
                                     <constraint firstItem="boD-q6-swh" firstAttribute="leading" secondItem="Qpe-ui-hug" secondAttribute="leading" constant="8" id="ptL-zd-oBU"/>
                                     <constraint firstItem="L8x-B8-8Ui" firstAttribute="top" secondItem="lJx-o1-XD6" secondAttribute="bottom" constant="47" id="z5F-bn-gWs">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="61"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="52"/>
                                     </constraint>
                                     <constraint firstItem="VSt-lF-3xw" firstAttribute="leading" secondItem="Lgj-Dc-ThY" secondAttribute="trailing" constant="37" id="zrS-3I-eny"/>
                                     <constraint firstAttribute="trailing" secondItem="L8x-B8-8Ui" secondAttribute="trailing" constant="40" id="ztJ-Pw-wcF">
@@ -1689,8 +1689,7 @@
                                                 <exclude reference="zRo-EK-7wE"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="152" y="293" width="30" height="40"/>
+                                        <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <exclude reference="6FL-r6-8fx"/>
                                                 <exclude reference="zRo-EK-7wE"/>

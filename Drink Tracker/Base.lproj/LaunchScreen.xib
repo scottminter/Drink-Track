@@ -14,80 +14,55 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6AZ-nY-YsD">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DrinkAppStartScreen2.png" translatesAutoresizingMaskIntoConstraints="NO" id="KrR-87-hvx">
-                            <rect key="frame" x="76" y="79" width="328" height="322"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Scott Minter Designs. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                            <rect key="frame" x="70" y="465" width="341" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEZ-uj-4Iw">
+                            <rect key="frame" x="205" y="388" width="71" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbW-xB-Yf0">
+                            <rect key="frame" x="206" y="56" width="69" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DrinkAppStartScreen_larger_circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="YzS-2G-C5m">
+                            <rect key="frame" x="122" y="122" width="236" height="236"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="322" id="5D5-8B-TbE"/>
-                                <constraint firstAttribute="width" secondItem="KrR-87-hvx" secondAttribute="height" multiplier="164:161" id="8g6-d7-OPV"/>
-                                <constraint firstAttribute="width" constant="328" id="A9p-eI-hxy"/>
-                                <constraint firstAttribute="height" constant="322" id="SFp-yE-Ckd">
-                                    <variation key="heightClass=regular-widthClass=compact" constant="250"/>
-                                </constraint>
-                                <constraint firstAttribute="height" constant="322" id="lL5-oT-EPM"/>
+                                <constraint firstAttribute="width" secondItem="YzS-2G-C5m" secondAttribute="height" multiplier="1:1" id="HtA-CP-gtD"/>
+                                <constraint firstAttribute="height" constant="236" id="fRp-lM-ZrB"/>
                             </constraints>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="5D5-8B-TbE"/>
-                                    <exclude reference="8g6-d7-OPV"/>
-                                    <exclude reference="SFp-yE-Ckd"/>
-                                </mask>
-                            </variation>
-                            <variation key="heightClass=regular-widthClass=compact">
-                                <mask key="constraints">
-                                    <exclude reference="5D5-8B-TbE"/>
-                                    <include reference="8g6-d7-OPV"/>
-                                    <exclude reference="A9p-eI-hxy"/>
-                                    <include reference="SFp-yE-Ckd"/>
-                                    <exclude reference="lL5-oT-EPM"/>
-                                </mask>
-                            </variation>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink Track" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                            <rect key="frame" x="147" y="71" width="187" height="43"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                            <color key="textColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Copyright (c) 2015 Scott Minter Designs. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                            <rect key="frame" x="20" y="439" width="441" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.19607843137254902" green="1" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="centerX" secondItem="wbW-xB-Yf0" secondAttribute="centerX" id="3u1-JH-qOQ"/>
+                        <constraint firstItem="YzS-2G-C5m" firstAttribute="top" secondItem="wbW-xB-Yf0" secondAttribute="bottom" constant="30" id="56n-kJ-i3M"/>
+                        <constraint firstItem="wbW-xB-Yf0" firstAttribute="top" secondItem="8ie-xW-0ye" secondAttribute="bottom" id="Fli-Il-oNO"/>
                         <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="I9E-qM-W2W"/>
-                        <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="6AZ-nY-YsD" secondAttribute="top" constant="28" id="NBe-YY-fNg"/>
-                        <constraint firstAttribute="centerY" secondItem="KrR-87-hvx" secondAttribute="centerY" id="Sr9-UZ-7Un"/>
-                        <constraint firstAttribute="centerX" secondItem="KrR-87-hvx" secondAttribute="centerX" id="V6p-kx-pNr"/>
-                        <constraint firstItem="KrR-87-hvx" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="8" id="cYs-lL-MG9"/>
+                        <constraint firstAttribute="centerX" secondItem="EEZ-uj-4Iw" secondAttribute="centerX" id="Lg2-pE-FD8"/>
+                        <constraint firstAttribute="centerY" secondItem="YzS-2G-C5m" secondAttribute="centerY" id="Wpf-Rg-QTh"/>
+                        <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" id="dDf-cZ-2I7"/>
+                        <constraint firstItem="EEZ-uj-4Iw" firstAttribute="top" secondItem="YzS-2G-C5m" secondAttribute="bottom" constant="28" id="drc-3G-dfd"/>
                         <constraint firstAttribute="trailing" secondItem="8ie-xW-0ye" secondAttribute="trailing" id="dyU-gv-ePq"/>
-                        <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="eO3-J4-Kdo"/>
-                        <constraint firstAttribute="trailing" secondItem="KrR-87-hvx" secondAttribute="trailing" constant="76" id="mXH-Kw-lUe"/>
-                        <constraint firstAttribute="bottom" secondItem="KrR-87-hvx" secondAttribute="bottom" constant="79" id="t5K-zD-bwk"/>
-                        <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="7" id="tyM-gi-7tx"/>
+                        <constraint firstItem="YzS-2G-C5m" firstAttribute="top" secondItem="6AZ-nY-YsD" secondAttribute="top" constant="122" id="hiL-3e-PQK"/>
+                        <constraint firstAttribute="centerX" secondItem="YzS-2G-C5m" secondAttribute="centerX" id="iwB-ic-D0X"/>
+                        <constraint firstItem="EEZ-uj-4Iw" firstAttribute="top" secondItem="YzS-2G-C5m" secondAttribute="bottom" constant="30" id="juQ-Zg-sUE"/>
+                        <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="kSF-fU-Hnf"/>
                         <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="10" id="uEC-XX-AqD"/>
-                        <constraint firstItem="KrR-87-hvx" firstAttribute="leading" secondItem="6AZ-nY-YsD" secondAttribute="leading" constant="76" id="v4l-CW-ord"/>
-                        <constraint firstItem="KrR-87-hvx" firstAttribute="top" secondItem="6AZ-nY-YsD" secondAttribute="top" constant="79" id="v8R-bi-MTS"/>
                         <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="6AZ-nY-YsD" secondAttribute="leading" id="yyz-g8-8po"/>
                     </constraints>
                     <variation key="default">
-                        <mask key="subviews">
-                            <exclude reference="KrR-87-hvx"/>
-                            <exclude reference="kId-c2-rCX"/>
-                        </mask>
                         <mask key="constraints">
-                            <exclude reference="NBe-YY-fNg"/>
-                            <exclude reference="eO3-J4-Kdo"/>
-                            <exclude reference="tyM-gi-7tx"/>
-                            <exclude reference="Sr9-UZ-7Un"/>
-                            <exclude reference="V6p-kx-pNr"/>
-                            <exclude reference="cYs-lL-MG9"/>
-                            <exclude reference="mXH-Kw-lUe"/>
-                            <exclude reference="t5K-zD-bwk"/>
-                            <exclude reference="v4l-CW-ord"/>
-                            <exclude reference="v8R-bi-MTS"/>
+                            <exclude reference="hiL-3e-PQK"/>
+                            <exclude reference="Fli-Il-oNO"/>
+                            <exclude reference="drc-3G-dfd"/>
                             <exclude reference="I9E-qM-W2W"/>
                             <exclude reference="dyU-gv-ePq"/>
                             <exclude reference="uEC-XX-AqD"/>
@@ -95,21 +70,7 @@
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
-                        <mask key="subviews">
-                            <include reference="KrR-87-hvx"/>
-                            <include reference="kId-c2-rCX"/>
-                        </mask>
                         <mask key="constraints">
-                            <include reference="NBe-YY-fNg"/>
-                            <include reference="eO3-J4-Kdo"/>
-                            <exclude reference="tyM-gi-7tx"/>
-                            <include reference="Sr9-UZ-7Un"/>
-                            <include reference="V6p-kx-pNr"/>
-                            <exclude reference="cYs-lL-MG9"/>
-                            <exclude reference="mXH-Kw-lUe"/>
-                            <exclude reference="t5K-zD-bwk"/>
-                            <exclude reference="v4l-CW-ord"/>
-                            <exclude reference="v8R-bi-MTS"/>
                             <include reference="I9E-qM-W2W"/>
                             <include reference="dyU-gv-ePq"/>
                             <include reference="uEC-XX-AqD"/>
@@ -133,6 +94,6 @@
         </view>
     </objects>
     <resources>
-        <image name="DrinkAppStartScreen2.png" width="610" height="610"/>
+        <image name="DrinkAppStartScreen_larger_circle.png" width="700" height="700"/>
     </resources>
 </document>
