@@ -33,6 +33,31 @@ class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicatio
     var tempDate = String()
     var dateToSet = String()
     
+    @IBAction func startButtonAction(sender: AnyObject) {
+        //If end date has been selected, then set the end date
+        //as the new max date for the picker
+        if !self.endDate.isEmpty {
+            var endDateObj: NSDate = getDateObjFromStr(self.endDate)
+            self.datePicker.maximumDate = endDateObj
+        }
+        
+        showPicker()
+        self.dateToSet = sender.restorationIdentifier!!
+    }
+    
+    @IBAction func endButtonAction(sender: AnyObject) {
+        //If start date has been selected then set the the start date
+        //as the new min date for picker
+        if !self.startDate.isEmpty {
+            var startDateObj: NSDate = getDateObjFromStr(self.startDate)
+            self.datePicker.minimumDate = startDateObj
+        }
+        
+        showPicker()
+        self.dateToSet = sender.restorationIdentifier!!
+    }
+    
+    
     /**
      * Action for the "Done" button on the date picker
      */
@@ -40,34 +65,31 @@ class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicatio
         
         // Hide the date picker
         hidePicker()
-        
+
         // If the date is for the start date
         if !dateToSet.isEmpty && dateToSet == "startDate" {
+            //Get start date from picker
             startDate = getDateFromPicker()
-            //set min for picker to this date
-            var startAsDateObj: NSDate = getDateObjFromStr(startDate)
-            datePicker.minimumDate = startAsDateObj
-            self.setMaxDateToCurrent()
 
             //update the button's title to the start date
             startDateButton.setTitle(startDate, forState: .Normal)
+            
         }
         // If the date is for the end date
         else if !dateToSet.isEmpty && dateToSet == "endDate" {
+            //Get end date from picker
             endDate = getDateFromPicker()
-
-            //set max for picker to this date
-            var endAsDateObj: NSDate = getDateObjFromStr(endDate)
-            datePicker.maximumDate = endAsDateObj
-            datePicker.minimumDate = nil
 
             //update the button's title to the end date
             endDateButton.setTitle(endDate, forState: .Normal)
+            
         }
         
         // Once a start and end date have been selected then we update all the totals
         if !startDate.isEmpty && !endDate.isEmpty {
-            updateTotalsByDates(startDate, endDate: endDate)
+            self.datePicker.minimumDate = nil
+            self.setMaxDateToCurrent()
+            self.updateTotalsByDates(startDate, endDate: endDate)
         }
     }
 
@@ -108,16 +130,6 @@ class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicatio
         var strDate: String = dateFormatter.stringFromDate(datePicker.date)
         
         return strDate
-    }
-
-    /**
-     * Displays the date picker
-     */
-    @IBAction func showDatePicker(sender: AnyObject) {
-        showPicker()
-        var calledBy: String = sender.restorationIdentifier!!
-        
-        dateToSet = calledBy
     }
 
     /**
@@ -183,6 +195,7 @@ class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicatio
         // Hide the Date picker
         hidePicker()
         
+        //Set pick max to current date
         self.setMaxDateToCurrent()
     }
     

@@ -117,7 +117,6 @@ class DrinkDAO: NSObject {
      * Delete most recent event of self type
      */
     func deleteMostRecentEvent() {
-        println("Lets delete something")
 
         //Set up request
         var request = NSFetchRequest(entityName: self.EntityName)
@@ -201,7 +200,6 @@ class DrinkDAO: NSObject {
      *  Get all totals based on drink type
      */
     func getAllTimeTotal()->Int {
-println("\(self.DrinkType): All Time")
         //Set up request
         var request = NSFetchRequest(entityName: self.EntityName)
         
@@ -230,7 +228,6 @@ println("\(self.DrinkType): All Time")
      *  Get the year totals for current year
      */
     func getYearlyTotal()->Int {
-println("\(self.DrinkType): Yearly")
         //Get the current date
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         //Get the current year
@@ -266,7 +263,6 @@ println("\(self.DrinkType): Yearly")
      *  Get the monthly totals
      */
     func getMonthlyTotal()->Int {
-println("\(self.DrinkType): Monthly")
         //Get Current Date
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         
@@ -300,10 +296,9 @@ println("\(self.DrinkType): Monthly")
     }
     
     /*
-     *
+     * Get totals for current week
      */
     func getWeeklyTotal()->Int {
-println("\(self.DrinkType): Weekly: Good")
         //Get current time dictionary
         var dateDict: Dictionary<String, Any> = TimeObj.getFormattedDate()
         
@@ -432,7 +427,6 @@ println("\(self.DrinkType): Weekly: Bad")
      *  Get the daily totals
      */
     func getDailyTotal()->Int {
-println("\(self.DrinkType): Daily")
         //Get formatted date dictionary
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         
@@ -464,7 +458,6 @@ println("\(self.DrinkType): Daily")
      *  Gets the total results for the current session
      */
     func getSessionTotal()->Int {
-println("\(self.DrinkType): Sessions: Current")
         //Get formatted date
         var dateDict: Dictionary = TimeObj.getFormattedDate()
         
@@ -526,7 +519,6 @@ println("\(self.DrinkType): Sessions: Current")
      *  Get totals from last session
      */
     func getLastSessionTotal()->Int {
-println("\(self.DrinkType): Session: Last")        
         //Get time of
         
         //empty results
