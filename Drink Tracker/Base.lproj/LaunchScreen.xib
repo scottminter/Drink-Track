@@ -29,10 +29,10 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbW-xB-Yf0">
                             <rect key="frame" x="206" y="56" width="69" height="36"/>
                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DrinkAppStartScreen_larger_circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="YzS-2G-C5m">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DrinkTrackIcon-no-background-color-1024-1024.png" translatesAutoresizingMaskIntoConstraints="NO" id="YzS-2G-C5m">
                             <rect key="frame" x="122" y="122" width="236" height="236"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="YzS-2G-C5m" secondAttribute="height" multiplier="1:1" id="HtA-CP-gtD"/>
@@ -72,6 +72,7 @@
                     <variation key="heightClass=regular-widthClass=compact">
                         <mask key="constraints">
                             <include reference="I9E-qM-W2W"/>
+                            <exclude reference="dDf-cZ-2I7"/>
                             <include reference="dyU-gv-ePq"/>
                             <include reference="uEC-XX-AqD"/>
                             <include reference="yyz-g8-8po"/>
@@ -94,6 +95,6 @@
         </view>
     </objects>
     <resources>
-        <image name="DrinkAppStartScreen_larger_circle.png" width="700" height="700"/>
+        <image name="DrinkTrackIcon-no-background-color-1024-1024.png" width="1024" height="1024"/>
     </resources>
 </document>

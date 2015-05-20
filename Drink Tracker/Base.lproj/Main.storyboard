@@ -935,7 +935,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixer_300_300.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hsn-Be-rt6">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixer_offset_300_300_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hsn-Be-rt6">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="97" id="q6w-bf-sy7">
@@ -1662,12 +1662,6 @@
                                     <imageView userInteractionEnabled="NO" alpha="0.29999999999999966" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mixer_offset_300_300_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="YRL-vT-EQd">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUU-6X-8Hp">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="90"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oe-9B-1iL">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <constraints>
@@ -1699,10 +1693,18 @@
                                             <segue destination="W1F-nz-JbO" kind="show" identifier="TotalsToInfoSegue" id="RUp-Az-c35"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUU-6X-8Hp">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.3803921938" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="BUU-6X-8Hp" secondAttribute="centerX" id="0dj-el-Hhs"/>
+                                    <constraint firstAttribute="centerX" secondItem="BUU-6X-8Hp" secondAttribute="centerX" id="0dj-el-Hhs">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="-6.5"/>
+                                    </constraint>
                                     <constraint firstAttribute="centerX" secondItem="YRL-vT-EQd" secondAttribute="centerX" id="OE2-ae-Vh3"/>
                                     <constraint firstAttribute="centerY" secondItem="YRL-vT-EQd" secondAttribute="centerY" id="PGD-rl-IL4">
                                         <variation key="widthClass=compact" constant="0.0"/>
@@ -1716,8 +1718,8 @@
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="YRL-vT-EQd"/>
-                                        <exclude reference="BUU-6X-8Hp"/>
                                         <exclude reference="3oe-9B-1iL"/>
+                                        <exclude reference="BUU-6X-8Hp"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="0dj-el-Hhs"/>
@@ -2136,7 +2138,9 @@
                                     <constraint firstAttribute="centerY" secondItem="9El-Nj-MxZ" secondAttribute="centerY" id="gvP-6j-la5"/>
                                     <constraint firstAttribute="centerY" secondItem="e0n-De-SRZ" secondAttribute="centerY" id="tK0-1W-EE4"/>
                                     <constraint firstAttribute="centerX" secondItem="e0n-De-SRZ" secondAttribute="centerX" id="vMg-kN-363"/>
-                                    <constraint firstAttribute="centerX" secondItem="9El-Nj-MxZ" secondAttribute="centerX" id="x5Z-X4-mBf"/>
+                                    <constraint firstAttribute="centerX" secondItem="9El-Nj-MxZ" secondAttribute="centerX" id="x5Z-X4-mBf">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="-6"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -2435,7 +2439,6 @@
     </scenes>
     <resources>
         <image name="beer_280_280.png" width="140" height="140"/>
-        <image name="mixer_300_300.png" width="150" height="150"/>
         <image name="mixer_offset_300_300_new.png" width="150" height="150"/>
         <image name="tumbler_270_270.png" width="135" height="135"/>
         <image name="wine_300_300.png" width="150" height="150"/>

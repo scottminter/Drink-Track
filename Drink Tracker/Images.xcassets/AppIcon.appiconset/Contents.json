@@ -3,69 +3,73 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "DrinkAppIcon_58_58.png",
+      "filename" : "DT-icon-58-58.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "DrinkAppIcon_87_87.png",
+      "filename" : "DT-icon-87-87.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "DrinkAppIcon_80_80.png",
+      "filename" : "DT-icon-80-80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "DrinkAppIcon_120_120.png",
+      "filename" : "DT-icon-120-120.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "DrinkAppIcon_120_120@2x.png",
+      "filename" : "DT-icon-120-120-1.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "DrinkAppIcon_180_180.png",
+      "filename" : "DT-icon-180-180.png",
       "scale" : "3x"
     },
     {
-      "idiom" : "ipad",
       "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "DT-icon-29-29.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "DT-icon-58-58-1.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "DT-icon-40-40.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "DT-icon-80-80-1.png",
       "scale" : "2x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "DrinkAppIcon_76_76.png",
+      "filename" : "DT-icon-76-76.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "DrinkAppIcon_152_152@2x.png",
+      "filename" : "DT-icon-152-152.png",
       "scale" : "2x"
     }
   ],
