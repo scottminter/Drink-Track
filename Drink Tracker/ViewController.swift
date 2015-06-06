@@ -16,17 +16,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var ULButton: UIButton!
     @IBOutlet weak var ULView: UIView!
     
-    @IBOutlet weak var beerCountLabel: UILabel!
-    @IBOutlet weak var wineCountLabel: UILabel!
-    @IBOutlet weak var shotCountLabel: UILabel!
-    @IBOutlet weak var mixerCountLabel: UILabel!
-    @IBOutlet weak var drinkCountLabel: UILabel!
-    
     let TimeKeeperObj = TimeKeeper()
     let BeerObj = DrinkClass(dt: "beer")
     let WineObj = DrinkClass(dt: "wine")
     let ShotObj = DrinkClass(dt: "shot")
     let MixerObj = DrinkClass(dt: "mixer")
+    
+    @IBOutlet weak var beerLabel: UILabel!
+    @IBOutlet weak var wineLabel: UILabel!
+    @IBOutlet weak var shotLabel: UILabel!
+    @IBOutlet weak var mixerLabel: UILabel!
     
     /*
      * Drink Buttons Action
@@ -39,49 +38,20 @@ class ViewController: UIViewController {
         
         if buttonId == "beer" {
             BeerObj.saveDrinkEvent(dateDict)
-            selectedDrinkCount = BeerObj.getSessionTotal()
+            self.beerLabel.text = String(BeerObj.getSessionTotal())
         }
         else if buttonId == "wine" {
             WineObj.saveDrinkEvent(dateDict)
-            selectedDrinkCount = WineObj.getSessionTotal()
+            self.wineLabel.text = String(WineObj.getSessionTotal())
         }
         else if buttonId == "shot" {
             ShotObj.saveDrinkEvent(dateDict)
-            selectedDrinkCount = ShotObj.getSessionTotal()
+            self.shotLabel.text = String(ShotObj.getSessionTotal())
         }
         else if buttonId == "mixer" {
             MixerObj.saveDrinkEvent(dateDict)
-            selectedDrinkCount = MixerObj.getSessionTotal()
+            self.mixerLabel.text = String(MixerObj.getSessionTotal())
         }
-        
-        /**
-         * TODO: Find a better way to capitalize the first letter
-         */
-        var cnt = 0
-        var capitalizedButtonId = String()
-        for i: Character in buttonId {
-            if cnt == 0 {
-                capitalizedButtonId += String(i).capitalizedString
-            }
-            else {
-                capitalizedButtonId += String(i)
-            }
-            cnt++
-        }
-        
-        //Add the s if the count is more than 1
-        if selectedDrinkCount == 1 {
-            drinkCountLabel.text = "\(selectedDrinkCount) \(capitalizedButtonId)"
-        }
-        else {
-            drinkCountLabel.text = "\(selectedDrinkCount) \(capitalizedButtonId)s"
-        }
-
-        //Fade-In the drink total label
-        drinkCountLabel.fadeIn()
-        
-        //Fade-Out the drink total label
-        drinkCountLabel.fadeOut()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -92,15 +62,20 @@ class ViewController: UIViewController {
     override func supportedInterfaceOrientations() -> Int {
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
+    
+    func updateAllSession() {
+        //Set the labels to the current session count
+        self.beerLabel.text = String(self.BeerObj.getSessionTotal())
+        self.wineLabel.text = String(self.WineObj.getSessionTotal())
+        self.shotLabel.text = String(self.ShotObj.getSessionTotal())
+        self.mixerLabel.text = String(self.MixerObj.getSessionTotal())
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //Set the transparensy level for the drink count label
-        drinkCountLabel.alpha = 0.0
-        drinkCountLabel.layer.cornerRadius = 10
-        drinkCountLabel.layer.masksToBounds = true
+        self.updateAllSession()
     }
 
     override func didReceiveMemoryWarning() {
@@ -108,6 +83,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewDidAppear(animated: Bool) {}
+    override func viewDidAppear(animated: Bool) {
+        self.updateAllSession()
+    }
 }
 

@@ -27,7 +27,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     let ShotObj = DrinkClass(dt: "shot")
     let MixerObj = DrinkClass(dt: "mixer")
     
-    var duration = ["All Time", "This Year", "This Month", "This Week", "Session"]
+    var duration = ["All Time", "This Year", "This Month", "This Week", "Today", "Session"]
     var rowSelected = Int()
     let defaultDuration: Int = 0
     
@@ -85,6 +85,12 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             mixerCountUI.text = String(MixerObj.getWeeklyTotal())
             break
         case 4:
+            //today's total
+            beerCountUI.text = String(BeerObj.getTodayTotal())
+            wineCountUI.text = String(WineObj.getTodayTotal())
+            shotCountUI.text = String(ShotObj.getTodayTotal())
+            mixerCountUI.text = String(MixerObj.getTodayTotal())
+        case 5:
             //last session
             beerCountUI.text = String(BeerObj.getLastSessionTotal())
             wineCountUI.text = String(WineObj.getLastSessionTotal())
