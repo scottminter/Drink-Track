@@ -92,10 +92,10 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             mixerCountUI.text = String(MixerObj.getTodayTotal())
         case 5:
             //last session
-            beerCountUI.text = String(BeerObj.getLastSessionTotal())
-            wineCountUI.text = String(WineObj.getLastSessionTotal())
-            shotCountUI.text = String(ShotObj.getLastSessionTotal())
-            mixerCountUI.text = String(MixerObj.getLastSessionTotal())
+            beerCountUI.text = String(BeerObj.getSessionTotal()) //getLastSessionTotal())
+            wineCountUI.text = String(WineObj.getSessionTotal()) //.getLastSessionTotal())
+            shotCountUI.text = String(ShotObj.getSessionTotal())  //.getLastSessionTotal())
+            mixerCountUI.text = String(MixerObj.getSessionTotal()) //.getLastSessionTotal())
             break
         default:
             break
