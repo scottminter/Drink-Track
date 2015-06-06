@@ -1686,7 +1686,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Drink Track" id="kqh-YY-DoE">
+                    <navigationItem key="navigationItem" title="Drink Much" id="kqh-YY-DoE">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="rUV-oX-PLS">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9A6-iH-Pgy">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
