@@ -29,7 +29,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     var duration = ["All Time", "This Year", "This Month", "This Week", "Today", "Session"]
     var rowSelected = Int()
-    let defaultDuration: Int = 0
+    let defaultDuration: Int = 3
     
     //Dismisses the view
     @IBAction func trackingButtonAction(sender: AnyObject) {
@@ -92,7 +92,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             mixerCountUI.text = String(MixerObj.getTodayTotal())
         case 5:
             //last session
-            beerCountUI.text = String(BeerObj.getSessionTotal()) //getLastSessionTotal())
+            beerCountUI.text = String(BeerObj.getSessionTotal()) //.getLastSessionTotal())
             wineCountUI.text = String(WineObj.getSessionTotal()) //.getLastSessionTotal())
             shotCountUI.text = String(ShotObj.getSessionTotal())  //.getLastSessionTotal())
             mixerCountUI.text = String(MixerObj.getSessionTotal()) //.getLastSessionTotal())
