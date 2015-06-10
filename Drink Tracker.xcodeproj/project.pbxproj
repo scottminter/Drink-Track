@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		487052211B267F7B00D2784A /* new_wine_185_185@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 487052201B267F7B00D2784A /* new_wine_185_185@2x.png */; };
+		487052231B2681F300D2784A /* new_mixer_200_200@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 487052221B2681F300D2784A /* new_mixer_200_200@2x.png */; };
 		4873B0E71B23505800B66480 /* beer_200_200@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4873B0E61B23505800B66480 /* beer_200_200@2x.png */; };
 		4873B0E91B23508700B66480 /* tumbler_195_195@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4873B0E81B23508700B66480 /* tumbler_195_195@2x.png */; };
 		4873B0EB1B2350A900B66480 /* wine_220_220@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4873B0EA1B2350A900B66480 /* wine_220_220@2x.png */; };
@@ -58,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		487052201B267F7B00D2784A /* new_wine_185_185@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_wine_185_185@2x.png"; sourceTree = "<group>"; };
+		487052221B2681F300D2784A /* new_mixer_200_200@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_mixer_200_200@2x.png"; sourceTree = "<group>"; };
 		4873B0E61B23505800B66480 /* beer_200_200@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beer_200_200@2x.png"; sourceTree = "<group>"; };
 		4873B0E81B23508700B66480 /* tumbler_195_195@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tumbler_195_195@2x.png"; sourceTree = "<group>"; };
 		4873B0EA1B2350A900B66480 /* wine_220_220@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wine_220_220@2x.png"; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 				58F70D091AD80323004F8AA5 /* icomoon_mapped_to_symbols.ttf */,
 				4873B0E81B23508700B66480 /* tumbler_195_195@2x.png */,
 				5880B7E81AAE925D00863519 /* tumbler_270_270@2x.png */,
+				487052221B2681F300D2784A /* new_mixer_200_200@2x.png */,
+				487052201B267F7B00D2784A /* new_wine_185_185@2x.png */,
 				4873B0EA1B2350A900B66480 /* wine_220_220@2x.png */,
 				5880B7DC1AAE8C5100863519 /* wine_300_300@2x.png */,
 				4873B0EC1B2350E900B66480 /* mixer_offset_210_210@2x.png */,
@@ -327,6 +333,7 @@
 				584E2AC81A98C32300ABC1E7 /* Main.storyboard in Resources */,
 				5880B7E91AAE925D00863519 /* tumbler_270_270@2x.png in Resources */,
 				58844B651B0D118C006E442F /* DT-icon-40-40.png in Resources */,
+				487052211B267F7B00D2784A /* new_wine_185_185@2x.png in Resources */,
 				5880B7DD1AAE8C5100863519 /* wine_300_300@2x.png in Resources */,
 				58844B5B1B0D0FC8006E442F /* DT-icon-87-87.png in Resources */,
 				58CB5AD11AC3A3240096B17D /* beer_512_512@2x.png in Resources */,
@@ -335,6 +342,7 @@
 				4873B0E91B23508700B66480 /* tumbler_195_195@2x.png in Resources */,
 				4873B0ED1B2350E900B66480 /* mixer_offset_210_210@2x.png in Resources */,
 				586354161AC330F600768FA8 /* mixer_offset_300_300_new@2x.png in Resources */,
+				487052231B2681F300D2784A /* new_mixer_200_200@2x.png in Resources */,
 				58844B611B0D10B3006E442F /* DT-icon-180-180.png in Resources */,
 				58844B671B0D1201006E442F /* DT-icon-76-76.png in Resources */,
 				58844B521B0D059B006E442F /* DrinkTrackIcon-no-background-color-1024-1024.png in Resources */,
