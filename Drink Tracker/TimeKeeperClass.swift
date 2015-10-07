@@ -27,13 +27,13 @@ class TimeKeeper: NSObject {
         
         //Handles converting param time to NSDate
         if(dateAsString != "") {
-            var dateFormatter: NSDateFormatter = NSDateFormatter()
+            let dateFormatter: NSDateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
             date = dateFormatter.dateFromString(dateAsString)!
         }
         
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitWeekday | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
+        let components = calendar.components([.Year, .Month, .Weekday, .Day, .Hour, .Minute, .Second], fromDate: date)
         let year = components.year
         let month = components.month
         let dayAsInt = components.day
@@ -91,11 +91,11 @@ class TimeKeeper: NSObject {
             self.getFormattedDate()
         }
         
-        var month: String = String(stringInterpolationSegment: dateObj["month"]!)
-        var day: String = String(stringInterpolationSegment: dateObj["dayAsInt"]!)
-        var year: String = String(stringInterpolationSegment: dateObj["year"]!)
+        let month: String = String(stringInterpolationSegment: dateObj["month"]!)
+        let day: String = String(stringInterpolationSegment: dateObj["dayAsInt"]!)
+        let year: String = String(stringInterpolationSegment: dateObj["year"]!)
         
-        var dateString =  month + "-" + day + "-" + year
+        let dateString =  month + "-" + day + "-" + year
 
         return dateString
     }
@@ -105,10 +105,10 @@ class TimeKeeper: NSObject {
         var totalSecs: Double = 0.0
 
         //Convert hours to secs
-        var hrSecs: Double = SecsInHour * Double(hour)
+        let hrSecs: Double = SecsInHour * Double(hour)
         
         //Convert mins to secs
-        var minSecs: Double = SecsInMinute * Double(min)
+        let minSecs: Double = SecsInMinute * Double(min)
         
         //Add all secs together for total
         totalSecs = hrSecs + minSecs + Double(sec)

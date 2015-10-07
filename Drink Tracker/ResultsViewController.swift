@@ -102,7 +102,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
 
         //Get total of all drinks
-        var allTotal: Int = beerCountUI.text!.toInt()! + wineCountUI.text!.toInt()! + shotCountUI.text!.toInt()! + mixerCountUI.text!.toInt()!
+        let allTotal: Int = Int(beerCountUI.text!)! + Int(wineCountUI.text!)! + Int(shotCountUI.text!)! + Int(mixerCountUI.text!)!
         
         //Update the Duration Button Title wit all drink total
         durationLabelObj.setTitle("\(allTotal) Drinks", forState: .Normal) //duration[selectedDuration], forState: .Normal)
@@ -123,7 +123,7 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     //PICKER: Data in rows
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return duration[row]
     }
 
@@ -135,19 +135,19 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     //Handles the left and right swiping
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         if (sender.direction == .Left) {
-            println("Swipe Left")
+            print("Swipe Left")
             //Go to info view
         }
         
         if (sender.direction == .Right) {
-            println("Swipe Right")
+            print("Swipe Right")
             self.dismissViewControllerAnimated(true, completion: {})
         }
     }
     
     //Disables Portrait
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
     override func viewDidLoad() {
@@ -156,8 +156,8 @@ class ResultsViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         
         //Swipe Recognition
-        var leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
-        var rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
         
         leftSwipe.direction = .Left
         rightSwipe.direction = .Right

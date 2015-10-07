@@ -25,8 +25,8 @@ class AdjustTotalsViewController: UIViewController {
     
     // Handles adding a new drink event
     @IBAction func addDrinkEvent(sender: AnyObject) {
-        var buttonId = sender.restorationIdentifier!!
-        var selectedDrinkCount: Int = 0
+        let buttonId = sender.restorationIdentifier!!
+        //var selectedDrinkCount: Int = 0
         
         let dateDict = TimeKeeperObj.getFormattedDate()
         
@@ -51,10 +51,10 @@ class AdjustTotalsViewController: UIViewController {
     
     // Removes a drink event
     @IBAction func removeDrinkEvent(sender: AnyObject) {
-        var buttonId = sender.restorationIdentifier!!
-        var selectedDrinkCount: Int = 0
+        let buttonId = sender.restorationIdentifier!!
+        //var selectedDrinkCount: Int = 0
         
-        let dateDict = TimeKeeperObj.getFormattedDate()
+        //let dateDict = TimeKeeperObj.getFormattedDate()
         
         if buttonId == "beerRemove" {
             self.BeerObj.deleteMostRecentDrinkEvent()

@@ -87,14 +87,14 @@ class DrinkClass: NSObject {
      */
     func getTotalByDates(startDate: String, endDate: String)->Int {
 
-        var startWithTime: String = startDate + " 00:00:00"
-        var endWithTime: String = endDate + " 23:59:59"
+        let startWithTime: String = startDate + " 00:00:00"
+        let endWithTime: String = endDate + " 23:59:59"
 
-       var startDateDict: Dictionary<String, Any> = self.timeKeeper.getFormattedDate(dateAsString: startWithTime)
+       let startDateDict: Dictionary<String, Any> = self.timeKeeper.getFormattedDate(startWithTime)
 
-        var endDateDict: Dictionary<String, Any> = self.timeKeeper.getFormattedDate(dateAsString: endWithTime)
+        let endDateDict: Dictionary<String, Any> = self.timeKeeper.getFormattedDate(endWithTime)
         
-        var total: Int = self.drinkDAO.getTotalByDates(startDt: startDateDict, endDt: endDateDict)
+        let total: Int = self.drinkDAO.getTotalByDates(startDt: startDateDict, endDt: endDateDict)
         
         return total
     }

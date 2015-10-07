@@ -37,7 +37,7 @@ class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicatio
         //If end date has been selected, then set the end date
         //as the new max date for the picker
         if !self.endDate.isEmpty {
-            var endDateObj: NSDate = getDateObjFromStr(self.endDate)
+            let endDateObj: NSDate = getDateObjFromStr(self.endDate)
             self.datePicker.maximumDate = endDateObj
         }
         
@@ -49,7 +49,7 @@ class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicatio
         //If start date has been selected then set the the start date
         //as the new min date for picker
         if !self.startDate.isEmpty {
-            var startDateObj: NSDate = getDateObjFromStr(self.startDate)
+            let startDateObj: NSDate = getDateObjFromStr(self.startDate)
             self.datePicker.minimumDate = startDateObj
         }
         
@@ -97,16 +97,16 @@ class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicatio
      * Controls updating the totals for each type of drink
      */
     func updateTotalsByDates(startDate: String, endDate: String) {
-        var beerTotal = BeerObj.getTotalByDates(startDate, endDate: endDate)
+        let beerTotal = BeerObj.getTotalByDates(startDate, endDate: endDate)
         BeerLabel.text = String(beerTotal)
         
-        var wineTotal = WineObj.getTotalByDates(startDate, endDate: endDate)
+        let wineTotal = WineObj.getTotalByDates(startDate, endDate: endDate)
         WineLabel.text = String(wineTotal)
         
-        var shotTotal = ShotObj.getTotalByDates(startDate, endDate: endDate)
+        let shotTotal = ShotObj.getTotalByDates(startDate, endDate: endDate)
         ShotLabel.text = String(shotTotal)
         
-        var mixerTotal = MixerObj.getTotalByDates(startDate, endDate: endDate)
+        let mixerTotal = MixerObj.getTotalByDates(startDate, endDate: endDate)
         MixerLabel.text = String(mixerTotal)
     }
     
@@ -114,9 +114,9 @@ class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicatio
      * Returns an NSDate Object from a date string
      */
     func getDateObjFromStr(iDate: String)->NSDate {
-        var formatter = NSDateFormatter()
+        let formatter = NSDateFormatter()
         formatter.dateFormat = "MM-dd-yyyy"
-        var date: NSDate = formatter.dateFromString(iDate)!
+        let date: NSDate = formatter.dateFromString(iDate)!
         
         return date
     }
@@ -125,9 +125,9 @@ class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicatio
      * Gets a MM-dd-yyyy date string from date picker
      */
     func getDateFromPicker()->String {
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
-        var strDate: String = dateFormatter.stringFromDate(datePicker.date)
+        let strDate: String = dateFormatter.stringFromDate(datePicker.date)
         
         return strDate
     }
@@ -142,8 +142,8 @@ class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicatio
     /**
      * Disables Portrait
      */
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
     /**
@@ -170,15 +170,15 @@ class ByDateViewController: UIViewController, UIPickerViewDelegate, UIApplicatio
     
     func setMaxDateToCurrent() {
         // Set max date for start and end date as today
-        var currTimeAsString: String = TimeTrack.getCurrentDateAsString()
-        var currDateObj: NSDate = self.getDateObjFromStr(currTimeAsString)
+        let currTimeAsString: String = TimeTrack.getCurrentDateAsString()
+        let currDateObj: NSDate = self.getDateObjFromStr(currTimeAsString)
         datePicker.maximumDate = currDateObj
     }
     
     func setMinDateToCurrent() {
         // Set max date for start and end date as today
-        var currTimeAsString: String = TimeTrack.getCurrentDateAsString()
-        var currDateObj: NSDate = self.getDateObjFromStr(currTimeAsString)
+        let currTimeAsString: String = TimeTrack.getCurrentDateAsString()
+        let currDateObj: NSDate = self.getDateObjFromStr(currTimeAsString)
         datePicker.minimumDate = currDateObj
     }
     

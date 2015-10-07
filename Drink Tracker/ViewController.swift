@@ -31,7 +31,7 @@ class ViewController: UIViewController {
      * Drink Buttons Action
      */
     @IBAction func drinkSelected(sender: AnyObject) {
-        var buttonId = sender.restorationIdentifier!!
+        let buttonId = sender.restorationIdentifier!!
         var selectedDrinkCount: Int = 0
         
         let dateDict = TimeKeeperObj.getFormattedDate()
@@ -59,8 +59,8 @@ class ViewController: UIViewController {
     }
     
     //Disables Portrait
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
     func updateAllSession() {
